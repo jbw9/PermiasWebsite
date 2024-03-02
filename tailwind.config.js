@@ -20,6 +20,9 @@ module.exports = {
         sxl: "1.13rem",
         s2xl: "1.35rem",
       },
+      colors: {
+        footer: "#13294b",
+      }
     },
   },
   plugins: [],
