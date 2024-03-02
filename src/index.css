@@ -6,7 +6,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Chivo:wght@400;500;600;700&display=swap");
 
 body {
-    font-family: "Montserrat", sans-serif; /* Apply Montserrat to the body */
+    font-family: "Chivo", sans-serif;
     color: rgb(var(--foreground-rgb));
     background: linear-gradient(
       to bottom,
