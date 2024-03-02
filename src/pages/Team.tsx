@@ -1,5 +1,6 @@
 import React from "react";
 import OfficerCards from "../components/officer/cards";
+import { TeamMember, teamMembers } from "../data/team_members";
 
 const TeamPage: React.FC = () => {
   return (
@@ -17,9 +18,9 @@ const TeamPage: React.FC = () => {
       <div className="h-[1000px] w-full flex justify-center mt-[50px]">
         <div className="w-[80%]">
           <div className="grid grid-cols-3 gap-y-14 justify-items-center">
-            <OfficerCards />
-            <OfficerCards />
-            <OfficerCards />
+            {teamMembers.map((member, index) => (
+              <OfficerCards key={index} member={member} />
+            ))}
           </div>
         </div>
       </div>
