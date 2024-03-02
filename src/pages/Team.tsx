@@ -1,5 +1,5 @@
 import React from "react";
-import OfficerCards from "../components/OfficerCards";
+import OfficerCards from "../components/officer/cards";
 
 const TeamPage: React.FC = () => {
   return (
@@ -11,13 +11,12 @@ const TeamPage: React.FC = () => {
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="flex justify-center my-[100px]">
+      <div className="flex justify-center my-[75px]">
         <h1 className="text-6xl">MEET OUR OFFICERS</h1>
       </div>
       <div className="h-[1000px] w-full flex justify-center mt-[50px]">
         <div className="w-[80%]">
           <div className="grid grid-cols-3 gap-y-14 justify-items-center">
-            <OfficerCards />
             <OfficerCards />
             <OfficerCards />
             <OfficerCards />
