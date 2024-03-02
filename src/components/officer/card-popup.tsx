@@ -63,19 +63,31 @@ const Popup: React.FC<PropOpen> = ({ isOpen, onClose }) => {
                 time #mogeteepleasesponsorme🧋 so feel free to say hi 👋
               </div>
               {/* Absolute positioning within the relative container */}
-              <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-4 space-x-4">
-                <img
-                  src={process.env.PUBLIC_URL + "/officers/instagram.png"}
-                  alt="Instagram"
-                  width={50}
-                  height={50}
-                />
-                <img
-                  src={process.env.PUBLIC_URL + "/officers/linkedin.png"}
-                  alt="LinkedIn"
-                  width={50}
-                  height={50}
-                />
+              <div className="absolute bottom-0 left-0 right-0 flex justify-center pb-4 space-x-[60px]">
+                <a
+                  href="https://www.instagram.com/aishatanjung_?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={process.env.PUBLIC_URL + "/officers/instagram.png"}
+                    alt="Instagram"
+                    width={50}
+                    height={50}
+                  />
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/aisha-tanjung-8a7212220/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src={process.env.PUBLIC_URL + "/officers/linkedin.png"}
+                    alt="LinkedIn"
+                    width={50}
+                    height={50}
+                  />
+                </a>
               </div>
             </div>
           </div>
