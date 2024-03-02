@@ -15,30 +15,42 @@ import NotFound from "./pages/NotFound";
 
 const Header: React.FC = () => {
     return (
-        <header>
-            <Router>
-                <div className="flex">
-                    <img 
-                        src={ process.env.PUBLIC_URL + "/mainLogo.png"}
-                        alt="PERMIAS LOGO"
-                        width={200}
-                    />
-                    <nav>
-                        <Link to="/">  Home  </Link>
-                        <Link to="/team">  Team  </Link>
-                        <Link to="/about-us">  About Us  </Link>
+        <Router>
+            <div className="flex w-full items-center mx-auto justify-between p-2 bg-">
+                <img 
+                    src={ process.env.PUBLIC_URL + "/mainLogo.png"}
+                    alt="PERMIAS LOGO"
+                    width={200}
+                />
+                <div className="">
+                    <nav className="ml-4 flex items-center">
+                        <Link to="/">
+                            <div className="mx-2 font-semibold">
+                                Home
+                            </div>
+                        </Link>
+                        <Link to="/team">
+                            <div className="mx-2 font-semibold">
+                                Team
+                            </div>
+                        </Link>
+                        <Link to="/about-us">
+                            <div className="mx-2 font-semibold">
+                                About Us
+                            </div>
+                        </Link>
                     </nav>
                 </div>
-                <div>
-                    <Routes>
-                        <Route path="/" element={<HomePage />} />
-                        <Route path="/team" element={<TeamPage />} />
-                        <Route path="/about-us" element={<AboutUsPage />} />
-                        <Route path="/*" element={<NotFound />} />
-                    </Routes>
-                </div>
-            </Router>
-        </header>
+            </div>
+            <div>
+                <Routes>
+                    <Route path="/" element={<HomePage />} />
+                    <Route path="/team" element={<TeamPage />} />
+                    <Route path="/about-us" element={<AboutUsPage />} />
+                    <Route path="/*" element={<NotFound />} />
+                </Routes>
+            </div>
+        </Router>
     )
 }
 
