@@ -12,7 +12,7 @@ const TeamPage: React.FC = () => {
         />
       </div>
       <div className="flex justify-center my-[75px]">
-        <h1 className="text-6xl">MEET OUR OFFICERS</h1>
+        <h1 className="text-6xl font-semibold">Meet Our Officers</h1>
       </div>
       <div className="h-[1000px] w-full flex justify-center mt-[50px]">
         <div className="w-[80%]">
