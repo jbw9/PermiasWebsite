@@ -22,8 +22,8 @@ export const teamMembers: TeamMember[] = [
       "sleep I missed😴\n" +
       "If not, 99% you can catch me at Moge Tee any day any time #mogeteepleasesponsorme🧋 " +
       "so feel free to say hi 👋",
-    image: "/officers/aisha.JPG",
-    funImage: "/officers/aishaFun.JPG",
+    image: "/officers/aisha.png",
+    funImage: "/officers/aishaFun.png",
     instagram: "https://www.instagram.com/aishatanjung_",
     linkedin: "https://www.linkedin.com/in/aisha-tanjung-8a7212220/",
   },
@@ -42,8 +42,8 @@ export const teamMembers: TeamMember[] = [
       "Dachshunds (sausage dogs!), I think they’re the cutest dog breed.\n\n" +
       "I’m often seen around the Grainger quad area, with a cup of matcha in hand, so don’t hesitate " +
       "to say hi!! :)",
-    image: "/officers/magellan.JPG",
-    funImage: "/officers/magellanFun.JPG",
+    image: "/officers/magellan.png",
+    funImage: "/officers/magellanFun.png",
     instagram: "https://www.instagram.com/magellanfrances",
     linkedin: "https://www.linkedin.com/in/magellan-frances-wirawan-325948222/",
   },
@@ -61,8 +61,8 @@ export const teamMembers: TeamMember[] = [
       "Lastly, you can find me studying in Siebel Center for Design a lot! That’s my favorite place on campus!\n\n" +
       "YEYY UDAHHHHHH",
 
-    image: "/officers/callista.JPG",
-    funImage: "/officers/calistaFun.JPG",
+    image: "/officers/callista.png",
+    funImage: "/officers/calistaFun.png",
     instagram: "https://www.instagram.com/calistaferoniq/",
     linkedin: "https://www.linkedin.com/in/calista-feroniq-gunawan/",
   },
@@ -79,7 +79,7 @@ export const teamMembers: TeamMember[] = [
       "I can be seen wearing a form of outerwear all year round (even in the summer .. don’t ask why, it feels weird " +
       "not to wear one)\n\n" +
       "If you are enrolled in Gies and planning to take BUS 301, let me know as I’m currently TAing for this class.\n\n",
-    image: "/officers/andrew.JPG",
+    image: "/officers/andrew.png",
     funImage: "/officers/andrewFun.png",
     instagram: "https://www.instagram.com/andrewnathanielk/",
     linkedin: "https://www.linkedin.com/in/andrew-kwanandas-88367221b/",
@@ -96,8 +96,8 @@ export const teamMembers: TeamMember[] = [
       "Personally, I think that the weather here in UIUC isn’t so bad. People like to wear layers of jackets even in " +
       "the fall, but I usually only wear 1 layer of jacket even through most of the winter, so I’d say don’t be too " +
       "afraid of the cold. Anyway, I also think onion rings don’t taste good so take it as you will.",
-    image: "/officers/ryan.JPG",
-    funImage: "/officers/ryanFun.JPG",
+    image: "/officers/ryan.png",
+    funImage: "/officers/ryanFun.png",
     instagram: "https://www.instagram.com/ryaneidoo/",
     linkedin: "https://www.linkedin.com/in/ryanliem1555/",
   },
@@ -113,8 +113,8 @@ export const teamMembers: TeamMember[] = [
       "My MBTI result is ENFJ-T. It’s like a protagonist, readily taking action to do what they feel is right. Do you " +
       "remember that I love running? Because you’re the right one for me and I want to go the distance with you 😀\n\n" +
       "Oiya, I cook almost all of my own meals here. Come over and dinner + latte is on me.",
-    image: "/officers/yulius.JPG",
-    funImage: "/officers/yuliusFun.JPG",
+    image: "/officers/yulius.png",
+    funImage: "/officers/yuliusFun.png",
     instagram: "https://www.instagram.com/yuliusadyan/",
     linkedin: "https://www.linkedin.com/in/yuliusadyan/",
   },
@@ -130,8 +130,8 @@ export const teamMembers: TeamMember[] = [
       "her ;).\n\n" +
       "Feel free to reach out if you need advice about anything, or if u just want someone to talk to!!",
 
-    image: "/officers/scott.JPG",
-    funImage: "/officers/scottFun.JPG",
+    image: "/officers/scott.png",
+    funImage: "/officers/scottFun.png",
     instagram: "https://www.instagram.com/scootwillll/",
     linkedin: "https://www.linkedin.com/in/scottabednego/",
   },
@@ -150,8 +150,8 @@ export const teamMembers: TeamMember[] = [
       "As for my favorite spots here at UIUC, I'd say it's between the Psych Building atrium or my dorm room. And, " +
       "here's a hot take: warm water >>> cold water.",
 
-    image: "/officers/azhura.JPG",
-    funImage: "/officers/azhuraFun.JPG",
+    image: "/officers/azhura.png",
+    funImage: "/officers/azhuraFun.png",
     instagram: "https://www.instagram.com/azhvra/",
     linkedin: "https://www.linkedin.com/in/azhura-viandyra/",
   },
@@ -165,8 +165,8 @@ export const teamMembers: TeamMember[] = [
       "I love chinese food and noodles so hmu if you ever have any recommendations.\n\n" +
       "I would usually be at the ARC playing badminton or hitting the gym so if you see me there just stop by and say hi:)",
 
-    image: "/officers/evan.JPG",
-    funImage: "/officers/evanFun.JPG",
+    image: "/officers/evan.png",
+    funImage: "/officers/evanFun.png",
     instagram: "https://www.instagram.com/evanhuang._/",
     linkedin: "https://www.linkedin.com/in/evan-huang243/",
   },
@@ -183,8 +183,8 @@ export const teamMembers: TeamMember[] = [
       "components, but its slow-cook process is a perfect representation of the Javanese philosophy that values tranquility " +
       "😇🙏. So far, my favorite place at UIUC is the Idea Garden, yet I spend most of my time between classes sitting on any " +
       "nearby building's sofa.",
-    image: "/officers/ewangga.JPG",
-    funImage: "/officers/ewanggaFun.JPG",
+    image: "/officers/ewangga.png",
+    funImage: "/officers/ewanggaFun.png",
     instagram: "https://www.instagram.com/ewangganada/",
     linkedin: "https://www.linkedin.com/in/patrianada-ewangga/",
   },
@@ -201,8 +201,8 @@ export const teamMembers: TeamMember[] = [
       "I enjoy bowling, and recently have become hooked on billiards, so I’m frequently in the Illini Union Rec Room " +
       "(whenever I can summon the will to walk there).",
 
-    image: "/officers/jonathan.JPG",
-    funImage: "/officers/jonathanFun.JPG",
+    image: "/officers/jonathan.png",
+    funImage: "/officers/jonathanFun.png",
     instagram: "https://www.instagram.com/jonathan.b.w/",
     linkedin: "https://www.linkedin.com/in/jwidjajakusuma/",
   },
@@ -217,8 +217,8 @@ export const teamMembers: TeamMember[] = [
       "You’ll probably gonna see me the most either in Kung Fu tea (pokebowl is my fave!) or grainger (with Magellan most " +
       "likely. I know I know, we’re depressing a*s people)\n\n" +
       "And also, where are ESFJ people? Never met one 🙁",
-    image: "/officers/leon.JPG",
-    funImage: "/officers/leonFun.JPG",
+    image: "/officers/leon.png",
+    funImage: "/officers/leonFun.png",
     instagram: "https://www.instagram.com/leonardoquarviando/",
     linkedin: "https://www.linkedin.com/in/leonardo-quarviando-2b6766288/",
   },
@@ -235,8 +235,8 @@ export const teamMembers: TeamMember[] = [
       "I like to be at the main quad a lot either to hammock or just let Boog run around and play fetch. If you ever " +
       "see us say hi :)",
 
-    image: "/officers/febe.JPG",
-    funImage: "/officers/febeFun.JPG",
+    image: "/officers/febe.png",
+    funImage: "/officers/febeFun.png",
     instagram: "https://www.instagram.com/febeyem/",
     linkedin: "https://www.linkedin.com/in/febeyemima/",
   },
@@ -247,8 +247,8 @@ export const teamMembers: TeamMember[] = [
       "Hi friends! My name is Keisha and I am the graphic designer for PERMIAS this year!!🎨👩🏻‍🎨 I am a sophomore majoring " +
       "in Integrative Biology Honors. I love being outdoors, cats, and boba (Kung Fu tea is the best fr) 😽 I am a ✨major✨ " +
       "procrastinator but somehow always gets myself into lots of work 🤠",
-    image: "/officers/keisha.JPG",
-    funImage: "/officers/keishaFun.JPG",
+    image: "/officers/keisha.png",
+    funImage: "/officers/keishaFun.png",
     instagram: "https://www.instagram.com/keisha.alifia/",
     linkedin: "https://www.linkedin.com/in/keisha-ratu-alifia-638314207/",
   },
