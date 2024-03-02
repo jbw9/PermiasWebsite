@@ -9,6 +9,10 @@ module.exports = {
         sans: ["Chivo", "sans-serif"], // Set Montserrat as the default sans-serif font
       },
       fontWeight: {
+        thin: "100",
+        extralight: "200",
+        light: "300",
+        normal: "400",
         medium: "500",
         semibold: "600",
         bold: "700",
