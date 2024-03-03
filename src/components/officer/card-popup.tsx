@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
 interface TeamMember {
   name: string;
@@ -18,6 +18,18 @@ interface PropOpen {
 
 const Popup: React.FC<PropOpen> = ({ isOpen, onClose, member }) => {
   const popupRef = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(false);
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) {
+      setVisible(true);
+      setTimeout(() => setAnimate(true), 10);
+    } else {
+      setAnimate(false);
+      setTimeout(() => setVisible(false), 500);
+    }
+  }, [isOpen]);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
@@ -35,17 +47,24 @@ const Popup: React.FC<PropOpen> = ({ isOpen, onClose, member }) => {
     };
   }, [onClose]);
 
-  if (!isOpen) {
+  if (!visible) {
     return null;
   }
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-60">
+    <div
+      className={`fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-60 ${
+        animate ? "opacity-100" : "opacity-0"
+      } transition-opacity duration-500`}
+      onClick={onClose}
+    >
       <div
         ref={popupRef}
-        className="relative h-[600px] w-[1000px] bg-white rounded-2xl"
+        onClick={(e) => e.stopPropagation()}
+        className={`relative h-[600px] w-[1000px] bg-white rounded-2xl overflow-hidden ${
+          animate ? "scale-100" : "scale-95"
+        } transition-transform duration-500 ease-out`}
       >
-        {/* Use member prop data for the popup content */}
         <div className="flex items-start mt-[23px] ml-[22px]">
           <img
             src={process.env.PUBLIC_URL + member.funImage}
