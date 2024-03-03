@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import HomePage from "./pages/Home";
 import TeamPage from "./pages/Team";
 import AboutUsPage from "./pages/AboutUs";
+import EventPage from "./pages/Events";
 import NotFound from "./pages/NotFound";
 
 const Header: React.FC = () => {
@@ -21,11 +22,14 @@ const Header: React.FC = () => {
             <Link to="/">
               <div className="mx-2 text-2xl font-semibold">Home</div>
             </Link>
+            <Link to="/about-us">
+              <div className="mx-2 text-2xl font-semibold">About Us</div>
+            </Link>
             <Link to="/team">
               <div className="mx-2 text-2xl font-semibold">Team</div>
             </Link>
-            <Link to="/about-us">
-              <div className="mx-2 text-2xl font-semibold">About Us</div>
+            <Link to="/events">
+              <div className="mx-2 text-2xl font-semibold">Events</div>
             </Link>
           </nav>
         </div>
@@ -35,6 +39,7 @@ const Header: React.FC = () => {
           <Route path="/" element={<HomePage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/events" element={<EventPage />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
