@@ -25,7 +25,7 @@ const AboutUsPage: React.FC = () => {
           <div className="flex justify-center md:w-1/2 md:justify-end">
             <img
               className="shadow-2xl rounded-xl"
-              src={process.env.PUBLIC_URL + "/AboutUs/image1.JPG"}
+              src={process.env.PUBLIC_URL + "/AboutUs/image1.png"}
               alt="PERMIAS LOGO"
               height={400}
               width={550}
@@ -39,7 +39,7 @@ const AboutUsPage: React.FC = () => {
           <div className="md:w-1/2">
             <img
               className="shadow-2xl rounded-xl"
-              src={process.env.PUBLIC_URL + "/AboutUs/image2.JPG"}
+              src={process.env.PUBLIC_URL + "/AboutUs/image2.png"}
               alt="PERMIAS LOGO"
               height={400}
               width={550}
@@ -73,7 +73,7 @@ const AboutUsPage: React.FC = () => {
           <div className="flex justify-center md:w-1/2 md:justify-end">
             <img
               className="shadow-2xl rounded-xl"
-              src={process.env.PUBLIC_URL + "/AboutUs/image3.JPG"}
+              src={process.env.PUBLIC_URL + "/AboutUs/image3.png"}
               alt="PERMIAS LOGO"
               height={400}
               width={550}
