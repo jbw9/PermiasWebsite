@@ -19,7 +19,7 @@ const Header: React.FC = () => {
         />
         <div className="">
           <nav className="flex items-center ml-4">
-            <Link to="/">
+            <Link to="/PermiasWebsite">
               <div className="mx-2 text-2xl font-semibold">Home</div>
             </Link>
             <Link to="/about-us">
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
       </div>
       <div>
         <Routes>
-          <Route path="/" element={<HomePage />} />
+          <Route path="/PermiasWebsite" element={<HomePage />} />
           <Route path="/team" element={<TeamPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/events" element={<EventPage />} />
