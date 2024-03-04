@@ -22,13 +22,13 @@ const Header: React.FC = () => {
             <Link to="/PermiasWebsite">
               <div className="mx-2 text-2xl font-semibold">Home</div>
             </Link>
-            <Link to="/about-us">
+            <Link to="/PermiasWebsite/about-us">
               <div className="mx-2 text-2xl font-semibold">About Us</div>
             </Link>
-            <Link to="/team">
+            <Link to="/PermiasWebsite/team">
               <div className="mx-2 text-2xl font-semibold">Team</div>
             </Link>
-            <Link to="/events">
+            <Link to="/PermiasWebsite/events">
               <div className="mx-2 text-2xl font-semibold">Events</div>
             </Link>
           </nav>
@@ -36,11 +36,11 @@ const Header: React.FC = () => {
       </div>
       <div>
         <Routes>
-          <Route path="/PermiasWebsite" element={<HomePage />} />
-          <Route path="/team" element={<TeamPage />} />
-          <Route path="/about-us" element={<AboutUsPage />} />
-          <Route path="/events" element={<EventPage />} />
-          <Route path="/*" element={<NotFound />} />
+          <Route path="/PermiasWebsite/" element={<HomePage />} />
+          <Route path="/PermiasWebsite/team" element={<TeamPage />} />
+          <Route path="/PermiasWebsite/about-us" element={<AboutUsPage />} />
+          <Route path="/PermiasWebsite/events" element={<EventPage />} />
+          <Route path="/PermiasWebsite/*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
