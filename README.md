@@ -1,8 +1,9 @@
 # Permias Website
 
-<div style="text-align: center;">
-<img src="./public/mainLogo.png" width="256"/>
-<p>A website for PERMIAS UIUC, an Indonesian student club in the University of Illinois Urbana Champaign</p>
+<div align="center">
+    <img src="./public/mainLogo.png" width="256"/>
+    <p>A website for PERMIAS UIUC, an Indonesian student club in the University of Illinois Urbana Champaign</p>
+    <br>
 </div>
 
 ## Local Development
