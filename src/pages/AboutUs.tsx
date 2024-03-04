@@ -12,11 +12,8 @@ const AboutUsPage: React.FC = () => {
       </div>
       <div className="container px-4 mx-auto">
         <div className="flex flex-col md:flex-row md:items-center">
-          {" "}
-          {/* Adjusted to center alignment for consistency */}
           <div className="flex flex-col justify-center md:w-1/2">
-            <h1 className="mb-4 text-4xl text-left">About Us</h1>{" "}
-            {/* Text alignment to the left for desktop view */}
+            <h1 className="mb-4 text-4xl text-left">About Us</h1>
             <span className="text-lg text-left">
               PERMIAS UIUC, or commonly known as the Indonesian Students Club
               (ISC), is an Indonesian community in the heart of Urbana -
@@ -26,8 +23,6 @@ const AboutUsPage: React.FC = () => {
             </span>
           </div>
           <div className="flex justify-center md:w-1/2 md:justify-end">
-            {" "}
-            {/* Image kept to the right */}
             <img
               className="shadow-2xl rounded-xl"
               src={process.env.PUBLIC_URL + "/AboutUs/image1.JPG"}
@@ -66,8 +61,6 @@ const AboutUsPage: React.FC = () => {
 
       <div className="container px-4 py-32 mx-auto">
         <div className="flex flex-col md:flex-row md:items-center">
-          {" "}
-          {/* Adjusted to center alignment */}
           <div className="flex flex-col justify-center md:w-1/2">
             <h1 className="mb-4 text-4xl">Our Mission</h1>
             <span className="text-lg">
