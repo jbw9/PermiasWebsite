@@ -5,7 +5,7 @@ const AboutUsPage: React.FC = () => {
     <div className="">
       <div className="w-full h-[600px] flex justify-center items-end mb-[100px]">
         <img
-          src={process.env.PUBLIC_URL + "/AboutUs/background.png"}
+          src={process.env.PUBLIC_URL + "/AboutUs/background.webp"}
           alt="Background"
           className="object-cover w-full h-full"
         />
@@ -25,7 +25,7 @@ const AboutUsPage: React.FC = () => {
           <div className="flex justify-center md:w-1/2 md:justify-end">
             <img
               className="shadow-2xl rounded-xl"
-              src={process.env.PUBLIC_URL + "/AboutUs/image1.png"}
+              src={process.env.PUBLIC_URL + "/AboutUs/image1.webp"}
               alt="PERMIAS LOGO"
               height={400}
               width={550}
@@ -39,7 +39,7 @@ const AboutUsPage: React.FC = () => {
           <div className="md:w-1/2">
             <img
               className="shadow-2xl rounded-xl"
-              src={process.env.PUBLIC_URL + "/AboutUs/image2.png"}
+              src={process.env.PUBLIC_URL + "/AboutUs/image2.webp"}
               alt="PERMIAS LOGO"
               height={400}
               width={550}
@@ -73,7 +73,7 @@ const AboutUsPage: React.FC = () => {
           <div className="flex justify-center md:w-1/2 md:justify-end">
             <img
               className="shadow-2xl rounded-xl"
-              src={process.env.PUBLIC_URL + "/AboutUs/image3.png"}
+              src={process.env.PUBLIC_URL + "/AboutUs/image3.webp"}
               alt="PERMIAS LOGO"
               height={400}
               width={550}
