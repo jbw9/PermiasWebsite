@@ -1,3 +1,16 @@
 # Permias Website
 
-### made by Harold Indra, Jonathan Widjajakusuma, Warren Jodjana
+<div style="text-align: center;">
+<img src="./public/mainLogo.png" width="256"/>
+<p>A website for PERMIAS UIUC, an Indonesian student club in the University of Illinois Urbana Champaign</p>
+</div>
+
+## Local Development
+```bash
+// Cloning and installing dependencies
+git clone https://github.com/JBWID/PermiasWebsite.git
+npm install
+
+// Running the Server
+npm start
+```
