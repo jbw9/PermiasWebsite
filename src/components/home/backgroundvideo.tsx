@@ -21,7 +21,7 @@ const BackgroundVideo: React.FC<BackgroundVideoProps> = ({ source, children }) =
                 }}
             >    
                 <source src={source} type='video/mp4' />
-                Your browser does not support video what a fucking L nigger bullshit
+                Your browser does not support video
             </video>
             <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-30"></div>
             <div className='absolute top-0 right-0 bottom-0 left-0 flex justify-center items-center text-white text-center'>

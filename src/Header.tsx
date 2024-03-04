@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 // Pages
 import HomePage from "./pages/Home";
@@ -19,16 +19,16 @@ const Header: React.FC = () => {
         />
         <div className="">
           <nav className="flex items-center ml-4">
-            <Link to="/PermiasWebsite">
+            <Link to="/">
               <div className="mx-2 text-2xl font-semibold">Home</div>
             </Link>
-            <Link to="/PermiasWebsite/about-us">
+            <Link to="/about-us">
               <div className="mx-2 text-2xl font-semibold">About Us</div>
             </Link>
-            <Link to="/PermiasWebsite/team">
+            <Link to="/team">
               <div className="mx-2 text-2xl font-semibold">Team</div>
             </Link>
-            <Link to="/PermiasWebsite/events">
+            <Link to="/events">
               <div className="mx-2 text-2xl font-semibold">Events</div>
             </Link>
           </nav>
@@ -36,11 +36,11 @@ const Header: React.FC = () => {
       </div>
       <div>
         <Routes>
-          <Route path="/PermiasWebsite/" element={<HomePage />} />
-          <Route path="/PermiasWebsite/team" element={<TeamPage />} />
-          <Route path="/PermiasWebsite/about-us" element={<AboutUsPage />} />
-          <Route path="/PermiasWebsite/events" element={<EventPage />} />
-          <Route path="/PermiasWebsite/*" element={<NotFound />} />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/team" element={<TeamPage />} />
+          <Route path="/about-us" element={<AboutUsPage />} />
+          <Route path="/events" element={<EventPage />} />
+          <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
     </Router>
