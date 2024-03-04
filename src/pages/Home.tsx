@@ -13,7 +13,7 @@ const HomePage: React.FC = () => {
   return (
     <div>
       <div className="">
-        <BackgroundVideo source="/Home/backgroundvid.mp4" children={<WebsiteTitle />}/>
+        <BackgroundVideo source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"} children={<WebsiteTitle />}/>
       </div>
       <div className="h-[1000px]">
         Placeholder
