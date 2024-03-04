@@ -8,10 +8,10 @@
 
 ## Local Development
 ```bash
-// Cloning and installing dependencies
+# Cloning and installing dependencies
 git clone https://github.com/JBWID/PermiasWebsite.git
 npm install
 
-// Running the Server
+# Running the Server
 npm start
 ```
