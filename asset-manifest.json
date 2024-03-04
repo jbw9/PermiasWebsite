@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/PermiasWebsite/static/css/main.f2b68313.css",
+    "main.js": "/PermiasWebsite/static/js/main.a77d828c.js",
+    "index.html": "/PermiasWebsite/index.html",
+    "main.f2b68313.css.map": "/PermiasWebsite/static/css/main.f2b68313.css.map",
+    "main.a77d828c.js.map": "/PermiasWebsite/static/js/main.a77d828c.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f2b68313.css",
+    "static/js/main.a77d828c.js"
+  ]
+}
