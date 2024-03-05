@@ -7,7 +7,7 @@ import TeamPage from "./pages/Team";
 import AboutUsPage from "./pages/AboutUs";
 import EventPage from "./pages/Events";
 import GuidePage from "./pages/Guide";
-import SupportPage from "./pages/Support";
+import MerchPage from "./pages/Merch";
 import NotFound from "./pages/NotFound";
 
 const Header: React.FC = () => {
@@ -35,8 +35,8 @@ const Header: React.FC = () => {
             <Link to="/events">
               <div className="mx-2 text-2xl font-semibold">Events</div>
             </Link>
-            <Link to="/support">
-              <div className="mx-2 text-2xl font-semibold">Support Us</div>
+            <Link to="/merch">
+              <div className="mx-2 text-2xl font-semibold">Merch</div>
             </Link>
             <Link to="/guide">
               <div className="mx-2 text-2xl font-semibold">Guide</div>
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/events" element={<EventPage />} />
           <Route path="/guide" element={<GuidePage />} />
-          <Route path="/support" element={<SupportPage />} />
+          <Route path="/merch" element={<MerchPage />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
