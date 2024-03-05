@@ -1,9 +1,10 @@
 import React from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
+import UpcomingEvents from "../components/events/upcomingEvents";
 
 const WebsiteTitle: React.FC = () => {
   return (
-    <div className="relative flex justify-center h-full">
+    <div className="justify-center">
       <div className="text-7xl mt-[80px]">PERMIAS UIUC</div>
       <div className="absolute bottom-0 flex justify-center items-center h-[100px] w-[200px] mb-[10px]">
         <div className="flex">
@@ -103,7 +104,7 @@ const HomePage: React.FC = () => {
               </p>
               <p className="text-lg text-left">Warm Regards,</p>
               <p className="text-lg text-left">Aisha Tanjung</p>
-              <p className="text-lg text-left">President | Fall 2023</p>
+              <p className="text-lg text-left">President | Class of 2025</p>
             </div>
             <div className="md:flex md:justify-end md:flex-shrink-0 ml-[40px]">
               <img
@@ -114,19 +115,20 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
-          <div className="text-4xl text-center mt-[75px]">
-            New to Urbana-Champaign?
+          <div className="mt-[75px] text-center">
+            <span className="text-4xl mb-[20px] block">Upcoming Events</span>
+            <div className="flex justify-center">
+              <UpcomingEvents />
+            </div>
           </div>
+
+          <span className="text-4xl text-center mt-[75px]">
+            New to Urbana-Champaign?
+          </span>
           <div className="w-[1500px] grid grid-cols-3 text-2xl">
-            <div className="ml-[80px]">
-              Explore our Guide Page
-            </div>
-            <div className="mr-[10px] text-center">
-              Explore our Gallery
-            </div>
-            <div className="ml-[100px]">
-              Explore our Events Page
-            </div>
+            <div className="ml-[80px]">Explore our Guide Page</div>
+            <div className="mr-[10px] text-center">Explore our Gallery</div>
+            <div className="ml-[100px]">Explore our Events Page</div>
           </div>
         </div>
       </div>
