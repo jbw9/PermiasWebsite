@@ -109,7 +109,7 @@ const HomePage: React.FC = () => {
               <img
                 className="shadow-2xl rounded-xl"
                 src={process.env.PUBLIC_URL + "/officers/aisha.png"}
-                alt="president picture"
+                alt="president"
                 style={{ width: "400px", height: "auto" }}
               />
             </div>
