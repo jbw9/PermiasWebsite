@@ -103,7 +103,7 @@ const HomePage: React.FC = () => {
               </p>
               <p className="text-lg text-left">Warm Regards,</p>
               <p className="text-lg text-left">Aisha Tanjung</p>
-              <p className="text-lg text-left">President | Class of 2025</p>
+              <p className="text-lg text-left">President | Fall 2023</p>
             </div>
             <div className="md:flex md:justify-end md:flex-shrink-0 ml-[40px]">
               <img
@@ -114,9 +114,20 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
-          <h1 className="text-4xl text-center mt-[50px]">
+          <div className="text-4xl text-center mt-[75px]">
             New to Urbana-Champaign?
-          </h1>
+          </div>
+          <div className="w-[1500px] grid grid-cols-3 text-2xl">
+            <div className="ml-[80px]">
+              Explore our Guide Page
+            </div>
+            <div className="mr-[10px] text-center">
+              Explore our Gallery
+            </div>
+            <div className="ml-[100px]">
+              Explore our Events Page
+            </div>
+          </div>
         </div>
       </div>
     </div>
