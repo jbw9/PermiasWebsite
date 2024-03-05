@@ -4,7 +4,7 @@ import UpcomingEvents from "../components/events/upcomingEvents";
 
 const WebsiteTitle: React.FC = () => {
   return (
-    <div className="justify-center">
+    <div className="relative flex justify-center h-full">
       <div className="text-7xl mt-[80px]">PERMIAS UIUC</div>
       <div className="absolute bottom-0 flex justify-center items-center h-[100px] w-[200px] mb-[10px]">
         <div className="flex">
