@@ -60,15 +60,13 @@ const HomePage: React.FC = () => {
       </div>
 
       <div className="flex items-center justify-center w-full">
-        <div className="h-[1200px] w-full mt-[50px] flex flex-col items-center px-[30px]">
+        <div className="h-[1200px] w-full mt-[50px] flex flex-col items-center px-[100px]">
           <h1 className="mb-[30px] text-4xl text-center">
             LETTER FROM OUR PRESIDENT
           </h1>
           <div className="flex flex-col w-full md:flex-row md:items-start">
-            <div className="md:flex-grow md:pr-4 mt-[15px]">
-              {" "}
-              {/* Use flex-grow for text container to fill available space */}
-              <p className="mb-4 text-lg text-left">
+            <div className="md:flex-grow md:pr-4">
+              <p className="mb-4 text-lg text-justify">
                 On behalf of the brothers of the Zeta Gamma Chapter, we welcome
                 you to the official website of Phi Chi Theta at the University
                 of Illinois! As a premier professional organization, our chapter
@@ -78,7 +76,7 @@ const HomePage: React.FC = () => {
                 brothers span 10 colleges and 39 majors and are united by a
                 shared passion for business and innovation.
               </p>
-              <p className="mb-4 text-lg text-left">
+              <p className="mb-4 text-lg text-justify">
                 Through our four career-oriented internal groups, skill-building
                 workshops, and corporate sponsors, PCT provides a platform for
                 all members to realize their personal and professional goals.
@@ -89,7 +87,7 @@ const HomePage: React.FC = () => {
                 network can help you shape and realize the future of your
                 dreams.
               </p>
-              <p className="mb-4 text-lg text-left">
+              <p className="mb-4 text-lg text-justify">
                 As an organization, we take immense pride in our enduring
                 dedication to serving the local community, instrumental in our
                 growth. Through engaging in service opportunities, fundraising
@@ -98,31 +96,27 @@ const HomePage: React.FC = () => {
                 where our brothers can actively contribute to causes they are
                 passionate about.
               </p>
-              <p className="mb-4 text-lg text-left">
+              <p className="mb-4 text-lg text-justify">
                 While we equip our members with ample resources for professional
                 success and making an impact, our shared bond of brotherhood
-                strengthens our connection. Through our longstanding family and
-                mentorship systems, the people in PCT you will meet will rapidly
-                become your best friends, your biggest cheerleaders, and your
-                best sources of advice during and beyond your four years on
-                campus. You will constantly be inspired to become the best
-                version of yourself, and to lift others up while you do so.
+                strengthens our connection.
               </p>
               <p className="text-lg text-left">Warm Regards,</p>
               <p className="text-lg text-left">Aisha Tanjung</p>
               <p className="text-lg text-left">President | Class of 2025</p>
             </div>
-            <div className="md:flex md:justify-end md:flex-shrink-0">
-              {" "}
-              {/* Prevent the image container from shrinking */}
+            <div className="md:flex md:justify-end md:flex-shrink-0 ml-[40px]">
               <img
                 className="shadow-2xl rounded-xl"
                 src={process.env.PUBLIC_URL + "/officers/aisha.png"}
-                alt="Picture of Aisha Tanjung"
-                style={{ width: "400px", height: "auto" }} // Keep width constant at 400px
+                alt="president picture"
+                style={{ width: "400px", height: "auto" }}
               />
             </div>
           </div>
+          <h1 className="text-4xl text-center mt-[50px]">
+            New to Urbana-Champaign?
+          </h1>
         </div>
       </div>
     </div>
