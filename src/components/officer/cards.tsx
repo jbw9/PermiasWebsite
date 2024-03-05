@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import Popup from "./card-popup";
 
-// Define the props interface
 interface OfficerCardsProps {
   member: {
     name: string;
@@ -11,11 +10,9 @@ interface OfficerCardsProps {
     funImage: string;
     instagram: string;
     linkedin: string;
-    // ... any other properties you have
   };
 }
 
-// Modify the component to accept props
 const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
   const [isPopupOpen, setPopupOpen] = useState(false);
 
@@ -44,7 +41,6 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
           </div>
         </div>
       </button>
-      {/* Pass the member prop to the Popup component */}
       <Popup isOpen={isPopupOpen} onClose={closePopup} member={member} />
     </div>
   );
