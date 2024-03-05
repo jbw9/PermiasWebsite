@@ -6,17 +6,21 @@ import HomePage from "./pages/Home";
 import TeamPage from "./pages/Team";
 import AboutUsPage from "./pages/AboutUs";
 import EventPage from "./pages/Events";
+import GuidePage from "./pages/Guide";
+import SupportPage from "./pages/Support";
 import NotFound from "./pages/NotFound";
 
 const Header: React.FC = () => {
   return (
     <Router>
       <div className="flex items-center justify-between w-full p-2 mx-auto bg-">
-        <img
-          src={process.env.PUBLIC_URL + "/mainLogo.png"}
-          alt="PERMIAS LOGO"
-          width={250}
-        />
+        <Link to="/">
+          <img
+            src={process.env.PUBLIC_URL + "/mainLogo.png"}
+            alt="PERMIAS LOGO"
+            width={250}
+          />
+        </Link>
         <div className="">
           <nav className="flex items-center ml-4">
             <Link to="/">
@@ -31,6 +35,12 @@ const Header: React.FC = () => {
             <Link to="/events">
               <div className="mx-2 text-2xl font-semibold">Events</div>
             </Link>
+            <Link to="/support">
+              <div className="mx-2 text-2xl font-semibold">Support Us</div>
+            </Link>
+            <Link to="/guide">
+              <div className="mx-2 text-2xl font-semibold">Guide</div>
+            </Link>
           </nav>
         </div>
       </div>
@@ -40,6 +50,8 @@ const Header: React.FC = () => {
           <Route path="/team" element={<TeamPage />} />
           <Route path="/about-us" element={<AboutUsPage />} />
           <Route path="/events" element={<EventPage />} />
+          <Route path="/guide" element={<GuidePage />} />
+          <Route path="/support" element={<SupportPage />} />
           <Route path="/*" element={<NotFound />} />
         </Routes>
       </div>
