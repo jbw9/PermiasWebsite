@@ -21,6 +21,7 @@ const Footer: React.FC = () => {
         </div>
         <div>
           <a href="">Events</a>
+          <a href="">Footer</a>
         </div>
       </div>
     </div>
