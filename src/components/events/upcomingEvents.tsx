@@ -1,11 +1,29 @@
-const UpcomingEvents = () => {
+interface UpcomingEventsProps {
+  eventCoverImage: string;
+  eventName: string;
+  eventMonth: string;
+  eventDate: string | number;
+  eventTime: string;
+  eventLocation: string;
+  eventrsvpLink: string;
+}
+
+const UpcomingEvents: React.FC<UpcomingEventsProps> = ({
+  eventCoverImage,
+  eventName,
+  eventMonth,
+  eventDate,
+  eventTime,
+  eventLocation,
+  eventrsvpLink,
+}) => {
   return (
     <div>
-      <div className="flex flex-col w-[900px] h-[450px] items-center justify-center space-x-[40px] mt-[20px]">
+      <div className="flex flex-col items-center justify-center mt-[20px]">
         <div className="w-[400px] h-[400px] rounded-2xl shadow-2xl relative overflow-hidden text-white">
           <img
-            src={process.env.PUBLIC_URL + "/events/gradnight.png"}
-            alt="grad night"
+            src={`${process.env.PUBLIC_URL}/events/${eventCoverImage}.png`}
+            alt={eventName}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
           <div
@@ -18,8 +36,8 @@ const UpcomingEvents = () => {
             <div className="flex items-center justify-between h-[60px] w-full  p-[5px]">
               <div className="flex items-center">
                 <div className="flex flex-col items-center justify-center h-full">
-                  <span className="text-xl">May</span>
-                  <span>10</span>
+                  <span className="text-xl">{eventMonth}</span>
+                  <span>{eventDate}</span>
                 </div>
                 <div className="w-[2px] h-[50px] bg-white mx-[7px]"></div>
                 <div className="flex flex-col justify-center">
@@ -29,7 +47,7 @@ const UpcomingEvents = () => {
                       alt="Time Icon"
                       className="w-5 h-5 mr-2"
                     />
-                    <span>7:00 PM</span>
+                    <span>{eventTime}</span>
                   </div>
                   <div className="flex items-center">
                     <img
@@ -37,12 +55,12 @@ const UpcomingEvents = () => {
                       alt="Location Icon"
                       className="w-5 h-5 mr-2"
                     />
-                    <span>Illini Union</span>
+                    <span>{eventLocation}</span>
                   </div>
                 </div>
               </div>
               <a
-                href="https://www.google.com/forms/about/"
+                href={eventrsvpLink}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center"
@@ -54,7 +72,7 @@ const UpcomingEvents = () => {
             </div>
           </div>
         </div>
-        <span className="text-3xl mt-[10px]"> Grad Night</span>
+        <span className="text-2xl mt-[10px]"> {eventName}</span>
       </div>
     </div>
   );
