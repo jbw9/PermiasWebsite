@@ -61,7 +61,7 @@ const HomePage: React.FC = () => {
       </div>
 
       <div className="flex items-center justify-center w-full">
-        <div className="h-[1200px] w-full mt-[50px] flex flex-col items-center px-[100px]">
+        <div className="h-[2000px] w-full mt-[50px] flex flex-col items-center px-[100px]">
           <h1 className="mb-[30px] text-4xl text-center">
             LETTER FROM OUR PRESIDENT
           </h1>
@@ -116,19 +116,10 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className="mt-[75px] text-center">
-            <span className="text-4xl mb-[20px] block">Upcoming Events</span>
+            <span className="text-4xl">Upcoming Events</span>
             <div className="flex justify-center">
               <UpcomingEvents />
             </div>
-          </div>
-
-          <span className="text-4xl text-center mt-[75px]">
-            New to Urbana-Champaign?
-          </span>
-          <div className="w-[1500px] grid grid-cols-3 text-2xl">
-            <div className="ml-[80px]">Explore our Guide Page</div>
-            <div className="mr-[10px] text-center">Explore our Gallery</div>
-            <div className="ml-[100px]">Explore our Events Page</div>
           </div>
         </div>
       </div>
