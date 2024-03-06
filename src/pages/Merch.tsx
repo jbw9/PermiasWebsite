@@ -23,7 +23,7 @@ const MerchPage: React.FC = () => {
       <div className="h-[1200px] w-full mt-[100px] flex flex-col items-center px-[100px]">
         <div className="flex">
           <button onClick={openPopup}>
-            <div className="h-[660px] w-[450px] mr-[200px] bg-merchbg rounded-2xl shadow-2xl flex flex-col justify-center items-center">
+            <div className="h-[660px] w-[450px] mr-[200px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center">
               <img
                 src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Main.png"}
                 alt="2021 hoodie"
