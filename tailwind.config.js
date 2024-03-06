@@ -20,7 +20,7 @@ module.exports = {
       },
       colors: {
         footer: "#13294b",
-        merchbg: "#dcdcdc",
+        merchbg: "#f5f5f7",
       },
     },
   },
