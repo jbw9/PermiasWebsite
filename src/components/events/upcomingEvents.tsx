@@ -1,8 +1,7 @@
 const UpcomingEvents = () => {
   return (
     <div>
-      <div className="flex flex-col w-[1000px] h-[500px] mt-[20px] items-center justify-center space-x-[40px]">
-        <span className="text-3xl mb-[10px]"> Grad Night</span>
+      <div className="flex flex-col w-[900px] h-[450px] items-center justify-center space-x-[40px] mt-[20px]">
         <div className="w-[400px] h-[400px] rounded-2xl shadow-2xl relative overflow-hidden text-white">
           <img
             src={process.env.PUBLIC_URL + "/events/gradnight.png"}
@@ -55,6 +54,7 @@ const UpcomingEvents = () => {
             </div>
           </div>
         </div>
+        <span className="text-3xl mt-[10px]"> Grad Night</span>
       </div>
     </div>
   );
