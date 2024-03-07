@@ -26,7 +26,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
 
   return (
     <div>
-      <button onClick={openPopup}>
+      <button onClick={openPopup} className="focus:outline-none">
         <div className="h-[550px] w-[340px]">
           <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl">
             <img
@@ -47,3 +47,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
 };
 
 export default OfficerCards;
+
+{
+  /* transform transition duration-300 ease-in-out hover:scale-105 */
+}
