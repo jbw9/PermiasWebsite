@@ -52,16 +52,15 @@ const WebsiteTitle: React.FC = () => {
 
 const HomePage: React.FC = () => {
   return (
-    <div>
+    <div className="mb-[100px]">
       <div className="">
         <BackgroundVideo
           source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"}
           children={<WebsiteTitle />}
         />
       </div>
-
       <div className="flex items-center justify-center w-full">
-        <div className="h-[2000px] w-full mt-[50px] flex flex-col items-center px-[100px]">
+        <div className="w-full mt-[50px] flex flex-col items-center px-[150px]">
           <h1 className="mb-[30px] text-4xl text-center">
             LETTER FROM OUR PRESIDENT
           </h1>
@@ -115,7 +114,7 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
-          <div className="mt-[75px] text-center">
+          <div className="mt-[150px] text-center">
             <span className="text-4xl">Upcoming Events</span>
             <div className="flex justify-center space-x-[250px] mt-[20px]">
               <UpcomingEvents
@@ -137,6 +136,9 @@ const HomePage: React.FC = () => {
                 eventrsvpLink="https://www.google.com/forms/about/"
               />
             </div>
+          </div>
+          <div className="mt-[150px]">
+            <span className="text-4xl">Meet the Class of 2027</span>
           </div>
         </div>
       </div>

@@ -12,7 +12,7 @@ const MerchPage: React.FC = () => {
     setPopupOpen(false);
   };
   return (
-    <div>
+    <div className="mb-[120px]">
       <div className="w-full h-[600px] flex justify-center items-end">
         <img
           src={process.env.PUBLIC_URL + "/merch/background.png"}
@@ -20,7 +20,7 @@ const MerchPage: React.FC = () => {
           className="object-cover w-full h-full"
         />
       </div>
-      <div className="h-[1200px] w-full mt-[100px] flex flex-col items-center px-[100px]">
+      <div className="h-w-full mt-[100px] flex flex-col items-center px-[100px]">
         <div className="flex">
           <button onClick={openPopup}>
             <div className="h-[660px] w-[450px] mr-[200px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center">
