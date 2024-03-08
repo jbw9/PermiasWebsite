@@ -8,41 +8,14 @@ const WebsiteTitle: React.FC = () => {
       <div className="text-7xl mt-[80px]">PERMIAS UIUC</div>
       <div className="absolute bottom-0 flex justify-center items-center h-[100px] w-[200px] mb-[10px]">
         <div className="flex">
-          <a
-            href="https://web.whatsapp.com/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/footer/whatsapp.svg"}
-              alt="Whatsapp Logo"
-              width={50}
-              className="mx-10"
-            />
+          <a href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer">
+            <img src={process.env.PUBLIC_URL + "/footer/whatsapp.svg"} alt="Whatsapp Logo" width={50} className="mx-10" />
           </a>
-          <a
-            href="https://www.instagram.com/permiasuiuc/?hl=en"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/footer/instagram.svg"}
-              alt="Instagram Logo"
-              width={50}
-              className="mx-10"
-            />
+          <a href="https://www.instagram.com/permiasuiuc/?hl=en" target="_blank" rel="noopener noreferrer">
+            <img src={process.env.PUBLIC_URL + "/footer/instagram.svg"} alt="Instagram Logo" width={50} className="mx-10" />
           </a>
-          <a
-            href="https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2Fisc.uiuc%2F"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <img
-              src={process.env.PUBLIC_URL + "/footer/facebook.svg"}
-              alt="Facebook Logo"
-              width={50}
-              className="mx-10"
-            />
+          <a href="https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2Fisc.uiuc%2F" target="_blank" rel="noopener noreferrer">
+            <img src={process.env.PUBLIC_URL + "/footer/facebook.svg"} alt="Facebook Logo" width={50} className="mx-10" />
           </a>
         </div>
       </div>
@@ -54,92 +27,47 @@ const HomePage: React.FC = () => {
   return (
     <div className="mb-[100px]">
       <div className="">
-        <BackgroundVideo
-          source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"}
-          children={<WebsiteTitle />}
-        />
+        <BackgroundVideo source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"} children={<WebsiteTitle />} />
       </div>
       <div className="flex items-center justify-center w-full">
         <div className="w-full mt-[50px] flex flex-col items-center px-[150px]">
-          <h1 className="mb-[30px] text-4xl text-center">
-            LETTER FROM OUR PRESIDENT
-          </h1>
+          <h1 className="mb-[30px] text-4xl text-center">LETTER FROM OUR PRESIDENT</h1>
           <div className="flex flex-col w-full md:flex-row md:items-start">
             <div className="md:flex-grow md:pr-4">
               <p className="mb-4 text-lg text-justify">
-                On behalf of the brothers of the Zeta Gamma Chapter, we welcome
-                you to the official website of Phi Chi Theta at the University
-                of Illinois! As a premier professional organization, our chapter
-                is nationally recognized as a proven catalyst for driven and
-                imaginative students, propelling them toward tangible success in
-                the real world. Although we are a business fraternity, our
-                brothers span 10 colleges and 39 majors and are united by a
-                shared passion for business and innovation.
+                On behalf of the brothers of the Zeta Gamma Chapter, we welcome you to the official website of Phi Chi Theta at the University of Illinois! As a premier professional organization, our chapter is nationally recognized as a
+                proven catalyst for driven and imaginative students, propelling them toward tangible success in the real world. Although we are a business fraternity, our brothers span 10 colleges and 39 majors and are united by a shared
+                passion for business and innovation.
               </p>
               <p className="mb-4 text-lg text-justify">
-                Through our four career-oriented internal groups, skill-building
-                workshops, and corporate sponsors, PCT provides a platform for
-                all members to realize their personal and professional goals.
-                Our accomplished members and esteemed alumni have made
-                remarkable contributions across an array of industries, spanning
-                from Consulting and Technology to Medicine and Law. No matter
-                your background or interests, our extensive resources and
-                network can help you shape and realize the future of your
-                dreams.
+                Through our four career-oriented internal groups, skill-building workshops, and corporate sponsors, PCT provides a platform for all members to realize their personal and professional goals. Our accomplished members and
+                esteemed alumni have made remarkable contributions across an array of industries, spanning from Consulting and Technology to Medicine and Law. No matter your background or interests, our extensive resources and network can
+                help you shape and realize the future of your dreams.
               </p>
               <p className="mb-4 text-lg text-justify">
-                As an organization, we take immense pride in our enduring
-                dedication to serving the local community, instrumental in our
-                growth. Through engaging in service opportunities, fundraising
-                events, and recurring volunteer initiatives with institutions
-                throughout the Champaign-Urbana area, we provide a platform
-                where our brothers can actively contribute to causes they are
-                passionate about.
+                As an organization, we take immense pride in our enduring dedication to serving the local community, instrumental in our growth. Through engaging in service opportunities, fundraising events, and recurring volunteer
+                initiatives with institutions throughout the Champaign-Urbana area, we provide a platform where our brothers can actively contribute to causes they are passionate about.
               </p>
-              <p className="mb-4 text-lg text-justify">
-                While we equip our members with ample resources for professional
-                success and making an impact, our shared bond of brotherhood
-                strengthens our connection.
-              </p>
+              <p className="mb-4 text-lg text-justify">While we equip our members with ample resources for professional success and making an impact, our shared bond of brotherhood strengthens our connection.</p>
               <p className="text-lg text-left">Warm Regards,</p>
               <p className="text-lg text-left">Aisha Tanjung</p>
               <p className="text-lg text-left">President | Class of 2025</p>
             </div>
             <div className="md:flex md:justify-end md:flex-shrink-0 ml-[40px]">
-              <img
-                className="shadow-2xl rounded-xl"
-                src={process.env.PUBLIC_URL + "/officers/aisha.png"}
-                alt="president"
-                style={{ width: "400px", height: "auto" }}
-              />
+              <img className="shadow-2xl rounded-xl" src={process.env.PUBLIC_URL + "/officers/aisha.png"} alt="president" style={{ width: "400px", height: "auto" }} />
             </div>
           </div>
           <div className="mt-[150px] text-center">
             <span className="text-4xl">Upcoming Events</span>
             <div className="flex justify-center space-x-[250px] mt-[20px]">
-              <UpcomingEvents
-                eventCoverImage="gradnight"
-                eventName="Grad Night"
-                eventDate={10}
-                eventMonth="May"
-                eventLocation="Illini Union"
-                eventTime="7:00 - 9:00 pm"
-                eventrsvpLink="https://www.google.com/forms/about/"
-              />
-              <UpcomingEvents
-                eventCoverImage="satefundraising"
-                eventName="Sate Fundraising"
-                eventDate={8}
-                eventMonth="April"
-                eventLocation="Illini Union"
-                eventTime="1:00 - 3:00 pm"
-                eventrsvpLink="https://www.google.com/forms/about/"
-              />
+              <UpcomingEvents eventCoverImage="gradnight" eventName="Grad Night" eventDate={10} eventMonth="May" eventLocation="Illini Union" eventTime="7:00 - 9:00 pm" eventrsvpLink="https://www.google.com/forms/about/" />
+              <UpcomingEvents eventCoverImage="satefundraising" eventName="Sate Fundraising" eventDate={8} eventMonth="April" eventLocation="Illini Union" eventTime="1:00 - 3:00 pm" eventrsvpLink="https://www.google.com/forms/about/" />
             </div>
           </div>
           <div className="mt-[150px]">
             <span className="text-4xl">Meet the Class of 2027</span>
           </div>
+          <span>we love evan</span>
         </div>
       </div>
     </div>
