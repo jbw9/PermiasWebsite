@@ -1,7 +1,19 @@
 import React from "react";
 import UpcomingEvents from "../components/events/upcomingEvents";
+import Carousel from "../components/events/carousel";
 
 const EventPage: React.FC = () => {
+  const images = [
+    process.env.PUBLIC_URL + "/events/pasmal_2023/one.jpg",
+    process.env.PUBLIC_URL + "/events/pasmal_2023/two.jpg",
+    process.env.PUBLIC_URL + "/events/pasmal_2023/three.jpg",
+    process.env.PUBLIC_URL + "/events/pasmal_2023/four.jpg",
+    process.env.PUBLIC_URL + "/events/pasmal_2023/five.jpg",
+    process.env.PUBLIC_URL + "/events/pasmal_2023/six.jpg",
+    process.env.PUBLIC_URL + "/events/pasmal_2023/seven.jpg",
+    process.env.PUBLIC_URL + "/events/pasmal_2023/eight.jpg",
+    // You can add more images here
+  ];
   return (
     <div className="mb-[100px]">
       <div className="w-full h-[600px] flex justify-center items-end">
@@ -35,6 +47,7 @@ const EventPage: React.FC = () => {
         </div>
         <div className="mt-[100px]">
           <span className="text-5xl font-semibold">Our Past Events</span>
+          <Carousel images={images} />
         </div>
       </div>
     </div>
