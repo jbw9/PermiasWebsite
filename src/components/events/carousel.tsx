@@ -10,25 +10,29 @@ type CarouselProps = {
 const Carousel: React.FC<CarouselProps> = ({ images }) => {
   return (
     <Swiper
-      spaceBetween={10}
+      spaceBetween={15}
       slidesPerView={"auto"}
-      centeredSlides={true}
       onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper: SwiperInstance) => console.log(swiper)} // Typed parameter
+      onSwiper={(swiper: SwiperInstance) => console.log(swiper)}
       breakpoints={{
         640: {
-          width: 640,
+          width: 900,
           slidesPerView: 1,
         },
         768: {
-          width: 768,
+          width: 1200,
           slidesPerView: 2,
         },
       }}
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
-          <img src={image} alt={`Slide ${index}`} className="object-contain" />
+          {/* Add the rounded class here */}
+          <img
+            src={image}
+            alt={`Slide ${index}`}
+            className="object-contain rounded-2xl"
+          />
         </SwiperSlide>
       ))}
     </Swiper>
