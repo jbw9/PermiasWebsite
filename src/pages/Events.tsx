@@ -3,7 +3,7 @@ import UpcomingEvents from "../components/events/upcomingEvents";
 
 const EventPage: React.FC = () => {
   return (
-    <div className="">
+    <div className="mb-[100px]">
       <div className="w-full h-[600px] flex justify-center items-end">
         <img
           src={process.env.PUBLIC_URL + "/events/main.jpg"}
@@ -33,10 +33,8 @@ const EventPage: React.FC = () => {
             eventrsvpLink="https://www.google.com/forms/about/"
           />
         </div>
-        <div>
-          <span className="text-5xl font-semibold mt-[80px]">
-            Our Past Events
-          </span>
+        <div className="mt-[100px]">
+          <span className="text-5xl font-semibold">Our Past Events</span>
         </div>
       </div>
     </div>
