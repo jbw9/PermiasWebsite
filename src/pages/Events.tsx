@@ -40,7 +40,6 @@ const EventPage: React.FC = () => {
             <div className="absolute w-[8px] bg-footer rounded-lg h-[1100px] ml-[8px]"></div>
             <div className="">
               <PastEvents />
-              <PastEvents />
             </div>
           </div>
         </div>
