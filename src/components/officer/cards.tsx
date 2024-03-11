@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Popup from "./card-popup";
 
 interface OfficerCardsProps {
@@ -24,11 +24,23 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
     setPopupOpen(false);
   };
 
+  useEffect(() => {
+    if (isPopupOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "visible";
+    }
+
+    return () => {
+      document.body.style.overflow = "visible";
+    };
+  }, [isPopupOpen]);
+
   return (
     <div>
       <button onClick={openPopup} className="focus:outline-none">
         <div className="h-[550px] w-[340px]">
-          <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl">
+          <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl transform transition duration-300 ease-in-out hover:scale-105">
             <img
               src={process.env.PUBLIC_URL + member.image}
               alt={member.name}
