@@ -116,14 +116,14 @@ const HomePage: React.FC = () => {
           </div>
           <div className="mt-[150px] text-center">
             <span className="text-4xl">Upcoming Events</span>
-            <div className="flex justify-center space-x-[250px] mt-[20px]">
+            <div className="flex justify-center space-x-[120px] mt-[30px]">
               <UpcomingEvents
-                eventCoverImage="gradnight"
-                eventName="Grad Night"
-                eventDate={10}
-                eventMonth="May"
-                eventLocation="Illini Union"
-                eventTime="7:00 - 9:00 pm"
+                eventCoverImage="buka_bersama"
+                eventName="Buka Bersama"
+                eventDate={28}
+                eventMonth="March"
+                eventLocation="Orchard Downs"
+                eventTime="5:00 - 8:30 pm"
                 eventrsvpLink="https://www.google.com/forms/about/"
               />
               <UpcomingEvents
@@ -133,6 +133,15 @@ const HomePage: React.FC = () => {
                 eventMonth="April"
                 eventLocation="Illini Union"
                 eventTime="1:00 - 3:00 pm"
+                eventrsvpLink="https://www.google.com/forms/about/"
+              />
+              <UpcomingEvents
+                eventCoverImage="gradnight"
+                eventName="Grad Night"
+                eventDate={10}
+                eventMonth="May"
+                eventLocation="Illini Union"
+                eventTime="7:00 - 9:00 pm"
                 eventrsvpLink="https://www.google.com/forms/about/"
               />
             </div>

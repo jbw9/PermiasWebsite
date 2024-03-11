@@ -12,9 +12,9 @@ export const pastEvents: PastEvent[] = [
     description:
       '"Pasar Malam" was a premier event of the past Fall semester, featuring collaborations with RSOs like HKSA to offer a taste of authentic Indonesian cuisine and traditional performances.',
     images: [
+      process.env.PUBLIC_URL + "/events/kpib_fundraising_2024/three.jpg",
       process.env.PUBLIC_URL + "/events/kpib_fundraising_2024/one.jpg",
       process.env.PUBLIC_URL + "/events/kpib_fundraising_2024/two.jpg",
-      process.env.PUBLIC_URL + "/events/kpib_fundraising_2024/three.jpg",
       process.env.PUBLIC_URL + "/events/kpib_fundraising_2024/four.jpg",
       process.env.PUBLIC_URL + "/events/kpib_fundraising_2024/five.jpg",
       process.env.PUBLIC_URL + "/events/kpib_fundraising_2024/six.jpg",
