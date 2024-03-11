@@ -38,22 +38,6 @@ export const pastEvents: PastEvent[] = [
     ],
   },
   {
-    name: "Pasar Malam",
-    date: "November 11th 2023, University YMCA",
-    description:
-      '"Pasar Malam" was a premier event of the past Fall semester, featuring collaborations with RSOs like HKSA to offer a taste of authentic Indonesian cuisine and traditional performances.',
-    images: [
-      process.env.PUBLIC_URL + "/events/pasmal_2023/three.jpg",
-      process.env.PUBLIC_URL + "/events/pasmal_2023/one.jpg",
-      process.env.PUBLIC_URL + "/events/pasmal_2023/two.jpg",
-      process.env.PUBLIC_URL + "/events/pasmal_2023/four.jpg",
-      process.env.PUBLIC_URL + "/events/pasmal_2023/five.jpg",
-      process.env.PUBLIC_URL + "/events/pasmal_2023/six.jpg",
-      process.env.PUBLIC_URL + "/events/pasmal_2023/seven.jpg",
-      process.env.PUBLIC_URL + "/events/pasmal_2023/eight.jpg",
-    ],
-  },
-  {
     name: "Pumpkin Potluck",
     date: "October 28th 2023, Hub on Campus",
     description:
