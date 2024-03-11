@@ -5,12 +5,8 @@ import { TeamMember, teamMembers } from "../data/team_members";
 const TeamPage: React.FC = () => {
   return (
     <div className="mb-[70px]">
-      <div className="flex items-end justify-center w-full">
-        <img
-          src={process.env.PUBLIC_URL + "/officers/background.png"}
-          alt="Background"
-          className="object-cover w-full h-full"
-        />
+      <div className="flex items-end justify-center w-full h-[600px]">
+        <img src={process.env.PUBLIC_URL + "/officers/background.png"} alt="Background" className="object-cover w-full h-full" />
       </div>
       <div className="flex justify-center my-[75px]">
         <h1 className="text-6xl font-semibold">Meet Our Officers</h1>
