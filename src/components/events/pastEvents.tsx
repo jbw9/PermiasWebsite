@@ -5,7 +5,7 @@ const PastEvents = () => {
   return (
     <div>
       {pastEvents.map((event: PastEvent) => (
-        <div className="mb-[35px]">
+        <div className="mb-[100px]">
           <div className="relative flex flex-col mr-[40px]">
             <div className="absolute w-6 h-6 rounded-full bg-footer mt-[11px]"></div>
           </div>
