@@ -14,7 +14,7 @@ const EventPage: React.FC = () => {
       </div>
       <div className="text-center mt-[50px]">
         <span className="text-6xl font-semibold">Our Upcoming Events</span>
-        <div className="flex justify-center space-x-[120px] mt-[30px]">
+        <div className="flex justify-center space-x-[150px] mt-[30px]">
           <UpcomingEvents
             eventCoverImage="buka_bersama"
             eventName="Buka Bersama"
@@ -24,15 +24,15 @@ const EventPage: React.FC = () => {
             eventTime="5:00 - 8:30 pm"
             eventrsvpLink="https://www.google.com/forms/about/"
           />
-          <UpcomingEvents
-            eventCoverImage="satefundraising"
-            eventName="Sate Fundraising"
-            eventDate={8}
-            eventMonth="April"
-            eventLocation="Illini Union"
-            eventTime="1:00 - 3:00 pm"
-            eventrsvpLink="https://www.google.com/forms/about/"
-          />
+          {/* <UpcomingEvents
+                eventCoverImage="satefundraising"
+                eventName="Sate Fundraising"
+                eventDate={8}
+                eventMonth="April"
+                eventLocation="Illini Union"
+                eventTime="1:00 - 3:00 pm"
+                eventrsvpLink="https://www.google.com/forms/about/"
+              /> */}
           <UpcomingEvents
             eventCoverImage="gradnight"
             eventName="Grad Night"
