@@ -53,7 +53,7 @@ const Popup: React.FC<PropOpen> = ({ isOpen, onClose, member }) => {
 
   return (
     <div
-      className={`fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-60 ${
+      className={`fixed z-10 inset-0 flex items-center justify-center bg-gray-600 bg-opacity-60 ${
         animate ? "opacity-100" : "opacity-0"
       } transition-opacity duration-500`}
       onClick={onClose}
