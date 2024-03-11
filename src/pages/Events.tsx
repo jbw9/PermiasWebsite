@@ -36,7 +36,7 @@ const EventPage: React.FC = () => {
         </div>
         <div className="mt-[130px]">
           <span className="text-5xl font-semibold">Our Past Events</span>
-          <div className="flex mt-[30px] mx-[140px] overflow-hidden">
+          <div className="flex mt-[30px] mx-[170px] overflow-hidden">
             <div className="absolute w-[8px] bg-footer rounded-lg h-[1100px] ml-[8px]"></div>
             <div className="">
               <PastEvents />
