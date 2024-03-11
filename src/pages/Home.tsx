@@ -114,9 +114,9 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
-          <div className="mt-[150px] text-center">
+          <div className="mt-[150px] text-center w-full">
             <span className="text-4xl">Upcoming Events</span>
-            <div className="flex justify-center space-x-[120px] mt-[30px]">
+            <div className="flex justify-center space-x-[150px] mt-[30px]">
               <UpcomingEvents
                 eventCoverImage="buka_bersama"
                 eventName="Buka Bersama"
@@ -126,7 +126,7 @@ const HomePage: React.FC = () => {
                 eventTime="5:00 - 8:30 pm"
                 eventrsvpLink="https://www.google.com/forms/about/"
               />
-              <UpcomingEvents
+              {/* <UpcomingEvents
                 eventCoverImage="satefundraising"
                 eventName="Sate Fundraising"
                 eventDate={8}
@@ -134,7 +134,7 @@ const HomePage: React.FC = () => {
                 eventLocation="Illini Union"
                 eventTime="1:00 - 3:00 pm"
                 eventrsvpLink="https://www.google.com/forms/about/"
-              />
+              /> */}
               <UpcomingEvents
                 eventCoverImage="gradnight"
                 eventName="Grad Night"
