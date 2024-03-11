@@ -5,15 +5,34 @@ const GuidePage: React.FC = () => {
     <div>
       <div className="flex flex-col mt-[25px]">
         <span className="text-5xl text-center">Getting To UIUC</span>
-        <div className="flex flex-row justify-center space-x-[250px]">
-          <div>
-            <span className="text-2xl ml-[-100px]">Peoria Charter</span>
+        <div className="flex flex-row justify-center space-x-[250px] mt-[25px]">
+          <div className="text-center">
+            <img
+              className="shadow-2xl rounded-xl"
+              src={process.env.PUBLIC_URL + "/GuidePage/PeoriaCharterBus.jpg"}
+              alt="Peoria Charter Bus"
+              style={{ width: "200px", height: "auto" }}
+            />
+            <span className="text-s2xl text-center ml-[0px]">Peoria Charter</span>
+            <span className=""></span>
+          </div>
+          <div className="">
+            <img
+              className="shadow-2xl rounded-xl"
+              src={process.env.PUBLIC_URL + "/GuidePage/EnterpriseRentalCar.jpg"}
+              alt="Rental Car"
+              style={{ width: "200px", height: "auto" }}
+            />
+            <span className="text-s2xl ml-[30px]">Renting A Car</span>
           </div>
           <div>
-            <span className="text-2xl ml-[50px]">Renting A Car</span>
-          </div>
-          <div>
-            <span className="text-2xl ml-[100px]">Uber</span>
+            <img
+              className="shadow-2xl rounded-xl"
+              src={process.env.PUBLIC_URL + "/GuidePage/Rideshare.webp"}
+              alt="Rideshare"
+              style={{ width: "200px", height: "auto" }}
+            />
+            <span className="text-s2xl ml-[45px]">Rideshare</span>
           </div>
         </div>
       </div>
