@@ -6,33 +6,50 @@ const GuidePage: React.FC = () => {
       <div className="flex flex-col mt-[25px]">
         <span className="text-5xl text-center">Getting To UIUC</span>
         <div className="flex flex-row justify-center space-x-[250px] mt-[25px]">
-          <div className="text-center">
+          <div className="text-center shadow-xl rounded-xl">
             <img
-              className="shadow-2xl rounded-xl"
+              className="shadow-xl rounded-t-xl"
               src={process.env.PUBLIC_URL + "/GuidePage/PeoriaCharterBus.jpg"}
               alt="Peoria Charter Bus"
-              style={{ width: "200px", height: "auto" }}
+              style={{ width: "300px", height: "auto" }}
             />
-            <span className="text-s2xl text-center ml-[0px]">Peoria Charter</span>
-            <span className=""></span>
+            <span className="text-2xl text-center font-extralight">Peoria Charter</span>
+            <div className="flex flex-cols-3 space-x-[15px]">
+              <div className="text-sxl">
+                <span className="underline">Pros</span>
+                <ul className="list-disc pl-5">
+                  <li className="text-sl">Relatively Cheap</li>
+                  <li className="text-sl">Convienient</li>
+                  <li className="text-sl">Comfortable</li>
+                </ul>
+              </div>
+              <div className="h-[full] w-[2px] bg-black"></div>
+              <div className="text-ssxl">
+                <span className="underline">Cons</span>
+                <ul className="list-disc ml-[5px] pr-2">
+                  <li className="text-sl">Has Stops</li>
+                  <li className="text-sl">Inconsistent Time</li>
+                </ul>
+              </div>
+            </div>
           </div>
           <div className="">
             <img
               className="shadow-2xl rounded-xl"
               src={process.env.PUBLIC_URL + "/GuidePage/EnterpriseRentalCar.jpg"}
               alt="Rental Car"
-              style={{ width: "200px", height: "auto" }}
+              style={{ width: "300px", height: "auto" }}
             />
-            <span className="text-s2xl ml-[30px]">Renting A Car</span>
+            <span className="text-2xl text-center font-extralight ml-[100px]">Renting</span>
           </div>
           <div>
             <img
               className="shadow-2xl rounded-xl"
-              src={process.env.PUBLIC_URL + "/GuidePage/Rideshare.webp"}
+              src={process.env.PUBLIC_URL + "/GuidePage/Amtrak.jpg"}
               alt="Rideshare"
-              style={{ width: "200px", height: "auto" }}
+              style={{ width: "300px", height: "auto" }}
             />
-            <span className="text-s2xl ml-[45px]">Rideshare</span>
+            <span className="text-s2xl ml-[40px]">Amtrak</span>
           </div>
         </div>
       </div>
