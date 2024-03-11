@@ -22,7 +22,13 @@ module.exports = {
         footer: "#13294b",
         groundBase: "#fafafa",
       },
+
+      variants: {
+        extend: {
+          borderWidth: ["hover", "focus"],
+        },
+      },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/forms")],
 };
