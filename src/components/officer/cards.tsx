@@ -38,22 +38,26 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
   }, [isPopupOpen]);
 
   return (
-    <div className={`${className}`}>
-      <button onClick={openPopup} className="focus:outline-none">
-        <div className="h-[550px] w-[340px]">
-          <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl transform transition duration-300 ease-in-out hover:scale-105">
-            <img
-              src={process.env.PUBLIC_URL + member.image}
-              alt={member.name}
-              className="object-cover w-full h-full"
-            />
+    <div className="relative w-full">
+      <div className={`${className}`}>
+        <button onClick={openPopup} className="focus:outline-none">
+          <div className="h-[550px] w-[340px]">
+            <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl transform transition duration-300 ease-in-out hover:scale-105">
+              <img
+                src={process.env.PUBLIC_URL + member.image}
+                alt={member.name}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <div className="p-4 text-center">
+              <span className="block text-2xl font-semibold">
+                {member.name}
+              </span>
+              <span className="block text-md">{member.role}</span>
+            </div>
           </div>
-          <div className="p-4 text-center">
-            <span className="block text-2xl font-semibold">{member.name}</span>
-            <span className="block text-md">{member.role}</span>
-          </div>
-        </div>
-      </button>
+        </button>
+      </div>
       <Popup isOpen={isPopupOpen} onClose={closePopup} member={member} />
     </div>
   );
