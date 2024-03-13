@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Popup from "./card-popup";
+import Popup from "./card-popup"; // Update the import path according to your file structure
 
 interface OfficerCardsProps {
   member: {
@@ -11,9 +11,10 @@ interface OfficerCardsProps {
     instagram: string;
     linkedin: string;
   };
+  className?: string;
 }
 
-const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
+const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
   const [isPopupOpen, setPopupOpen] = useState(false);
 
   const openPopup = () => {
@@ -37,7 +38,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
   }, [isPopupOpen]);
 
   return (
-    <div>
+    <div className={`${className}`}>
       <button onClick={openPopup} className="focus:outline-none">
         <div className="h-[550px] w-[340px]">
           <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl transform transition duration-300 ease-in-out hover:scale-105">
@@ -48,8 +49,8 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
             />
           </div>
           <div className="p-4 text-center">
-            <span className="block text-2xl">{member.name}</span>
-            <span className="block">{member.role}</span>
+            <span className="block text-2xl font-semibold">{member.name}</span>
+            <span className="block text-md">{member.role}</span>
           </div>
         </div>
       </button>
@@ -59,7 +60,3 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member }) => {
 };
 
 export default OfficerCards;
-
-{
-  /* transform transition duration-300 ease-in-out hover:scale-105 */
-}
