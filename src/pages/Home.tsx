@@ -146,9 +146,6 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
-          <div className="mt-[150px]">
-            <span className="text-4xl">New to Urbana Champaign?</span>
-          </div>
         </div>
       </div>
     </div>
