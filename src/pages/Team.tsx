@@ -11,15 +11,12 @@ const TeamPage: React.FC = () => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("animate-fadeIn");
-          } else {
-            // Optional: Uncomment the following line if you want to re-trigger the animation
-            // entry.target.classList.remove("animate-fadeIn");
           }
         });
       },
       {
         rootMargin: "0px",
-        threshold: 0.1, // Adjust this value based on your needs
+        threshold: 0.1,
       }
     );
 
@@ -50,13 +47,14 @@ const TeamPage: React.FC = () => {
       </div>
       <div className="h-full w-full flex justify-center mt-[50px]">
         <div className="w-[80%]" ref={gridRef}>
-          <div className="grid grid-cols-3 gap-y-14 justify-items-center">
+          <div className="flex flex-wrap justify-center gap-y-14">
             {teamMembers.map((member, index) => (
-              <OfficerCards
-                key={index}
-                member={member}
-                className="opacity-0 officer-card"
-              />
+              <div key={index} className="flex justify-center w-1/3 p-4">
+                <OfficerCards
+                  member={member}
+                  className="flex-grow opacity-0 officer-card"
+                />
+              </div>
             ))}
           </div>
         </div>
