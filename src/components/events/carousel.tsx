@@ -2,7 +2,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Swiper as SwiperInstance } from "swiper";
 import "swiper/css";
-import { Autoplay, Pagination, Navigation, FreeMode } from 'swiper/modules';
+import { Autoplay, Pagination, Navigation, FreeMode } from "swiper/modules";
 
 type CarouselProps = {
   images: string[];
@@ -37,15 +37,11 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
           slidesPerView: 2,
         },
       }}
-      >
+    >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
           {/* Add the rounded class here */}
-          <img
-            src={image}
-            alt={`Slide ${index}`}
-            className="object-contain rounded-2xl"
-          />
+          <img src={image} alt={`Slide ${index}`} className="object-contain rounded-2xl" />
         </SwiperSlide>
       ))}
     </Swiper>
