@@ -2,28 +2,61 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <div className="flex items-center justify-between w-screen mx-auto text-white bg-footer">
-      <div className="m-7">
-        <div className="text-3xl">Contact Us</div>
-        <div>Couldn't find what you're looking for?</div>
-        <div>Contact us through email to get in touch!</div>
+    <div className="flex flex-col items-center justify-between w-screen mx-auto text-white bg-footer h-[150px]">
+      <div className="flex justify-center w-full space-x-14 mt-[40px]">
+        <a
+          href="https://web.whatsapp.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={process.env.PUBLIC_URL + "/footer/whatsapp.svg"}
+            alt="Whatsapp Logo"
+            width={50}
+            className=""
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/permiasuiuc/?hl=en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={process.env.PUBLIC_URL + "/footer/instagram.svg"}
+            alt="Instagram Logo"
+            width={50}
+            className=""
+          />
+        </a>
+        <a
+          href="https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2Fisc.uiuc%2F"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <img
+            src={process.env.PUBLIC_URL + "/footer/facebook.svg"}
+            alt="Facebook Logo"
+            width={50}
+            className=""
+          />
+        </a>
         <a
           href="mailto:permias.uiuc@gmail.com"
-          className="text-blue-500 hover:underline"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          permias.uiuc@gmail.com
+          <img
+            src={process.env.PUBLIC_URL + "/footer/mail.png"}
+            alt="Whatsapp Logo"
+            width={50}
+            className=""
+          />
         </a>
       </div>
-      <div className="items-end m-7">
-        <div className="text-xl">New Student?</div>
-        <div>
-          <a href="">Apply Here!</a>
-        </div>
-        <div>
-          <a href="">Events</a>
-          <a href="">Footer</a>
-        </div>
-      </div>
+      <span className="mb-[10px]">
+        © 2024 Indonesian Student Association at the University of Illinois
+        Urbana-Champaign
+      </span>
     </div>
   );
 };
