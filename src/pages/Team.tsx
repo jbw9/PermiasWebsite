@@ -45,11 +45,11 @@ const TeamPage: React.FC = () => {
       <div className="flex justify-center my-[75px]">
         <h1 className="text-6xl font-semibold">Meet Our Officers</h1>
       </div>
-      <div className="h-full w-full flex justify-center mt-[50px]">
-        <div className="w-[80%]" ref={gridRef}>
-          <div className="flex flex-wrap justify-center gap-y-14">
+      <div className="flex justify-center w-full h-full">
+        <div className="w-full" ref={gridRef}>
+          <div className="flex flex-wrap justify-center gap-y-14 gap-x-[120px]">
             {teamMembers.map((member, index) => (
-              <div key={index} className="flex justify-center w-1/3 p-4">
+              <div key={index} className="flex justify-center p-4">
                 <OfficerCards
                   member={member}
                   className="flex-grow opacity-0 officer-card"
