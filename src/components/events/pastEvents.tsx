@@ -11,13 +11,8 @@ const PastEvents = () => {
           </div>
           <div key={event.name} className="w-full ml-[40px]">
             <div className="mb-[5px] mt-[5px] items-start">
-              <div className="flex text-3xl whitespace-nowrap">
-                {event.name}
-              </div>
+              <div className="flex text-3xl whitespace-nowrap">{event.name}</div>
               <div className="flex text-xl whitespace-nowrap">{event.date}</div>
-              <div className="flex items-start text-lg">
-                {event.description}
-              </div>
             </div>
             <div className="overflow-hidden">
               <Carousel images={event.images} />
