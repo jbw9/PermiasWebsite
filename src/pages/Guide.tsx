@@ -1,4 +1,5 @@
 import React from "react";
+import GuideCard from "../components/guide/card";
 
 const GuidePage: React.FC = () => {
   return (
@@ -17,60 +18,18 @@ const GuidePage: React.FC = () => {
             <div className="flex flex-cols-3 space-x-[15px]">
             </div>
           </div>
-          <div className="text-center shadow-xl rounded-xl">
-            <img
-              className="shadow-xl rounded-t-xl"
-              src={process.env.PUBLIC_URL + "/GuidePage/EnterpriseRentalCar.jpg"}
-              alt="Rental Car"
-              style={{ width: "325px", height: "210px" }}
-            />
-            <span className="text-2xl text-center font-extralight">Rental Car</span>
-            <div className="flex flex-cols-3 space-x-[15px]">
-              <div className="text-sxl">
-                <span className="underline">Pros</span>
-                <ul className="list-disc ml-[3px] pl-5">
-                  <li className="text-sl">Flexibility</li>
-                  <li className="text-sl">Convieniency</li>
-                  <li className="text-sl">Cheap With People</li>
-                </ul>
-              </div>
-              <div className="h-[full] w-[2px] bg-black"></div>
-              <div className="text-ssxl">
-                <span className="underline">Cons</span>
-                <ul className="list-disc ml-[6px] pr-2">
-                  <li className="text-sl">Pricy Alone</li>
-                  <li className="text-sl">Slippery In Winter</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-          <div className="text-center shadow-xl rounded-xl">
-            <img
-              className="shadow-xl rounded-t-xl"
-              src={process.env.PUBLIC_URL + "/GuidePage/Amtrak.jpg"}
-              alt="Amtrak"
-              style={{ width: "325px", height: "210px" }}
-            />
-            <span className="text-2xl text-center font-extralight">Amtrak</span>
-            <div className="flex flex-cols-3 space-x-[15px]">
-              <div className="text-sxl">
-                <span className="underline">Pros</span>
-                <ul className="list-disc ml-[3px] pl-5">
-                  <li className="text-sl">Cheapest Option</li>
-                  <li className="text-sl">Consistent Times</li>
-                  <li className="text-sl"></li>
-                </ul>
-              </div>
-              <div className="h-[full] w-[2px] bg-black"></div>
-              <div className="text-ssxl">
-                <span className="underline">Cons</span>
-                <ul className="list-disc ml-[6px] pr-2">
-                  <li className="text-sl">Has Multiple Stops</li>
-                  <li className="text-sl">Inconvienient Stops</li>
-                </ul>
-              </div>
-            </div>
-          </div>
+          <GuideCard 
+            imagePath="/GuidePage/EnterpriseRentalCar.jpg"
+            title="Rental Car"
+            pros={["Flexibility", "Convieniency", "Cheap With People"]}
+            cons={["Pricy Alone", "Hard to Drive in Winter"]}
+          />
+          <GuideCard 
+            imagePath="/GuidePage/Amtrak.jpg"
+            title="Amtrak"
+            pros={["Cheapest Option", "Consistent Times"]}
+            cons={["Inconvenient Stops"]}
+          />
         </div>
       </div>
     </div>
