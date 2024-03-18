@@ -59,6 +59,23 @@ const HomePage: React.FC = () => {
           children={<WebsiteTitle />}
         />
       </div>
+      <div className="flex mx-[150px] mt-[100px] justify-center items-center">
+        <div className="flex items-center w-[40%]">
+          <span className="font-bold text-7xl">
+            Welcome to the official PERMIAS University of Illinois at
+            Urbana-Champaign Website
+          </span>
+        </div>
+        <div className="flex justify-end w-1/2">
+          <img
+            className=""
+            src={process.env.PUBLIC_URL + "/Home/largelogo.png"}
+            alt=""
+            height={400}
+            width={550}
+          />
+        </div>
+      </div>
       <div className="flex items-center justify-center w-full">
         <div className="w-full mt-[50px] flex flex-col items-center px-[150px]">
           <div className="mt-[0px] text-center w-full">
