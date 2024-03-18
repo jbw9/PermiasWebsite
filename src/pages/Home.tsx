@@ -94,30 +94,43 @@ const HomePage: React.FC = () => {
             </div>
           </div>
           <div className="flex flex-col items-center mt-[100px]">
-            <span className="text-4xl font-semibold">Join Our Family</span>
-            <a
-              href="https://www.google.com/forms/about/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4"
-            >
-              <div className="bg-footer rounded-full w-[200px] h-[50px] flex justify-center items-center">
-                <span className="text-white">Click Here To Join</span>
+            <div className="container px-4 mx-auto">
+              <h2 className="mb-8 text-4xl font-semibold text-center">
+                Get Involved
+              </h2>
+              <div className="flex justify-center space-x-8">
+                <div className="flex flex-col items-center">
+                  <a
+                    href="https://www.google.com/forms/about/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-4"
+                  >
+                    <div className="bg-footer rounded-full w-[200px] h-[50px] flex justify-center items-center">
+                      <span className="text-white">Join Our Family</span>
+                    </div>
+                  </a>
+                  <p className="text-gray-600">
+                    Become a part of our community
+                  </p>
+                </div>
+                <div className="flex flex-col items-center">
+                  <a
+                    href="https://www.google.com/forms/about/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mb-4"
+                  >
+                    <div className="bg-footer rounded-full w-[200px] h-[50px] flex justify-center items-center">
+                      <span className="text-white">Leave Feedback</span>
+                    </div>
+                  </a>
+                  <p className="text-gray-600">
+                    Share your thoughts and suggestions
+                  </p>
+                </div>
               </div>
-            </a>
-          </div>
-          <div className="flex flex-col items-center mt-[100px]">
-            <span className="text-4xl font-semibold">Got Feedback?</span>
-            <a
-              href="https://www.google.com/forms/about/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-4"
-            >
-              <div className="bg-footer rounded-full w-[200px] h-[50px] flex justify-center items-center">
-                <span className="text-white">Leave a Message</span>
-              </div>
-            </a>
+            </div>
           </div>
         </div>
       </div>
