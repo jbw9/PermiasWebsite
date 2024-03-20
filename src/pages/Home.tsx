@@ -110,6 +110,27 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
+          <div className="flex mx-[150px] mt-[100px] justify-center items-center">
+            <div className="flex justify-start mr-[100px]">
+              <img
+                className="overflow-hidden shadow-2xl rounded-3xl"
+                src={process.env.PUBLIC_URL + "/officers/aisha.png"}
+                alt=""
+                height={200}
+                width={400}
+              />
+            </div>
+            <div className="flex flex-col w-[40%]">
+              <span className="mb-4 text-5xl font-bold">
+                "OTCR Consultants are passionate, knowledgeable, and have a keen
+                intuition for the business world"
+              </span>
+              <div className="flex flex-col mt-[20px] space-y-1">
+                <span className="text-xl">Aisha Tanjung</span>
+                <span className="text-xl">President</span>
+              </div>
+            </div>
+          </div>
           <div className="flex flex-col items-center mt-[100px]">
             <div className="container px-4 mx-auto">
               <h2 className="mb-8 text-4xl font-semibold text-center">
