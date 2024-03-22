@@ -25,6 +25,7 @@ module.exports = {
         footer: "#13294b",
         groundBase: "#fafafa",
         red: "#8c0305",
+        lightGray: "#f5f5f7",
       },
       variants: {
         extend: {

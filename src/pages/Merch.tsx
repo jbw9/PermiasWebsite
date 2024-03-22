@@ -26,7 +26,7 @@ const MerchPage: React.FC = () => {
       <div className="h-w-full mt-[50px] flex flex-col items-center px-[100px]">
         <div className="flex">
           <button onClick={openPopup}>
-            <div className="h-[660px] w-[450px] mr-[200px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center transform transition duration-300 ease-in-out hover:scale-105">
+            <div className="h-[660px] w-[450px] mr-[200px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center transform transition duration-300 ease-in-out hover:scale-105 ring-1 ring-gray-200">
               <img
                 src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Main.png"}
                 alt="2021 hoodie"
@@ -37,7 +37,7 @@ const MerchPage: React.FC = () => {
             </div>
           </button>
           <Popup2023 isOpen={isPopupOpen} onClose={closePopup} />
-          <div className="h-[660px] w-[450px] bg-merchbg rounded-2xl shadow-2xl flex flex-col justify-center items-center">
+          <div className="h-[660px] w-[450px] bg-merchbg rounded-2xl shadow-2xl flex flex-col justify-center items-center ring-1 ring-gray-200">
             <img
               src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Main.png"}
               alt="2021 hoodie"
