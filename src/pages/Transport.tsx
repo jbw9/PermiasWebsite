@@ -4,7 +4,9 @@ const GuidePage: React.FC = () => {
   return (
     <div>
       <div className="flex flex-col mt-[65px]">
-        <span className="text-5xl text-center font-semibold">Getting To UIUC</span>
+        <span className="text-5xl font-semibold text-center text-footer">
+          Getting To UIUC
+        </span>
         <div className="flex flex-row justify-center space-x-[250px] mt-[25px]">
           <div className="text-center shadow-xl rounded-xl h-[340px]">
             <img
@@ -13,7 +15,9 @@ const GuidePage: React.FC = () => {
               alt="Peoria Charter Bus"
               style={{ width: "325px", height: "210px" }}
             />
-            <span className="text-2xl text-center font-extralight">Peoria Charter</span>
+            <span className="text-2xl text-center font-extralight">
+              Peoria Charter
+            </span>
             <div className="flex flex-cols-3 space-x-[15px]">
               <div className="text-sxl">
                 <span className="underline">Pros</span>
@@ -36,11 +40,15 @@ const GuidePage: React.FC = () => {
           <div className="text-center shadow-xl rounded-xl">
             <img
               className="shadow-xl rounded-t-xl"
-              src={process.env.PUBLIC_URL + "/GuidePage/EnterpriseRentalCar.jpg"}
+              src={
+                process.env.PUBLIC_URL + "/GuidePage/EnterpriseRentalCar.jpg"
+              }
               alt="Rental Car"
               style={{ width: "325px", height: "210px" }}
             />
-            <span className="text-2xl text-center font-extralight">Rental Car</span>
+            <span className="text-2xl text-center font-extralight">
+              Rental Car
+            </span>
             <div className="flex flex-cols-3 space-x-[15px]">
               <div className="text-sxl">
                 <span className="underline">Pros</span>
@@ -90,7 +98,9 @@ const GuidePage: React.FC = () => {
         </div>
       </div>
       <div className="flex flex-col justify-center mt-[65px] ">
-        <span className="text-5xl text-center font-semibold">Urbana-Champaign</span>
+        <span className="text-5xl font-semibold text-center">
+          Urbana-Champaign
+        </span>
         <div className="flex flex-row space-x-[450px] mt-[20px] justify-center">
           <div className="text-center">
             <img
