@@ -145,7 +145,7 @@ const HomePage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="mb-4"
                   >
-                    <div className="bg-footer rounded-2xl w-[200px] h-[50px] flex justify-center items-center">
+                    <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center">
                       <span className="text-white">Join Our Family</span>
                     </div>
                   </a>
@@ -160,7 +160,7 @@ const HomePage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="mb-4"
                   >
-                    <div className="bg-footer rounded-2xl w-[200px] h-[50px] flex justify-center items-center">
+                    <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center">
                       <span className="text-white">Leave Feedback</span>
                     </div>
                   </a>

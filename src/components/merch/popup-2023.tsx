@@ -80,7 +80,7 @@ const Popup2023: React.FC<PropOpen> = ({ isOpen, onClose }) => {
                   key={size}
                   className={`relative flex items-center justify-center w-15 h-10 border-2 rounded-full cursor-pointer ${
                     availableSizes.includes(size)
-                      ? "bg-footer text-white"
+                      ? "bg-red text-white"
                       : "text-gray-500 cursor-not-allowed"
                   }`}
                 >
@@ -100,7 +100,7 @@ const Popup2023: React.FC<PropOpen> = ({ isOpen, onClose }) => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="text-3xl text-white bg-footer rounded-3xl h-[45px] w-[250px] mb-[50px]">
+              <button className="text-3xl text-white bg-red rounded-3xl h-[45px] w-[250px] mb-[50px]">
                 Buy
               </button>
             </a>
