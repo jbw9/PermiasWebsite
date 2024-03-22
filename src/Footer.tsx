@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-between w-screen mx-auto text-white bg-footer h-[150px]">
+    <div className="flex flex-col items-center justify-between w-screen mx-auto text-white bg-red h-[150px]">
       <div className="flex justify-center w-full space-x-14 mt-[40px]">
         <a
           href="https://web.whatsapp.com/"

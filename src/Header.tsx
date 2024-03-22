@@ -25,7 +25,7 @@ const Header: React.FC = () => {
         >
           Home
           <span
-            className={`absolute bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
+            className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
               isActive("/") ? "scale-x-100" : ""
             }`}
           ></span>
@@ -38,7 +38,7 @@ const Header: React.FC = () => {
         >
           About Us
           <span
-            className={`absolute bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
+            className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
               isActive("/about-us") ? "scale-x-100" : ""
             }`}
           ></span>
@@ -51,7 +51,7 @@ const Header: React.FC = () => {
         >
           Team
           <span
-            className={`absolute bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
+            className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
               isActive("/team") ? "scale-x-100" : ""
             }`}
           ></span>
@@ -64,7 +64,7 @@ const Header: React.FC = () => {
         >
           Events
           <span
-            className={`absolute bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
+            className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
               isActive("/events") ? "scale-x-100" : ""
             }`}
           ></span>
@@ -77,7 +77,7 @@ const Header: React.FC = () => {
         >
           Merch
           <span
-            className={`absolute bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
+            className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
               isActive("/merch") ? "scale-x-100" : ""
             }`}
           ></span>
@@ -90,7 +90,7 @@ const Header: React.FC = () => {
         >
           Guide
           <span
-            className={`absolute bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
+            className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
               isActive("/guide") ? "scale-x-100" : ""
             }`}
           ></span>
