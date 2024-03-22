@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
         />
       </div>
       <div className="flex items-center justify-center w-full">
-        <div className="w-full mt-[50px] flex flex-col items-center px-[150px]">
+        <div className="w-full mt-[70px] flex flex-col items-center px-[150px]">
           <div className="flex space-x-[50px]">
             <img
               className="object-cover rounded-2xl"
@@ -97,6 +97,69 @@ const HomePage: React.FC = () => {
                     <span className="text-white">Read More</span>
                   </div>
                 </Link>
+              </div>
+            </div>
+          </div>
+          <div className="mt-[100px] flex flex-col items-center justify-center">
+            <div>
+              <span className="text-5xl font-semibold">Our </span>
+              <span className="text-5xl font-bold text-red">Purpose</span>
+            </div>
+            <div className="flex space-x-[60px] mt-[30px]">
+              <div className="h-[520px] w-[400px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200">
+                <img
+                  className="mt-[70px]"
+                  src={process.env.PUBLIC_URL + "/Home/networking.png"}
+                  alt=""
+                  height={175}
+                  width={175}
+                />
+                <div className="mt-[60px] flex flex-col items-center mx-[40px]">
+                  <span className="text-4xl font-semibold text-center">
+                    Networking
+                  </span>
+                  <div className="w-full mt-4 text-lg">
+                    Connect with fellow Indonesian students in the to foster
+                    professional relationships, creating a strong, supportive
+                    network of peers.
+                  </div>
+                </div>
+              </div>
+              <div className="h-[520px] w-[400px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200">
+                <img
+                  className="mt-[70px]"
+                  src={process.env.PUBLIC_URL + "/Home/entertainment.png"}
+                  alt=""
+                  height={175}
+                  width={175}
+                />
+                <div className="mt-[60px] flex flex-col items-center mx-[40px]">
+                  <span className="text-4xl font-semibold text-center">
+                    Entertainment
+                  </span>
+                  <div className="w-full mt-4 text-lg">
+                    Attend engaging events organized by our team, creating
+                    unforgettable experiences together.
+                  </div>
+                </div>
+              </div>
+              <div className="h-[520px] w-[400px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200">
+                <img
+                  className="mt-[70px]"
+                  src={process.env.PUBLIC_URL + "/Home/friendship.png"}
+                  alt=""
+                  height={175}
+                  width={175}
+                />
+                <div className="mt-[60px] flex flex-col items-center mx-[40px]">
+                  <span className="text-4xl font-semibold text-center">
+                    Friendship
+                  </span>
+                  <div className="w-full mt-4 text-lg">
+                    Forge friendships with peers sharing your culture, building
+                    enduring connections that extend beyond university life.
+                  </div>
+                </div>
               </div>
             </div>
           </div>
