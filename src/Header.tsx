@@ -84,7 +84,7 @@ const Header: React.FC = () => {
         </Link>
         <Link
           to="/guide"
-          className={`mx-2 text-sxl text-footer relative inline-block group ${isActive(
+          className={`mx-2 text-sxl text-footer mr-[30px] relative inline-block group ${isActive(
             "/guide"
           )}`}
         >

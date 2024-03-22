@@ -76,7 +76,7 @@ const HomePage: React.FC = () => {
               width={550}
             />
             <div className="flex flex-col">
-              <span className="text-3xl">About our</span>
+              <span className="text-3xl text-footer">About our</span>
               <span className="text-5xl font-bold text-red">Community</span>
               <span className="text-lg mt-[20px]">
                 PERMIAS UIUC, also known as the Indonesian Students Club (ISC),
@@ -102,7 +102,9 @@ const HomePage: React.FC = () => {
           </div>
           <div className="mt-[100px] text-center w-full">
             <div>
-              <span className="text-5xl font-semibold">Upcoming </span>
+              <span className="text-5xl font-semibold text-footer">
+                Upcoming{" "}
+              </span>
               <span className="text-5xl font-bold text-red">Events</span>
             </div>
             <div className="flex justify-center space-x-[150px] mt-[20px]">
@@ -144,7 +146,7 @@ const HomePage: React.FC = () => {
           </div>
           <div className="mt-[100px] flex flex-col items-center justify-center">
             <div>
-              <span className="text-5xl font-semibold">Our </span>
+              <span className="text-5xl font-semibold text-footer">Our </span>
               <span className="text-5xl font-bold text-red">Purpose</span>
             </div>
             <div className="flex space-x-[60px] mt-[30px]">
@@ -157,7 +159,7 @@ const HomePage: React.FC = () => {
                   width={175}
                 />
                 <div className="mt-[60px] flex flex-col items-center mx-[40px]">
-                  <span className="text-4xl font-semibold text-center">
+                  <span className="text-4xl font-semibold text-center text-footer">
                     Networking
                   </span>
                   <div className="w-full mt-4 text-lg">
@@ -176,7 +178,7 @@ const HomePage: React.FC = () => {
                   width={175}
                 />
                 <div className="mt-[60px] flex flex-col items-center mx-[40px]">
-                  <span className="text-4xl font-semibold text-center">
+                  <span className="text-4xl font-semibold text-center text-footer">
                     Entertainment
                   </span>
                   <div className="w-full mt-4 text-lg">
@@ -194,7 +196,7 @@ const HomePage: React.FC = () => {
                   width={175}
                 />
                 <div className="mt-[60px] flex flex-col items-center mx-[40px]">
-                  <span className="text-4xl font-semibold text-center">
+                  <span className="text-4xl font-semibold text-center text-footer">
                     Friendship
                   </span>
                   <div className="w-full mt-4 text-lg">
@@ -208,7 +210,7 @@ const HomePage: React.FC = () => {
           <div className="flex flex-col items-center mt-[100px]">
             <div className="container px-4 mx-auto">
               <div className="mb-8 text-center">
-                <span className="text-5xl font-semibold">Get </span>
+                <span className="text-5xl font-semibold text-footer">Get </span>
                 <span className="text-5xl font-bold text-red">Involved</span>
               </div>
               <div className="flex justify-center space-x-8">
