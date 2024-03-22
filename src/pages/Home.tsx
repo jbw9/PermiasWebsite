@@ -9,7 +9,7 @@ const WebsiteTitle: React.FC = () => {
       <div className="mt-[80px] flex flex-col">
         <span className="font-bold text-7xl">PERMIAS UIUC</span>
         <span className="text-xl mt-[10px]">
-          Welcome to our official Website
+          Welcome to Our Official Website
         </span>
       </div>
       <div className="absolute bottom-0 flex justify-center items-center h-[100px] w-[200px] mb-[10px]">
@@ -66,7 +66,7 @@ const HomePage: React.FC = () => {
         />
       </div>
       <div className="flex items-center justify-center w-full">
-        <div className="w-full mt-[70px] flex flex-col items-center px-[150px]">
+        <div className="w-full mt-[100px] flex flex-col items-center px-[150px]">
           <div className="flex space-x-[50px]">
             <img
               className="object-cover rounded-2xl"
@@ -91,13 +91,55 @@ const HomePage: React.FC = () => {
                 culture, and provide valuable networking opportunities for our
                 members.
               </span>
-              <div className="mt-[20px]">
+              <div className="mt-[20px] inline-block">
                 <Link to="/about-us" className="mb-4">
-                  <div className="bg-red rounded-2xl w-[150px] h-[50px] flex justify-center items-center">
+                  <div className="bg-red rounded-2xl w-[150px] h-[50px] flex justify-center items-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2">
                     <span className="text-white">Read More</span>
                   </div>
                 </Link>
               </div>
+            </div>
+          </div>
+          <div className="mt-[100px] text-center w-full">
+            <div>
+              <span className="text-5xl font-semibold">Upcoming </span>
+              <span className="text-5xl font-bold text-red">Events</span>
+            </div>
+            <div className="flex justify-center space-x-[150px] mt-[20px]">
+              <UpcomingEvents
+                eventCoverImage="buka_bersama"
+                eventName="Buka Bersama"
+                eventDate={28}
+                eventMonth="March"
+                eventLocation="Orchard Downs"
+                eventTime="5:00 - 8:30 pm"
+                eventrsvpLink="https://www.google.com/forms/about/"
+              />
+              {/* <UpcomingEvents
+                eventCoverImage="satefundraising"
+                eventName="Sate Fundraising"
+                eventDate={8}
+                eventMonth="April"
+                eventLocation="Illini Union"
+                eventTime="1:00 - 3:00 pm"
+                eventrsvpLink="https://www.google.com/forms/about/"
+              /> */}
+              <UpcomingEvents
+                eventCoverImage="gradnight"
+                eventName="Grad Night"
+                eventDate={10}
+                eventMonth="May"
+                eventLocation="Illini Union"
+                eventTime="7:00 - 9:00 pm"
+                eventrsvpLink="https://www.google.com/forms/about/"
+              />
+            </div>
+            <div className="mt-[20px] flex justify-center">
+              <Link to="/events" className="inline-block mb-4">
+                <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2">
+                  <span className="text-white">View Past Events</span>
+                </div>
+              </Link>
             </div>
           </div>
           <div className="mt-[100px] flex flex-col items-center justify-center">
@@ -163,55 +205,25 @@ const HomePage: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="mt-[100px] text-center w-full">
-            <span className="text-5xl font-bold">Upcoming Events</span>
-            <div className="flex justify-center space-x-[150px] mt-[20px]">
-              <UpcomingEvents
-                eventCoverImage="buka_bersama"
-                eventName="Buka Bersama"
-                eventDate={28}
-                eventMonth="March"
-                eventLocation="Orchard Downs"
-                eventTime="5:00 - 8:30 pm"
-                eventrsvpLink="https://www.google.com/forms/about/"
-              />
-              {/* <UpcomingEvents
-                eventCoverImage="satefundraising"
-                eventName="Sate Fundraising"
-                eventDate={8}
-                eventMonth="April"
-                eventLocation="Illini Union"
-                eventTime="1:00 - 3:00 pm"
-                eventrsvpLink="https://www.google.com/forms/about/"
-              /> */}
-              <UpcomingEvents
-                eventCoverImage="gradnight"
-                eventName="Grad Night"
-                eventDate={10}
-                eventMonth="May"
-                eventLocation="Illini Union"
-                eventTime="7:00 - 9:00 pm"
-                eventrsvpLink="https://www.google.com/forms/about/"
-              />
-            </div>
-          </div>
           <div className="flex flex-col items-center mt-[100px]">
             <div className="container px-4 mx-auto">
-              <h2 className="mb-8 text-5xl font-bold text-center">
-                Get Involved
-              </h2>
+              <div className="mb-8 text-center">
+                <span className="text-5xl font-semibold">Get </span>
+                <span className="text-5xl font-bold text-red">Involved</span>
+              </div>
               <div className="flex justify-center space-x-8">
                 <div className="flex flex-col items-center">
                   <a
                     href="https://www.google.com/forms/about/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mb-4"
+                    className="inline-block mb-4"
                   >
-                    <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center">
+                    <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2">
                       <span className="text-white">Join Our Family</span>
                     </div>
                   </a>
+
                   <p className="text-gray-600">
                     Become a part of our community
                   </p>
@@ -221,10 +233,10 @@ const HomePage: React.FC = () => {
                     href="https://www.google.com/forms/about/"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="mb-4"
+                    className="inline-block mb-4"
                   >
-                    <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center">
-                      <span className="text-white">Leave Feedback</span>
+                    <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2">
+                      <span className="text-white">Leave a Message</span>
                     </div>
                   </a>
                   <p className="text-gray-600">
