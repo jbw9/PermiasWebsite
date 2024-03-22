@@ -13,7 +13,10 @@ const EventPage: React.FC = () => {
         />
       </div>
       <div className="text-center mt-[50px]">
-        <span className="text-6xl font-semibold">Our Upcoming Events</span>
+        <div>
+          <span className="text-5xl font-semibold">Upcoming </span>
+          <span className="text-5xl font-bold text-red">Events</span>
+        </div>
         <div className="flex justify-center space-x-[150px] mt-[30px]">
           <UpcomingEvents
             eventCoverImage="buka_bersama"
@@ -44,7 +47,10 @@ const EventPage: React.FC = () => {
           />
         </div>
         <div className="mt-[130px]">
-          <span className="text-6xl font-semibold">Our Past Events</span>
+          <div>
+            <span className="text-5xl font-semibold">Past </span>
+            <span className="text-5xl font-bold text-red">Events</span>
+          </div>
           <div className="flex mt-[30px] mx-[170px] overflow-hidden">
             <div className="absolute w-[8px] bg-red rounded-lg h-[2250px] ml-[8px]"></div>
             <div className="">
