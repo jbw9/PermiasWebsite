@@ -6,12 +6,13 @@ import { Autoplay, Pagination, Navigation, FreeMode } from "swiper/modules";
 
 type CarouselProps = {
   images: string[];
+  direction: "left" | "right";
 };
 
-const Carousel: React.FC<CarouselProps> = ({ images }) => {
+const Carousel: React.FC<CarouselProps> = ({ images, direction }) => {
   return (
     <Swiper
-      speed={1500}
+      speed={3000} // Increase the speed to make the transition smoother
       centeredSlides={true}
       spaceBetween={15}
       slidesPerView={"auto"}
@@ -22,8 +23,9 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
       }}
       navigation={true}
       autoplay={{
-        delay: 700,
+        delay: 0, // Set the delay to 0 to start the autoplay immediately
         disableOnInteraction: false,
+        reverseDirection: direction === "left",
       }}
       freeMode={true}
       modules={[Autoplay, Pagination, Navigation, FreeMode]}
@@ -40,8 +42,11 @@ const Carousel: React.FC<CarouselProps> = ({ images }) => {
     >
       {images.map((image, index) => (
         <SwiperSlide key={index}>
-          {/* Add the rounded class here */}
-          <img src={image} alt={`Slide ${index}`} className="object-contain rounded-2xl" />
+          <img
+            src={image}
+            alt={`Slide ${index}`}
+            className="object-contain rounded-2xl"
+          />
         </SwiperSlide>
       ))}
     </Swiper>
