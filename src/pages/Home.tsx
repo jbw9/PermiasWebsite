@@ -1,11 +1,17 @@
 import React from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
 import UpcomingEvents from "../components/events/upcomingEvents";
+import { Link, useLocation } from "react-router-dom";
 
 const WebsiteTitle: React.FC = () => {
   return (
     <div className="relative flex justify-center h-full">
-      <div className="text-7xl mt-[80px]">PERMIAS UIUC</div>
+      <div className="mt-[80px] flex flex-col">
+        <span className="font-bold text-7xl">PERMIAS UIUC</span>
+        <span className="text-xl mt-[10px]">
+          Welcome to our official Website
+        </span>
+      </div>
       <div className="absolute bottom-0 flex justify-center items-center h-[100px] w-[200px] mb-[10px]">
         <div className="flex">
           <a
@@ -59,28 +65,44 @@ const HomePage: React.FC = () => {
           children={<WebsiteTitle />}
         />
       </div>
-      <div className="flex mx-[150px] mt-[100px] justify-center items-center">
-        <div className="flex items-center w-[40%]">
-          <span className="font-bold text-7xl">
-            Welcome to the official PERMIAS University of Illinois at
-            Urbana-Champaign Website
-          </span>
-        </div>
-        <div className="flex justify-end w-1/2">
-          <img
-            className=""
-            src={process.env.PUBLIC_URL + "/Home/largelogo.png"}
-            alt=""
-            height={400}
-            width={550}
-          />
-        </div>
-      </div>
       <div className="flex items-center justify-center w-full">
         <div className="w-full mt-[50px] flex flex-col items-center px-[150px]">
-          <div className="mt-[0px] text-center w-full">
-            <span className="text-4xl font-semibold">Upcoming Events</span>
-            <div className="flex justify-center space-x-[150px] mt-[30px]">
+          <div className="flex space-x-[50px]">
+            <img
+              className="object-cover rounded-2xl"
+              src={process.env.PUBLIC_URL + "/Home/about.png"}
+              alt=""
+              height={700}
+              width={550}
+            />
+            <div className="flex flex-col">
+              <span className="text-3xl">About our</span>
+              <span className="text-5xl font-bold text-red">Community</span>
+              <span className="text-lg mt-[20px]">
+                PERMIAS UIUC, also known as the Indonesian Students Club (ISC),
+                is a vibrant Indonesian community based in Urbana-Champaign,
+                committed to uniting Indonesian students at the University of
+                Illinois at Urbana-Champaign and showcasing our rich culture to
+                the wider Illinois community. Our vision centers on creating a
+                welcoming and engaging environment for socializing and
+                networking, both within the local Indonesian community and
+                across the Midwest. Through a variety of cultural events and
+                activities, we aim to foster connections, promote Indonesian
+                culture, and provide valuable networking opportunities for our
+                members.
+              </span>
+              <div className="mt-[20px]">
+                <Link to="/about-us" className="mb-4">
+                  <div className="bg-red rounded-2xl w-[150px] h-[50px] flex justify-center items-center">
+                    <span className="text-white">Read More</span>
+                  </div>
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="mt-[100px] text-center w-full">
+            <span className="text-5xl font-bold">Upcoming Events</span>
+            <div className="flex justify-center space-x-[150px] mt-[20px]">
               <UpcomingEvents
                 eventCoverImage="buka_bersama"
                 eventName="Buka Bersama"
@@ -110,30 +132,9 @@ const HomePage: React.FC = () => {
               />
             </div>
           </div>
-          <div className="flex mx-[150px] mt-[100px] justify-center items-center">
-            <div className="flex justify-start mr-[100px]">
-              <img
-                className="overflow-hidden shadow-2xl rounded-3xl"
-                src={process.env.PUBLIC_URL + "/officers/aisha.png"}
-                alt=""
-                height={200}
-                width={400}
-              />
-            </div>
-            <div className="flex flex-col w-[40%]">
-              <span className="mb-4 text-5xl font-bold">
-                "OTCR Consultants are passionate, knowledgeable, and have a keen
-                intuition for the business world"
-              </span>
-              <div className="flex flex-col mt-[20px] space-y-1">
-                <span className="text-xl">Aisha Tanjung</span>
-                <span className="text-xl">President</span>
-              </div>
-            </div>
-          </div>
           <div className="flex flex-col items-center mt-[100px]">
             <div className="container px-4 mx-auto">
-              <h2 className="mb-8 text-4xl font-semibold text-center">
+              <h2 className="mb-8 text-5xl font-bold text-center">
                 Get Involved
               </h2>
               <div className="flex justify-center space-x-8">
@@ -144,7 +145,7 @@ const HomePage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="mb-4"
                   >
-                    <div className="bg-footer rounded-full w-[200px] h-[50px] flex justify-center items-center">
+                    <div className="bg-footer rounded-2xl w-[200px] h-[50px] flex justify-center items-center">
                       <span className="text-white">Join Our Family</span>
                     </div>
                   </a>
@@ -159,7 +160,7 @@ const HomePage: React.FC = () => {
                     rel="noopener noreferrer"
                     className="mb-4"
                   >
-                    <div className="bg-footer rounded-full w-[200px] h-[50px] flex justify-center items-center">
+                    <div className="bg-footer rounded-2xl w-[200px] h-[50px] flex justify-center items-center">
                       <span className="text-white">Leave Feedback</span>
                     </div>
                   </a>
