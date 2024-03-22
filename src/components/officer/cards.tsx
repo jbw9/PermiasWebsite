@@ -53,7 +53,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
               <span className="block text-2xl font-semibold">
                 {member.name}
               </span>
-              <span className="block text-md">{member.role}</span>
+              <span className="block text-md text-red">{member.role}</span>
             </div>
           </div>
         </button>

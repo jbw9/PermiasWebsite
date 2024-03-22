@@ -43,7 +43,10 @@ const TeamPage: React.FC = () => {
         />
       </div>
       <div className="flex justify-center my-[75px]">
-        <h1 className="text-6xl font-semibold">Meet Our Officers</h1>
+        <div>
+          <span className="text-5xl font-semibold">Meet </span>
+          <span className="text-5xl font-bold text-red">Our Officers</span>
+        </div>
       </div>
       <div className="flex justify-center w-full h-full">
         <div className="w-full" ref={gridRef}>
