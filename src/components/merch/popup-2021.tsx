@@ -5,7 +5,7 @@ interface PropOpen {
   onClose: () => void;
 }
 
-const Popup2023: React.FC<PropOpen> = ({ isOpen, onClose }) => {
+const Popup2021: React.FC<PropOpen> = ({ isOpen, onClose }) => {
   const availableSizes = ["XXS", "S", "M", "XL", "XXL"];
   const popupRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -65,7 +65,7 @@ const Popup2023: React.FC<PropOpen> = ({ isOpen, onClose }) => {
         <div className="flex flex-col justify-between ml-[10px]">
           <div>
             <span className="block mt-[20px] text-3xl mb-[-10px]">
-              2023 Permias Hoodie
+              2021 Permias Hoodie
             </span>
             <div className="flex items-center justify-center">
               <span className="text-2xl my-[20px]">Price: $25</span>
@@ -111,4 +111,4 @@ const Popup2023: React.FC<PropOpen> = ({ isOpen, onClose }) => {
   );
 };
 
-export default Popup2023;
+export default Popup2021;

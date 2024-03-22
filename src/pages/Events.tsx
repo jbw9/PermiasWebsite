@@ -14,7 +14,7 @@ const EventPage: React.FC = () => {
       </div>
       <div className="text-center mt-[50px]">
         <div>
-          <span className="text-5xl font-semibold">Upcoming </span>
+          <span className="text-5xl font-semibold text-footer">Upcoming </span>
           <span className="text-5xl font-bold text-red">Events</span>
         </div>
         <div className="flex justify-center space-x-[150px] mt-[30px]">
@@ -48,7 +48,7 @@ const EventPage: React.FC = () => {
         </div>
         <div className="mt-[130px]">
           <div>
-            <span className="text-5xl font-semibold">Past </span>
+            <span className="text-5xl font-semibold text-footer">Past </span>
             <span className="text-5xl font-bold text-red">Events</span>
           </div>
           <div className="flex mt-[30px] mx-[170px] overflow-hidden">

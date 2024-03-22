@@ -44,7 +44,7 @@ const TeamPage: React.FC = () => {
       </div>
       <div className="flex justify-center my-[75px]">
         <div>
-          <span className="text-5xl font-semibold">Meet </span>
+          <span className="text-5xl font-semibold text-footer">Meet </span>
           <span className="text-5xl font-bold text-red">Our Officers</span>
         </div>
       </div>
