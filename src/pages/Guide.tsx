@@ -1,35 +1,66 @@
-import React from "react";
-import GuideCard from "../components/guide/card";
+import React, { useState } from "react";
+import Transport from "../components/guide/card-popup";
+
 
 const GuidePage: React.FC = () => {
+  const [isPopupOpen, setPopupOpen] = useState(false);
+
+  const openPopup = () => {
+    setPopupOpen(true);
+  };
+
+  const closePopup = () => {
+    setPopupOpen(false);
+  };
+
   return (
-    <div>
-      <div className="flex flex-col mt-[25px]">
-        <span className="text-5xl text-center">Guide To Urbana-Champaign</span>
-        <div className="flex flex-row justify-center space-x-[200px] mt-[25px]">
-          <div className="text-center shadow-xl rounded-xl h-[340px]">
-            <img
-              className="shadow-xl rounded-t-xl"
-              src={process.env.PUBLIC_URL + "/GuidePage/.jpg"}
-              alt="Getting To UIUC"
-              style={{ width: "325px", height: "210px" }}
-            />
-            <span className="text-2xl text-center font-extralight">Getting To UIUC</span>
-            <div className="flex flex-cols-3 space-x-[15px]">
+    <div className="">
+      <div className="flex flex-col">
+        <span className="mt-10 text-5xl font-semibold text-center justify-center">Our Guide To</span>
+        <span className="text-5xl font-bold text-red text-center justify-center">Urbana-Champaign</span>
+      </div>
+      <div className="flex flex-row justify-center space-x-[150px]">
+        <div className="">
+          <button onClick={openPopup}>
+            <div className="h-[660px] w-[450px] mr-[0px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center transform transition duration-300 ease-in-out hover:scale-105 ring-1 ring-gray-200">
+              <img
+                src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Main.png"}
+                alt="2021 hoodie"
+                width={450}
+              />
+              <span className="text-4xl mt-[25px]">Transportation</span>
+              <span className="text-2xl">Find out transportaion information to get to and around campus!</span>
             </div>
-          </div>
-          <GuideCard 
-            imagePath="/GuidePage/EnterpriseRentalCar.jpg"
-            title="Rental Car"
-            pros={["Flexibility", "Convieniency", "Cheap With People"]}
-            cons={["Pricy Alone", "Hard to Drive in Winter"]}
-          />
-          <GuideCard 
-            imagePath="/GuidePage/Amtrak.jpg"
-            title="Amtrak"
-            pros={["Cheapest Option", "Consistent Times"]}
-            cons={["Inconvenient Stops"]}
-          />
+          </button>
+          <Transport isOpen={isPopupOpen} onClose={closePopup} />
+        </div>
+        <div className="">
+          <button onClick={openPopup}>
+            <div className="h-[660px] w-[450px] mr-[0px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center transform transition duration-300 ease-in-out hover:scale-105 ring-1 ring-gray-200">
+              <img
+                src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Main.png"}
+                alt="2021 hoodie"
+                width={450}
+              />
+              <span className="text-4xl mt-[25px]">Transportation</span>
+              <span className="text-2xl">Find out transportaion information to get to and around campus!</span>
+            </div>
+          </button>
+          <Transport isOpen={isPopupOpen} onClose={closePopup} />
+        </div>
+        <div className="">
+          <button onClick={openPopup}>
+            <div className="h-[660px] w-[450px] mr-[0px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center transform transition duration-300 ease-in-out hover:scale-105 ring-1 ring-gray-200">
+              <img
+                src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Main.png"}
+                alt="2021 hoodie"
+                width={450}
+              />
+              <span className="text-4xl mt-[25px]">Transportation</span>
+              <span className="text-2xl">Find out transportaion information to get to and around campus!</span>
+            </div>
+          </button>
+          <Transport isOpen={isPopupOpen} onClose={closePopup} />
         </div>
       </div>
     </div>
