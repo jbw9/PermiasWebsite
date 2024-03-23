@@ -1,6 +1,6 @@
 <div align="center">
     <img src="./public/logo.png" width="256"/>
-    <p>Source code of a website for PERMIAS UIUC, an Indonesian student club in the University of Illinois Urbana-Champaign</p>
+    <p>Source code of the official website for PERMIAS UIUC, an Indonesian student club in the University of Illinois Urbana-Champaign</p>
     <br>
 </div>
 
