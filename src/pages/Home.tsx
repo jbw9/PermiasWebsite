@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import BgVidIcons from "../components/home/backgroundVideoIcons";
 import AboutCommunity from "../components/home/aboutCommunity";
 import OurPurpose from "../components/home/ourPurpose";
+import FreshmanSpotlight from "../components/home/freshmanSpotlight";
+import GetInvolved from "../components/home/getInvolved";
 
 const WebsiteTitle: React.FC = () => {
   return (
@@ -32,7 +34,7 @@ const HomePage: React.FC = () => {
         />
       </div>
       <div className="flex items-center justify-center w-full">
-        <div className="w-full mt-[100px] flex flex-col items-center px-[150px]">
+        <div className="w-full mt-[120px] flex flex-col items-center px-[150px]">
           <AboutCommunity />
           <div className="mt-[100px] text-center w-full">
             <div>
@@ -81,46 +83,11 @@ const HomePage: React.FC = () => {
           <div className="mt-[100px]">
             <OurPurpose />
           </div>
-          <div className="flex flex-col items-center mt-[100px]">
-            <div className="container px-4 mx-auto">
-              <div className="mb-8 text-center">
-                <span className="text-5xl font-semibold text-footer">Get </span>
-                <span className="text-5xl font-bold text-red">Involved</span>
-              </div>
-              <div className="flex justify-center space-x-8">
-                <div className="flex flex-col items-center">
-                  <a
-                    href="https://www.google.com/forms/about/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mb-4"
-                  >
-                    <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2">
-                      <span className="text-white">Join Our Family</span>
-                    </div>
-                  </a>
-
-                  <p className="text-gray-600">
-                    Become a part of our community
-                  </p>
-                </div>
-                <div className="flex flex-col items-center">
-                  <a
-                    href="https://www.google.com/forms/about/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block mb-4"
-                  >
-                    <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2">
-                      <span className="text-white">Leave a Message</span>
-                    </div>
-                  </a>
-                  <p className="text-gray-600">
-                    Share your thoughts and suggestions
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="mt-[140px] mx-[150px]">
+            <FreshmanSpotlight />
+          </div>
+          <div className="mt-[120px]">
+            <GetInvolved />
           </div>
         </div>
       </div>
