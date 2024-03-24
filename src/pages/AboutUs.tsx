@@ -13,10 +13,10 @@ const AboutUsPage: React.FC = () => {
       <div className="container px-4 mx-auto">
         <div className="flex flex-col md:h-full md:flex md:flex-row md:items-center">
           <div className="flex flex-col justify-center md:w-1/2">
-            <h1 className="mb-4 text-4xl font-semibold text-left text-red">
+            <h1 className="mb-4 text-5xl font-bold text-left text-red">
               About Us
             </h1>
-            <span className="text-lg text-left">
+            <span className="text-xl text-left">
               PERMIAS UIUC, or commonly known as the Indonesian Students Club
               (ISC), is an Indonesian community in the heart of Urbana -
               Champaign. We strive to unite the Indonesian community within the
@@ -48,10 +48,10 @@ const AboutUsPage: React.FC = () => {
             />
           </div>
           <div className="flex flex-col justify-center md:w-1/2">
-            <h1 className="mb-4 text-4xl font-semibold text-right text-red">
+            <h1 className="mb-4 text-5xl font-bold text-right text-red">
               Our Vision
             </h1>
-            <span className="text-lg text-right">
+            <span className="text-xl text-right">
               At PERMIAS UIUC, our vision extends beyond merely creating a fun
               and safe environment for the Indonesian community in
               Urbana-Champaign. We aspire to be a beacon of Indonesian culture,
@@ -66,10 +66,8 @@ const AboutUsPage: React.FC = () => {
       <div className="container px-4 py-32 mx-auto">
         <div className="flex flex-col md:flex md:h-full md:flex-row md:items-center">
           <div className="flex flex-col justify-center md:w-1/2">
-            <h1 className="mb-4 text-4xl font-semibold text-red">
-              Our Mission
-            </h1>
-            <span className="text-lg">
+            <h1 className="mb-4 text-5xl font-bold text-red">Our Mission</h1>
+            <span className="text-xl">
               Our mission is to promote Indonesian culture to the
               Urbana-Champaign community, provide networking opportunities for
               Indonesian students, and connect PERMIAS UIUC members with the
