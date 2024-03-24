@@ -1,7 +1,7 @@
 const GetInvolved = () => {
   return (
     <div>
-      <div className="flex flex-col items-center mt-[100px]">
+      <div className="flex flex-col items-center">
         <div className="container px-4 mx-auto">
           <div className="mb-8 text-center">
             <span className="text-5xl font-semibold text-footer">Get </span>
