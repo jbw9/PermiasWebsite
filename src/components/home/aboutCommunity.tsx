@@ -11,7 +11,7 @@ const AboutCommunity = () => {
           height={700}
           width={550}
         />
-        <div className="flex flex-col">
+        <div className="flex flex-col justify-center">
           <span className="text-3xl text-footer">About our</span>
           <span className="text-5xl font-bold text-red">Community</span>
           <span className="text-lg mt-[20px]">
