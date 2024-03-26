@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/PermiasWebsite/static/css/main.410ef0ff.css",
-    "main.js": "/PermiasWebsite/static/js/main.6ba13351.js",
+    "main.js": "/PermiasWebsite/static/js/main.4d30a40e.js",
     "index.html": "/PermiasWebsite/index.html",
     "main.410ef0ff.css.map": "/PermiasWebsite/static/css/main.410ef0ff.css.map",
-    "main.6ba13351.js.map": "/PermiasWebsite/static/js/main.6ba13351.js.map"
+    "main.4d30a40e.js.map": "/PermiasWebsite/static/js/main.4d30a40e.js.map"
   },
   "entrypoints": [
     "static/css/main.410ef0ff.css",
-    "static/js/main.6ba13351.js"
+    "static/js/main.4d30a40e.js"
   ]
 }
