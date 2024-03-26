@@ -1,12 +1,13 @@
 import React from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
-import UpcomingEvents from "../components/events/upcomingEvents";
 import { Link } from "react-router-dom";
 import BgVidIcons from "../components/home/backgroundVideoIcons";
 import AboutCommunity from "../components/home/aboutCommunity";
 import OurPurpose from "../components/home/ourPurpose";
 import FreshmanSpotlight from "../components/home/freshmanSpotlight";
 import GetInvolved from "../components/home/getInvolved";
+import UpcomingEvents from "../components/events/upcomingEvents";
+import UpcomingEventsList from "../components/events/upcomingEventsList";
 
 const WebsiteTitle: React.FC = () => {
   return (
@@ -43,34 +44,8 @@ const HomePage: React.FC = () => {
               </span>
               <span className="text-5xl font-bold text-red">Events</span>
             </div>
-            <div className="flex justify-center space-x-[150px] mt-[20px]">
-              <UpcomingEvents
-                eventCoverImage="buka_bersama"
-                eventName="Buka Bersama"
-                eventDate={28}
-                eventMonth="March"
-                eventLocation="Orchard Downs"
-                eventTime="5:00 - 8:30 pm"
-                eventrsvpLink="https://www.google.com/forms/about/"
-              />
-              {/* <UpcomingEvents
-                eventCoverImage="satefundraising"
-                eventName="Sate Fundraising"
-                eventDate={8}
-                eventMonth="April"
-                eventLocation="Illini Union"
-                eventTime="1:00 - 3:00 pm"
-                eventrsvpLink="https://www.google.com/forms/about/"
-              /> */}
-              <UpcomingEvents
-                eventCoverImage="gradnight"
-                eventName="Grad Night"
-                eventDate={10}
-                eventMonth="May"
-                eventLocation="Illini Union"
-                eventTime="7:00 - 9:00 pm"
-                eventrsvpLink="https://www.google.com/forms/about/"
-              />
+            <div>
+              <UpcomingEventsList />
             </div>
             <div className="mt-[20px] flex justify-center">
               <Link to="/events" className="inline-block mb-4">

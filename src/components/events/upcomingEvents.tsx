@@ -5,7 +5,7 @@ interface UpcomingEventsProps {
   eventDate: string | number;
   eventTime: string;
   eventLocation: string;
-  eventrsvpLink: string;
+  eventrsvpLink?: string;
 }
 
 const UpcomingEvents: React.FC<UpcomingEventsProps> = ({
@@ -33,7 +33,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({
                 "linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%)",
             }}
           >
-            <div className="flex items-center justify-between h-[60px] w-full  p-[5px]">
+            <div className="flex items-center justify-between h-[60px] w-full p-[5px]">
               <div className="flex items-center">
                 <div className="flex flex-col items-center justify-center h-full">
                   <span className="text-xl">{eventMonth}</span>
@@ -59,20 +59,22 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({
                   </div>
                 </div>
               </div>
-              <a
-                href={eventrsvpLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center"
-              >
-                <div className="w-[100px] h-[40px] rounded-2xl border border-gray-400 flex items-center justify-center">
-                  <span className="text-xl">RSVP</span>
-                </div>
-              </a>
+              {eventrsvpLink && (
+                <a
+                  href={eventrsvpLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center"
+                >
+                  <div className="w-[100px] h-[40px] rounded-2xl border border-gray-400 flex items-center justify-center">
+                    <span className="text-xl">RSVP</span>
+                  </div>
+                </a>
+              )}
             </div>
           </div>
         </div>
-        <span className="text-2xl mt-[10px]"> {eventName}</span>
+        <span className="text-2xl mt-[10px]">{eventName}</span>
       </div>
     </div>
   );
