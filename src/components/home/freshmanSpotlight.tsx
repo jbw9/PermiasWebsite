@@ -16,7 +16,7 @@ const FreshmanSpotlight = () => {
           <span className="text-3xl text-footer">Freshman</span>
           <span className="text-5xl font-bold text-red">Spotlight</span>
           <span className="text-2xl mt-[40px]">
-            "Being a part of PERMIAS immerses freshman in the vibrant Indonesian
+            "Being a part of PERMIAS immersed me in the vibrant Indonesian
             community, celebrating our rich culture through engaging events and
             shared experiences"
           </span>
