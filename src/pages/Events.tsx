@@ -27,7 +27,7 @@ const EventPage: React.FC = () => {
             <span className="text-5xl font-bold text-red">Events</span>
           </div>
           <div className="flex mt-[30px] mx-[170px] overflow-hidden">
-            <div className="absolute w-[8px] bg-red rounded-lg h-[2250px] ml-[8px]"></div>
+            <div className="absolute w-[8px] bg-red rounded-lg h-[2800px] ml-[8px]"></div>
             <div className="">
               <PastEvents />
             </div>

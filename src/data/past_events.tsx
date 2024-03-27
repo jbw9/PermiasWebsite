@@ -6,6 +6,21 @@ export interface PastEvent {
 
 export const pastEvents: PastEvent[] = [
   {
+    name: "Buka Bersama Permias UIUC X Komunitas Pengajian Urbana-Champaign",
+    date: "March 23 2024, Orchard Downs Community Center",
+    images: [
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/one.jpg",
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/five.jpg",
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/seven.jpg",
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/two.jpg",
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/six.jpg",
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/eight.jpg",
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/nine.jpg",
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/ten.jpg",
+      process.env.PUBLIC_URL + "/events/buka_bersama_2024/eleven.jpg",
+    ],
+  },
+  {
     name: "KPIB X TASC Fundraising",
     date: "February 2nd 2024, University YMCA",
     images: [
