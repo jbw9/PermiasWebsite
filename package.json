@@ -1,7 +1,7 @@
 {
   "name": "permias-website",
   "version": "0.1.0",
-  "homepage": "https://JBWID.github.io/PermiasWebsite",
+  "homepage": "https://jbw9.github.io/",
   "private": true,
   "dependencies": {
     "@tailwindcss/forms": "^0.5.7",
