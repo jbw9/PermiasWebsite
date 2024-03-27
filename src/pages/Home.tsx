@@ -36,14 +36,14 @@ const HomePage: React.FC = () => {
       <div className="mb-[100px] w-full overflow-x-hidden">
         {showAlert && (
           <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div className="bg-red text-white p-4 rounded-2xl w-[300px] text-center">
+            <div className="bg-red text-white p-2 rounded-2xl w-[300px] text-center">
               <button
                 onClick={handleCloseAlert}
-                className="absolute text-xl font-bold top-2 right-2"
+                className="float-right text-xl font-bold"
               >
                 ✕
               </button>
-              <p>
+              <p className="m-3">
                 Sorry, this website is not optimized for mobile viewing yet.
                 Please toggle the desktop site mode or open it on your
                 laptop/desktop.
