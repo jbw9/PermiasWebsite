@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
 import { Link } from "react-router-dom";
 import BgVidIcons from "../components/home/backgroundVideoIcons";
@@ -6,7 +6,6 @@ import AboutCommunity from "../components/home/aboutCommunity";
 import OurPurpose from "../components/home/ourPurpose";
 import FreshmanSpotlight from "../components/home/freshmanSpotlight";
 import GetInvolved from "../components/home/getInvolved";
-import UpcomingEvents from "../components/events/upcomingEvents";
 import UpcomingEventsList from "../components/events/upcomingEventsList";
 
 const WebsiteTitle: React.FC = () => {
@@ -26,9 +25,33 @@ const WebsiteTitle: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
+  const [showAlert, setShowAlert] = useState(false);
+
+  useEffect(() => {
+    if (window.innerWidth < 768) {
+      setShowAlert(true);
+    }
+  }, []);
+  const handleCloseAlert = () => setShowAlert(false);
+
   return (
     <div className="mb-[100px]">
-      <div className="">
+      {showAlert && (
+        <div className="fixed top-0 left-0 right-0 z-50 p-4 text-center text-white bg-red">
+          <button
+            onClick={handleCloseAlert}
+            className="float-right text-xl font-bold"
+          >
+            ✕
+          </button>
+          <p>
+            Sorry, this website is not optimized for mobile viewing yet. Please
+            toggle the desktop site mode or open it on your laptop/desktop.
+          </p>
+        </div>
+      )}
+
+      <div>
         <BackgroundVideo
           source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"}
           children={<WebsiteTitle />}
