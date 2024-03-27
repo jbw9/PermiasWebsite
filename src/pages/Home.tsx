@@ -25,23 +25,12 @@ const WebsiteTitle: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
-  // Initialize showAlert based on window width
-  const [showAlert, setShowAlert] = useState(window.innerWidth < 768);
+  const showAlert = window.innerWidth < 768;
 
-  useEffect(() => {
-    // Define a function to update state based on window width
-    const handleResize = () => {
-      setShowAlert(window.innerWidth < 768);
-    };
-
-    // Add event listener for window resize
-    window.addEventListener("resize", handleResize);
-
-    // Remove event listener on cleanup
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  const handleCloseAlert = () => setShowAlert(false);
+  const handleCloseAlert = () => {
+    // You can choose to hide the alert or redirect to a different page
+    // when the close button is clicked on mobile devices
+  };
 
   return (
     <div className="mb-[100px]">
