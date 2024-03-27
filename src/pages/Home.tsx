@@ -25,17 +25,16 @@ const WebsiteTitle: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
-  const showAlert = window.innerWidth < 768;
+  const [showAlert, setShowAlert] = useState(window.innerWidth < 768);
 
   const handleCloseAlert = () => {
-    // You can choose to hide the alert or redirect to a different page
-    // when the close button is clicked on mobile devices
+    setShowAlert(false);
   };
 
   return (
     <div className="mb-[100px]">
       {showAlert && (
-        <div className="fixed top-0 left-0 right-0 z-50 p-4 text-center text-white bg-red m-[100px] rounded-2xl">
+        <div className="fixed z-50 p-4 text-center text-white bg-red ml-[50px] mt-[100px] rounded-2xl w-[200px]">
           <button
             onClick={handleCloseAlert}
             className="float-right text-xl font-bold"
