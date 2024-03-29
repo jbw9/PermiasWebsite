@@ -46,7 +46,7 @@ const Header: React.FC = () => {
       </button>
       {/* Mobile Menu */}
       <div
-        className={`absolute top-full left-0 z-10 w-full bg-white transition-transform transform ${
+        className={`absolute top-full left-0 z-10 w-full bg-white shadow-xl transition-transform transform ${
           isMenuOpen ? "scale-y-100" : "scale-y-0"
         } origin-top duration-300 ease-in-out sm:hidden`}
       >
