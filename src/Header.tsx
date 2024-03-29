@@ -46,7 +46,7 @@ const Header: React.FC = () => {
       </button>
       {/* Mobile Menu */}
       <div
-        className={`absolute top-full left-0 z-10 w-full bg-white border-t-2 border-gray-200 transition-transform transform ${
+        className={`absolute top-full left-0 z-10 w-full bg-white transition-transform transform ${
           isMenuOpen ? "scale-y-100" : "scale-y-0"
         } origin-top duration-300 ease-in-out sm:hidden`}
       >
@@ -182,7 +182,7 @@ const Header: React.FC = () => {
         </Link>
         <Link
           to="/merch"
-          className={`mx-2 text-sxl text-footer relative inline-block group ${
+          className={`mx-2 text-sxl text-footer relative mr-[50px] inline-block group ${
             isActive("/merch") ? "scale-x-100" : ""
           }`}
         >
