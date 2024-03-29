@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
 import { Link } from "react-router-dom";
 import BgVidIcons from "../components/home/backgroundVideoIcons";
@@ -7,6 +7,7 @@ import OurPurpose from "../components/home/ourPurpose";
 import FreshmanSpotlight from "../components/home/freshmanSpotlight";
 import GetInvolved from "../components/home/getInvolved";
 import UpcomingEventsList from "../components/events/upcomingEventsList";
+import { Helmet } from "react-helmet";
 
 const WebsiteTitle: React.FC = () => {
   return (
@@ -33,6 +34,13 @@ const HomePage: React.FC = () => {
 
   return (
     <div>
+      <Helmet>
+        <meta
+          name="description"
+          content="Learn more about Permias UIUC, our mission, history, and how we connect Indonesian culture with UIUC"
+        />
+        <title>Permias UIUC</title>
+      </Helmet>
       <div className="mb-[100px] w-full overflow-x-hidden">
         {showAlert && (
           <div className="fixed inset-0 z-50 flex items-center justify-center">
