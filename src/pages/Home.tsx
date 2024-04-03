@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
 import { Link } from "react-router-dom";
 import BgVidIcons from "../components/home/backgroundVideoIcons";
@@ -12,13 +12,13 @@ import { Helmet } from "react-helmet";
 const WebsiteTitle: React.FC = () => {
   return (
     <div className="relative flex justify-center h-full">
-      <div className="mt-[80px] flex flex-col">
-        <span className="font-bold text-7xl">PERMIAS UIUC</span>
-        <span className="text-xl mt-[10px]">
+      <div className="mt-[50px] flex flex-col">
+        <span className="text-5xl font-bold md:text-7xl">PERMIAS UIUC</span>
+        <span className="md:text-xl mt-[10px]">
           Welcome to Our Official Website
         </span>
       </div>
-      <div className="absolute bottom-0 flex justify-center items-center h-[100px] w-[200px] mb-[10px]">
+      <div className="absolute bottom-0 flex justify-center items-center h-[100px] w-[200px] mb-[-10px]">
         <BgVidIcons />
       </div>
     </div>
@@ -26,12 +26,6 @@ const WebsiteTitle: React.FC = () => {
 };
 
 const HomePage: React.FC = () => {
-  const [showAlert, setShowAlert] = useState(window.innerWidth < 768);
-
-  const handleCloseAlert = () => {
-    setShowAlert(false);
-  };
-
   return (
     <div>
       <Helmet>
@@ -42,24 +36,6 @@ const HomePage: React.FC = () => {
         <title>Permias UIUC</title>
       </Helmet>
       <div className="mb-[100px] w-full overflow-x-hidden">
-        {showAlert && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center">
-            <div className="bg-red text-white p-2 rounded-2xl w-[300px] text-center">
-              <button
-                onClick={handleCloseAlert}
-                className="float-right text-xl font-bold"
-              >
-                ✕
-              </button>
-              <p className="m-3">
-                Sorry, this website is not optimized for mobile viewing yet.
-                Please toggle the desktop site mode or open it on your
-                laptop/desktop.
-              </p>
-            </div>
-          </div>
-        )}
-
         <div>
           <BackgroundVideo
             source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"}
@@ -67,7 +43,7 @@ const HomePage: React.FC = () => {
           />
         </div>
         <div className="flex items-center justify-center w-full">
-          <div className="w-full mt-[120px] flex flex-col items-center px-[150px]">
+          <div className="w-full mt-[70px] md:mt-[120px] flex flex-col items-center px-[30px] md:px-[150px]">
             <AboutCommunity />
             <div className="mt-[100px] text-center w-full">
               <div>
@@ -90,7 +66,7 @@ const HomePage: React.FC = () => {
             <div className="mt-[100px]">
               <OurPurpose />
             </div>
-            <div className="mt-[140px] mx-[150px]">
+            <div className="mt-[140px] md:mx-[150px] mx-[20px]">
               <FreshmanSpotlight />
             </div>
             <div className="mt-[120px]">

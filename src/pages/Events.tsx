@@ -6,8 +6,12 @@ import UpcomingEventsList from "../components/events/upcomingEventsList";
 const EventPage: React.FC = () => {
   return (
     <div className="mb-[100px] overflow-hidden">
-      <div className="w-full h-auto flex justify-center items-end mb-8">
-        <img src={process.env.PUBLIC_URL + "/events/main.jpg"} alt="Background" className="object-cover w-full md:h-[600px]" />
+      <div className="flex items-end justify-center w-full md:h-[600px]">
+        <img
+          src={process.env.PUBLIC_URL + "/events/main.jpg"}
+          alt="Background"
+          className="object-cover w-full h-[300px] md:h-[600px]"
+        />
       </div>
       <div className="text-center mt-[50px]">
         <div>

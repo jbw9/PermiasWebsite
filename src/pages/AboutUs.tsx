@@ -7,7 +7,7 @@ const AboutUsPage: React.FC = () => {
         <img
           src={process.env.PUBLIC_URL + "/AboutUs/background.png"}
           alt="Background"
-          className="object-cover w-full h-[250px] md:h-[600px]"
+          className="object-cover w-full h-[300px] md:h-[600px]"
         />
       </div>
       <div className="mt-[60px] md:mt-[100px]">

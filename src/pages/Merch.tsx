@@ -24,11 +24,11 @@ const MerchPage: React.FC = () => {
 
   return (
     <div className="mb-[120px]">
-      <div className="w-full h-[600px] flex justify-center items-end">
+      <div className="flex items-end justify-center w-full md:h-[600px]">
         <img
           src={process.env.PUBLIC_URL + "/merch/background.png"}
           alt="Background"
-          className="object-cover w-full h-full"
+          className="object-cover w-full h-[300px] md:h-[600px]"
         />
       </div>
       <div className="flex items-center justify-center mt-10 text-4xl font-semibold text-red md:text-6xl">

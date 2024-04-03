@@ -11,7 +11,7 @@ const BgVidIcons = () => {
             src={process.env.PUBLIC_URL + "/footer/whatsapp.svg"}
             alt="Whatsapp Logo"
             width={50}
-            className="mx-10"
+            className="mx-4 w-[35px] md:w-[50px] md:mx-10"
           />
         </a>
         <a
@@ -23,7 +23,7 @@ const BgVidIcons = () => {
             src={process.env.PUBLIC_URL + "/footer/instagram.svg"}
             alt="Instagram Logo"
             width={50}
-            className="mx-10"
+            className="mx-4 w-[35px] md:w-[50px] md:mx-10"
           />
         </a>
         <a
@@ -35,7 +35,7 @@ const BgVidIcons = () => {
             src={process.env.PUBLIC_URL + "/footer/facebook.svg"}
             alt="Facebook Logo"
             width={50}
-            className="mx-10"
+            className="mx-4 w-[35px] md:w-[50px] md:mx-10"
           />
         </a>
       </div>
