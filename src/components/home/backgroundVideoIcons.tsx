@@ -3,18 +3,6 @@ const BgVidIcons = () => {
     <div>
       <div className="flex">
         <a
-          href="https://web.whatsapp.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src={process.env.PUBLIC_URL + "/footer/whatsapp.svg"}
-            alt="Whatsapp Logo"
-            width={50}
-            className="mx-4 w-[35px] md:w-[50px] md:mx-10"
-          />
-        </a>
-        <a
           href="https://www.instagram.com/permiasuiuc/?hl=en"
           target="_blank"
           rel="noopener noreferrer"

@@ -5,18 +5,6 @@ const Footer: React.FC = () => {
     <div className="flex flex-col items-center justify-between w-screen mx-auto text-white bg-red h-[150px]">
       <div className="flex justify-center w-full mt-[40px] space-x-14 md:space-x-14">
         <a
-          href="https://web.whatsapp.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            src={process.env.PUBLIC_URL + "/footer/whatsapp.svg"}
-            alt="Whatsapp Logo"
-            width={50}
-            className="w-[35px] md:w-[50px]"
-          />
-        </a>
-        <a
           href="https://www.instagram.com/permiasuiuc/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
