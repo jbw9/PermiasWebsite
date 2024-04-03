@@ -4,11 +4,15 @@ const GetInvolved = () => {
       <div className="flex flex-col items-center">
         <div className="container px-4 mx-auto">
           <div className="mb-8 text-center">
-            <span className="text-5xl font-semibold text-footer">Get </span>
-            <span className="text-5xl font-bold text-red">Involved</span>
+            <span className="text-4xl font-semibold md:text-5xl text-footer">
+              Get{" "}
+            </span>
+            <span className="text-4xl font-bold md:text-5xl text-red">
+              Involved
+            </span>
           </div>
-          <div className="flex justify-center space-x-8">
-            <div className="flex flex-col items-center">
+          <div className="flex flex-col md:flex-row md:justify-center md:space-x-8">
+            <div className="flex flex-col items-center mb-8 md:mb-0">
               <a
                 href="https://forms.gle/X37mWwG3roZt8jpL8"
                 target="_blank"
@@ -19,7 +23,6 @@ const GetInvolved = () => {
                   <span className="text-white">Join Our Family</span>
                 </div>
               </a>
-
               <p className="text-gray-600">Become a part of our community</p>
             </div>
             <div className="flex flex-col items-center">
