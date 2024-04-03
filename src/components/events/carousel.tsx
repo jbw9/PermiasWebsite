@@ -30,9 +30,13 @@ const Carousel: React.FC<CarouselProps> = ({ images, direction }) => {
       freeMode={true}
       modules={[Autoplay, Pagination, Navigation, FreeMode]}
       breakpoints={{
-        768: {
-          width: 100,
+        640: {
+          width: 900,
           slidesPerView: 1,
+        },
+        768: {
+          width: 1200,
+          slidesPerView: 2,
         },
       }}
     >
