@@ -3,7 +3,7 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <div className="flex flex-col items-center justify-between w-screen mx-auto text-white bg-red h-[150px]">
-      <div className="flex justify-center w-full space-x-14 mt-[40px]">
+      <div className="flex justify-center w-full mt-[40px] space-x-14 md:space-x-14">
         <a
           href="https://web.whatsapp.com/"
           target="_blank"
@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
             src={process.env.PUBLIC_URL + "/footer/whatsapp.svg"}
             alt="Whatsapp Logo"
             width={50}
-            className=""
+            className="w-[35px] md:w-[50px]"
           />
         </a>
         <a
@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
             src={process.env.PUBLIC_URL + "/footer/instagram.svg"}
             alt="Instagram Logo"
             width={50}
-            className=""
+            className="w-[35px] md:w-[50px]"
           />
         </a>
         <a
@@ -37,7 +37,7 @@ const Footer: React.FC = () => {
             src={process.env.PUBLIC_URL + "/footer/facebook.svg"}
             alt="Facebook Logo"
             width={50}
-            className=""
+            className="w-[35px] md:w-[50px]"
           />
         </a>
         <a
@@ -49,11 +49,11 @@ const Footer: React.FC = () => {
             src={process.env.PUBLIC_URL + "/footer/mail.png"}
             alt="Whatsapp Logo"
             width={50}
-            className=""
+            className="w-[35px] md:w-[50px]"
           />
         </a>
       </div>
-      <span className="mb-[10px]">
+      <span className="mb-[15px] text-sm mx-[30px] text-center">
         © 2024 Indonesian Student Association at the University of Illinois
         Urbana-Champaign
       </span>

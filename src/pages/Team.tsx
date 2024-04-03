@@ -35,17 +35,21 @@ const TeamPage: React.FC = () => {
 
   return (
     <div className="mb-[70px]">
-      <div className="flex items-end justify-center w-full h-auto mb-8">
+      <div className="flex items-end justify-center w-full md:h-[600px]">
         <img
           src={process.env.PUBLIC_URL + "/officers/background.png"}
           alt="Background"
-          className="object-cover w-full md:h-[600px]"
+          className="object-cover w-full h-[250px] md:h-[600px]"
         />
       </div>
-      <div className="flex justify-center my-[75px]">
+      <div className="flex justify-center my-[40px] md:my-[75px]">
         <div>
-          <span className="text-5xl font-semibold text-footer">Meet </span>
-          <span className="text-5xl font-bold text-red">Our Officers</span>
+          <span className="text-4xl font-semibold text-footer md:text-5xl">
+            Meet{" "}
+          </span>
+          <span className="text-4xl font-bold text-red md:text-5xl">
+            Our Officers
+          </span>
         </div>
       </div>
       <div className="flex justify-center w-full h-full">
