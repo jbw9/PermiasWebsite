@@ -34,7 +34,7 @@ const MerchPage: React.FC = () => {
                 width={450}
               />
               <span className="text-4xl mt-[25px]">2021 Permias Hoodie</span>
-              <span className="text-2xl">$25</span>
+              <span className="text-2xl">$20</span>
             </div>
           </button>
           <Popup2021 isOpen={isPopupOpen} onClose={closePopup} />
@@ -45,7 +45,7 @@ const MerchPage: React.FC = () => {
                 alt="2021 hoodie"
                 width={450}
               />
-              <span className="text-4xl mt-[25px]">2023 Permias Hoodie</span>
+              <span className="text-4xl mt-[25px]">2023 Permias Sweater</span>
               <span className="text-2xl">$25</span>
             </div>
           </button>

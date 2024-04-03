@@ -10,7 +10,7 @@ const GetInvolved = () => {
           <div className="flex justify-center space-x-8">
             <div className="flex flex-col items-center">
               <a
-                href="https://www.google.com/forms/about/"
+                href="https://forms.gle/X37mWwG3roZt8jpL8"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mb-4"
@@ -24,7 +24,7 @@ const GetInvolved = () => {
             </div>
             <div className="flex flex-col items-center">
               <a
-                href="https://www.google.com/forms/about/"
+                href="https://forms.gle/TS5HGLAW9AeH86x29"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mb-4"
