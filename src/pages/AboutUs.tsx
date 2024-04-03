@@ -3,11 +3,11 @@ import React from "react";
 const AboutUsPage: React.FC = () => {
   return (
     <div>
-      <div className="flex items-end justify-center w-full h-auto mb-8">
+      <div className="flex items-end justify-center w-full md:h-[600px]">
         <img
           src={process.env.PUBLIC_URL + "/AboutUs/background.png"}
           alt="Background"
-          className="object-cover w-full md:h-[600px]"
+          className="object-cover w-full h-[250px] md:h-[600px]"
         />
       </div>
       <div className="mt-[60px] md:mt-[100px]">
