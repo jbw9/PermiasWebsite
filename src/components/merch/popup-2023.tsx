@@ -65,7 +65,7 @@ const Popup2023: React.FC<PropOpen> = ({ isOpen, onClose }) => {
         <div className="flex flex-col justify-between ml-[10px]">
           <div>
             <span className="block mt-[20px] text-3xl mb-[-10px]">
-              2023 Permias Hoodie
+              2023 Permias Sweater
             </span>
             <div className="flex items-center justify-center">
               <span className="text-2xl my-[20px]">Price: $25</span>
@@ -96,7 +96,7 @@ const Popup2023: React.FC<PropOpen> = ({ isOpen, onClose }) => {
           </div>
           <div className="flex justify-center pb-4">
             <a
-              href="https://www.google.com/forms/about/"
+              href="https://forms.gle/ntyzEceaUkYY81WX8"
               target="_blank"
               rel="noopener noreferrer"
             >
