@@ -47,10 +47,12 @@ const HomePage: React.FC = () => {
             <AboutCommunity />
             <div className="mt-[100px] text-center w-full">
               <div>
-                <span className="text-5xl font-semibold text-footer">
+                <span className="text-4xl font-semibold md:text-5xl text-footer">
                   Upcoming{" "}
                 </span>
-                <span className="text-5xl font-bold text-red">Events</span>
+                <span className="text-4xl font-bold md:text-5xl text-red">
+                  Events
+                </span>
               </div>
               <div>
                 <UpcomingEventsList />

@@ -9,11 +9,25 @@ const UpcomingEventsList = () => {
         {" "}
         <div className="w-full sm:w-auto">
           {" "}
-          <UpcomingEvents eventCoverImage="satefundraising" eventName="Sate Fundraising" eventDate={8} eventMonth="April" eventLocation="Illini Union" eventTime="11:00 am - 4:00 pm" />{" "}
+          <UpcomingEvents
+            eventCoverImage="satefundraising"
+            eventName="Sate Fundraising"
+            eventDate={8}
+            eventMonth="April"
+            eventLocation="Illini Union"
+            eventTime="11:00 am - 4:00 pm"
+          />{" "}
         </div>{" "}
         <div className="w-full sm:w-auto">
           {" "}
-          <UpcomingEvents eventCoverImage="gradnight" eventName="Grad Night" eventDate={10} eventMonth="May" eventLocation="Illini Union" eventTime="7:00 - 9:00 pm" eventrsvpLink="https://www.google.com/forms/about/" />{" "}
+          <UpcomingEvents
+            eventCoverImage="gradnight"
+            eventName="Grad Night"
+            eventDate={10}
+            eventMonth="May"
+            eventLocation="TBD"
+            eventTime="7:00 - 9:00 pm"
+          />{" "}
         </div>{" "}
       </div>{" "}
     </div>
