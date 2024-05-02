@@ -57,7 +57,7 @@ const Popup2023: React.FC<PropOpen> = ({ isOpen, onClose }) => {
         <div>
           <img
             className="mt-[30px] ml-[15px]"
-            src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Full.png"}
+            src={process.env.PUBLIC_URL + "/merch/2023_Hoodie_Full.png"}
             alt="2021 hoodie"
             width={825}
           />
