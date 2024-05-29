@@ -8,6 +8,7 @@ import FreshmanSpotlight from "../components/home/freshmanSpotlight";
 import GetInvolved from "../components/home/getInvolved";
 import UpcomingEventsList from "../components/events/upcomingEventsList";
 import { Helmet } from "react-helmet";
+import GraduateSpotlight from "../components/home/graduateSpotlight";
 
 const WebsiteTitle: React.FC = () => {
   return (
@@ -70,6 +71,9 @@ const HomePage: React.FC = () => {
             </div>
             <div className="mt-[140px] md:mx-[150px] mx-[20px]">
               <FreshmanSpotlight />
+            </div>
+            <div className="mt-[140px] md:mx-[150px] mx-[20px]">
+              <GraduateSpotlight />
             </div>
             <div className="mt-[120px]">
               <GetInvolved />
