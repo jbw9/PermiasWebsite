@@ -15,6 +15,7 @@ import EventPage from "./pages/Events";
 import GuidePage from "./pages/Guide";
 import MerchPage from "./pages/Merch";
 import NotFound from "./pages/NotFound";
+import ContactPage from "./pages/Contact";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -39,6 +40,7 @@ function App() {
             <Route path="/about-us" element={<AboutUsPage />} />
             <Route path="/events" element={<EventPage />} />
             <Route path="/guide" element={<GuidePage />} />
+            <Route path="/contact" element={<ContactPage />} />
             <Route path="/merch" element={<MerchPage />} />
             <Route path="/*" element={<NotFound />} />
           </Routes>

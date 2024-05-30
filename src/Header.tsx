@@ -183,14 +183,27 @@ const Header: React.FC = () => {
         </Link>
         <Link
           to="/merch"
-          className={`mx-2 text-sxl text-footer relative mr-[50px] inline-block group ${
-            isActive("/merch") ? "scale-x-100" : ""
+          className={`mx-2 text-sxl text-footer relative inline-block group ${
+            isActive("/events") ? "scale-x-100" : ""
           }`}
         >
           Merch
           <span
             className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
               isActive("/merch") ? "scale-x-100" : ""
+            }`}
+          ></span>
+        </Link>
+        <Link
+          to="/contact"
+          className={`mx-2 text-sxl text-footer relative mr-[50px] inline-block group ${
+            isActive("/merch") ? "scale-x-100" : ""
+          }`}
+        >
+          Contact
+          <span
+            className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
+              isActive("/contact") ? "scale-x-100" : ""
             }`}
           ></span>
         </Link>
