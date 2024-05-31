@@ -2,82 +2,105 @@ import React from "react";
 
 const ContactInfo: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center mt-10 px-8 mx-[50px]">
-      <h1 className="text-4xl font-bold text-red mb-[50px]">
-        Contact Information
-      </h1>
-      <div className="flex flex-wrap justify-center gap-x-16 gap-y-12">
-        <div className="relative mb-12">
-          <div className="h-[100px] w-[360px] bg-red rounded-2xl absolute top-[-20px] left-[-20px]"></div>
-          <div className="h-[100px] w-[360px] bg-white rounded-2xl overflow-hidden shadow-2xl z-3 relative ring-1 ring-gray-200">
-            <div className="flex flex-col items-center justify-center space-y-[10px] h-full">
-              <span className="text-xl font-bold">Fulbright</span>
-              <span className="text-left w-full pl-4">
-                Siti Arfah: +62 857-6277-5599
-              </span>
+    <div className="flex flex-col items-center justify-center mt-10 px-8 mx-[200px] mb-[100px]">
+      <span className="text-5xl font-bold text-red mb-[20px]">Contact Us</span>
+      <span className="text-2xl">
+        Get in touch and let us know how we can help
+      </span>
+      <div className="mt-[40px] flex flex-row justify-between w-full">
+        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
+          <img
+            className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
+            src={process.env.PUBLIC_URL + "/Home/networking.png"}
+            alt=""
+          />
+          <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
+            <span className="text-3xl font-semibold text-center md:text-3xl text-footer">
+              Collab With Us
+            </span>
+            <div className="w-full mt-4 text-lg md:text-base text-center">
+              We'd love to talk about how we can work together.
+            </div>
+            <div className="w-full mt-[40px] text-lg md:text-base text-center">
+              Ewangga: +1 (217) 926 2707
             </div>
           </div>
         </div>
-
-        <div className="relative mb-12">
-          <div className="h-[100px] w-[360px] bg-red rounded-2xl absolute top-[-20px] left-[-20px]"></div>
-          <div className="h-[100px] w-[360px] bg-white rounded-2xl overflow-hidden shadow-2xl z-3 relative ring-1 ring-gray-200">
-            <div className="flex flex-col items-center justify-center space-y-[10px] h-full">
-              <span className="text-xl font-bold">LPDP</span>
-              <span className="text-left w-full pl-4">
-                David: +1 (224) 418 8775
-              </span>
+        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
+          <img
+            className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
+            src={process.env.PUBLIC_URL + "/ContactUs/permLogo.png"}
+            alt=""
+          />
+          <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
+            <span className="text-3xl font-semibold text-center md:text-3xl text-footer">
+              General Permias
+            </span>
+            <div className="w-full mt-4 text-lg md:text-base text-center">
+              We're here to help with any questions regarding permias.
+            </div>
+            <div className="w-full mt-[30px] text-lg md:text-base text-center">
+              Leonardo: +1 (217) 979 9614
+            </div>
+            <div className="w-full text-lg md:text-base text-center">
+              Azhura: +1 (217) 693-2442
             </div>
           </div>
         </div>
-
-        <div className="relative mb-12">
-          <div className="h-[100px] w-[360px] bg-red rounded-2xl absolute top-[-20px] left-[-20px]"></div>
-          <div className="h-[100px] w-[360px] bg-white rounded-2xl overflow-hidden shadow-2xl z-3 relative ring-1 ring-gray-200">
-            <div className="flex flex-col items-center justify-center space-y-[10px] h-full">
-              <span className="text-xl font-bold">Grad Assistant</span>
-              <span className="text-left w-full pl-4">
-                Regina Giovanni: +1 (551) 297-9660
-              </span>
+        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
+          <img
+            className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
+            src={process.env.PUBLIC_URL + "/ContactUs/lpdp.png"}
+            alt=""
+          />
+          <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
+            <span className="text-3xl font-semibold text-center md:text-3xl text-footer">
+              LPDP
+            </span>
+            <div className="w-full mt-4 text-lg md:text-base text-center">
+              Discuss if you have any questions related to LPDP
+            </div>
+            <div className="w-full mt-[40px] text-lg md:text-base text-center">
+              David: +1 (224) 418 8775
             </div>
           </div>
         </div>
-
-        <div className="relative mb-12">
-          <div className="h-[100px] w-[360px] bg-red rounded-2xl absolute top-[-20px] left-[-20px]"></div>
-          <div className="h-[100px] w-[360px] bg-white rounded-2xl overflow-hidden shadow-2xl z-3 relative ring-1 ring-gray-200">
-            <div className="flex flex-col items-center justify-center space-y-[10px] h-full">
-              <span className="text-xl font-bold">Indonesia Maju</span>
-              <span className="text-left w-full pl-4">
-                Alif: +62 813-8355-0907
-              </span>
+      </div>
+      <div className="mt-[40px] flex flex-row justify-between w-full">
+        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0 ml-[180px]">
+          <img
+            className="mt-[40px] md:mt-[40px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
+            src={process.env.PUBLIC_URL + "/ContactUs/grad.png"}
+            alt=""
+          />
+          <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
+            <span className="text-3xl font-semibold text-center md:text-3xl text-footer">
+              Graduate Assistant
+            </span>
+            <div className="w-full mt-4 text-lg md:text-base text-center">
+              We'd love to assist you anything regarding graduate education at
+              UIUC.
+            </div>
+            <div className="w-full mt-[40px] text-lg md:text-base text-center">
+              Regina Giovanni: +1 (551) 297-9660
             </div>
           </div>
         </div>
-
-        <div className="relative mb-12">
-          <div className="h-[150px] w-[360px] bg-red rounded-2xl absolute top-[-20px] left-[-20px]"></div>
-          <div className="h-[150px] w-[360px] bg-white rounded-2xl overflow-hidden shadow-2xl z-3 relative ring-1 ring-gray-200">
-            <div className="flex flex-col items-center justify-center space-y-[10px] h-full">
-              <span className="text-xl font-bold">General Permias</span>
-              <span className="text-left w-full pl-4">
-                Leonardo: +1 (217) 979 9614
-              </span>
-              <span className="text-left w-full pl-4">
-                Azhura: +1 (217) 693-2442
-              </span>
+        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0 mr-[180px]">
+          <img
+            className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
+            src={process.env.PUBLIC_URL + "/ContactUs/indonesiamaju.png"}
+            alt=""
+          />
+          <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
+            <span className="text-3xl font-semibold text-center md:text-3xl text-footer">
+              Indonesia Maju
+            </span>
+            <div className="w-full mt-4 text-lg md:text-base text-center">
+              Discuss if you have any questions related to Indonesia Maju
             </div>
-          </div>
-        </div>
-
-        <div className="relative mb-12">
-          <div className="h-[100px] w-[360px] bg-red rounded-2xl absolute top-[-20px] left-[-20px]"></div>
-          <div className="h-[100px] w-[360px] bg-white rounded-2xl overflow-hidden shadow-2xl z-3 relative ring-1 ring-gray-200">
-            <div className="flex flex-col items-center justify-center space-y-[10px] h-full">
-              <span className="text-xl font-bold">Collab with us</span>
-              <span className="text-left w-full pl-4">
-                Ewangga: +1 (217) 926 2707
-              </span>
+            <div className="w-full mt-[40px] text-lg md:text-base text-center">
+              Alif: +62 813-8355-0907
             </div>
           </div>
         </div>
