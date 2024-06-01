@@ -1,7 +1,7 @@
 const BgVidIcons = () => {
   return (
     <div>
-      <div className="flex">
+      <div className="flex space-x-[40px]">
         <a
           href="https://www.instagram.com/permiasuiuc/?hl=en"
           target="_blank"
@@ -11,7 +11,7 @@ const BgVidIcons = () => {
             src={process.env.PUBLIC_URL + "/footer/instagram.svg"}
             alt="Instagram Logo"
             width={50}
-            className="mx-4 w-[35px] md:w-[50px] md:mx-10"
+            className="w-[35px] md:w-[50px]"
           />
         </a>
         <a
@@ -23,7 +23,7 @@ const BgVidIcons = () => {
             src={process.env.PUBLIC_URL + "/footer/facebook.svg"}
             alt="Facebook Logo"
             width={50}
-            className="mx-4 w-[35px] md:w-[50px] md:mx-10"
+            className="w-[35px] md:w-[50px]"
           />
         </a>
       </div>

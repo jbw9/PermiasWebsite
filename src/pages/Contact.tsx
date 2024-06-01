@@ -2,12 +2,12 @@ import React from "react";
 
 const ContactInfo: React.FC = () => {
   return (
-    <div className="flex flex-col items-center justify-center mt-10 px-8 mx-[200px] mb-[100px]">
+    <div className="flex flex-col items-center justify-center mt-10 px-8 mb-[100px]">
       <span className="text-5xl font-bold text-red mb-[20px]">Contact Us</span>
       <span className="text-2xl">
         Get in touch and let us know how we can help
       </span>
-      <div className="mt-[40px] flex flex-row justify-between w-full">
+      <div className="mt-[40px] flex flex-row space-x-[40px]">
         <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
           <img
             className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
@@ -66,8 +66,8 @@ const ContactInfo: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="mt-[40px] flex flex-row justify-between w-full">
-        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0 ml-[180px]">
+      <div className="mt-[40px] flex flex-row space-x-[40px] justify-center">
+        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
           <img
             className="mt-[40px] md:mt-[40px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
             src={process.env.PUBLIC_URL + "/ContactUs/grad.png"}
@@ -86,7 +86,7 @@ const ContactInfo: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0 mr-[180px]">
+        <div className="h-[468px] w-[360px] md:h-[468px] md:w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
           <img
             className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
             src={process.env.PUBLIC_URL + "/ContactUs/indonesiamaju.png"}

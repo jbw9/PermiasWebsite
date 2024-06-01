@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
 import { Link } from "react-router-dom";
 import BgVidIcons from "../components/home/backgroundVideoIcons";
@@ -10,7 +10,9 @@ import UpcomingEventsList from "../components/events/upcomingEventsList";
 import { Helmet } from "react-helmet";
 import GraduateSpotlight from "../components/home/graduateSpotlight";
 
-const WebsiteTitle: React.FC = () => {
+const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
+  onGetInvolvedClick,
+}) => {
   return (
     <div className="relative flex justify-center h-full">
       <div className="mt-[50px] flex flex-col">
@@ -19,14 +21,28 @@ const WebsiteTitle: React.FC = () => {
           Welcome to Our Official Website
         </span>
       </div>
-      <div className="absolute bottom-0 flex justify-center items-center h-[100px] w-[200px] mb-[10px]">
+      <div className="absolute bottom-0 flex justify-center items-center mb-[10px] flex-col space-y-[20px]">
         <BgVidIcons />
+        <button
+          className="bg-transparent border-none cursor-pointer"
+          onClick={onGetInvolvedClick}
+        >
+          <div className="underline text-white hover:text-white">
+            Get Involved!
+          </div>
+        </button>
       </div>
     </div>
   );
 };
 
 const HomePage: React.FC = () => {
+  const bottomRef = useRef<HTMLDivElement>(null); // Create a ref
+
+  const scrollToBottom = () => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
   return (
     <div>
       <Helmet>
@@ -40,7 +56,7 @@ const HomePage: React.FC = () => {
         <div>
           <BackgroundVideo
             source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"}
-            children={<WebsiteTitle />}
+            children={<WebsiteTitle onGetInvolvedClick={scrollToBottom} />}
           />
         </div>
         <div className="flex items-center justify-center w-full">
@@ -81,6 +97,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
+      <div ref={bottomRef}></div> {/* Attach ref to an element at the bottom */}
     </div>
   );
 };
