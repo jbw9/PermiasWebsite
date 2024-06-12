@@ -124,6 +124,20 @@ const Header: React.FC = () => {
               }`}
             ></span>
           </Link>
+          <Link
+            to="/contact"
+            className={`text-sxl text-footer relative inline-block my-2 ${
+              isActive("/contact") ? "active" : ""
+            }`}
+            onClick={closeMenu}
+          >
+            Contact
+            <span
+              className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-0.5 bg-red transition-all duration-150 ${
+                isActive("/contact") ? "scale-x-100" : "scale-x-0"
+              }`}
+            ></span>
+          </Link>
         </div>
       </div>
 

@@ -4,11 +4,11 @@ import Dropdown, { DropdownProps } from "./dropdown";
 const FAQ = () => {
   return (
     <div className="flex justify-center">
-      <div className="flex flex-col items-center justify-center mt-10 px-8 mb-[100px] w-[70%]">
-        <span className="text-5xl font-bold text-red mb-[20px]">
+      <div className="flex flex-col items-center justify-center mt-10 px-4 mb-[100px] w-full md:w-[70%] md:px-8">
+        <span className="text-4xl font-bold text-red mb-[20px] text-center md:text-5xl">
           Frequently Asked Questions
         </span>
-        <span className="text-2xl text-footer mb-[40px]">
+        <span className="text-xl text-footer mb-[40px] text-center md:text-2xl">
           How can we help you?
         </span>
         <div className="w-full">
@@ -75,7 +75,7 @@ const FAQ = () => {
             ></Dropdown>
             <Dropdown
               text="What is Quad Day?"
-              desc={`Quad Day is an event where student organizations showcase their activities. It’s a great opportunity to join clubs and meet new people.`}
+              desc={`Quad Day is an event where student organizations showcase their activities. It's a great opportunity to join clubs and meet new people.`}
             ></Dropdown>
             <Dropdown
               text="How do I open a bank account?"
@@ -161,7 +161,7 @@ const FAQ = () => {
             <Dropdown
               text="What should I bring and not bring for dorm living?"
               desc={`            <ul class="list-disc pl-6">
-              <li><strong>Bring:</strong> Bedding, toiletries, laundry supplies, and small kitchen items. (You don’t need to pack these, they are usually easy to purchase in the U.S.)
+              <li><strong>Bring:</strong> Bedding, toiletries, laundry supplies, and small kitchen items. (You don't need to pack these, they are usually easy to purchase in the U.S.)
               </li>
               <li><strong>Do Not Bring:</strong> Large appliances and prohibited items (such as candles and hot plates). If you need a fridge and microwave, you can purchase them from other Indonesians, rent, or buy new ones.</li>
             </ul>`}
