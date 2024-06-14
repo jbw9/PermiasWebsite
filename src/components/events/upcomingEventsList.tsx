@@ -10,13 +10,12 @@ const UpcomingEventsList = () => {
         <div className="w-full sm:w-auto">
           {" "}
           <UpcomingEvents
-            eventCoverImage="gradnight"
-            eventName="Grad Night"
-            eventDate={10}
-            eventMonth="May"
-            eventLocation="Golden Harbor"
-            eventTime="6:00 - 8:30 pm"
-            eventrsvpLink="https://docs.google.com/forms/d/e/1FAIpQLScxf7T-pXP5Bm99UpfoWUlPNInGmutXnOvqcX3WhqJGkaDHFw/viewform"
+            eventCoverImage="meetgreet"
+            eventName="2024 Meet & Greet"
+            eventDate={22}
+            eventMonth="June"
+            eventLocation="Online (Zoom)"
+            eventTime="11:00am - End WIB"
           />{" "}
         </div>{" "}
       </div>{" "}
