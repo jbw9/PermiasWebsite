@@ -84,7 +84,7 @@ const Contacts = () => {
                 We'd love to assist you anything regarding graduate education at
                 UIUC.
               </div>
-              <div className="w-full mt-[40px] text-base md:text-lg text-center">
+              <div className="w-full mt-[25px] text-base md:text-lg text-center">
                 Regina Giovanni: +1 (551) 297-9660
               </div>
             </div>
