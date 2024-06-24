@@ -9,6 +9,7 @@ import GetInvolved from "../components/home/getInvolved";
 import UpcomingEventsList from "../components/events/upcomingEventsList";
 import { Helmet } from "react-helmet";
 import GraduateSpotlight from "../components/home/graduateSpotlight";
+import CanvaPreview from "../components/home/bookletPreview";
 
 const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
   onGetInvolvedClick,
@@ -27,7 +28,7 @@ const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
           className="bg-transparent border-none cursor-pointer"
           onClick={onGetInvolvedClick}
         >
-          <div className="underline text-white hover:text-white">
+          <div className="text-white underline hover:text-white">
             Get Involved!
           </div>
         </button>
@@ -86,10 +87,13 @@ const HomePage: React.FC = () => {
               <OurPurpose />
             </div>
             <div className="mt-[140px] md:mx-[150px] mx-[20px]">
-              <FreshmanSpotlight />
+              <GraduateSpotlight />
+            </div>
+            <div className="mt-[140px] md:mb-[100px]">
+              <CanvaPreview />
             </div>
             <div className="mt-[140px] md:mx-[150px] mx-[20px]">
-              <GraduateSpotlight />
+              <FreshmanSpotlight />
             </div>
             <div className="mt-[120px]">
               <GetInvolved />
