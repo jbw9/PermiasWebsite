@@ -37,9 +37,15 @@ module.exports = {
           "0%": { opacity: 0, transform: "translateY(20px)" },
           "100%": { opacity: 1, transform: "translateY(0)" },
         },
+        scroll: {
+          to: {
+            transform: "translate(calc(-50% - 1rem))",
+          },
+        },
       },
       animation: {
         fadeIn: "fadeIn 0.5s ease-out forwards",
+        scroll: "scroll var(--animation-duration) linear infinite",
       },
     },
   },

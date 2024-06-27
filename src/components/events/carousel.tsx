@@ -1,55 +1,91 @@
-import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Swiper as SwiperInstance } from "swiper";
-import "swiper/css";
-import { Autoplay, Pagination, Navigation, FreeMode } from "swiper/modules";
+import React, { useEffect, useState, useRef } from "react";
+import { cn } from "../../utils/cn";
 
 type CarouselProps = {
   images: string[];
-  direction: "left" | "right";
+  direction?: "left" | "right";
+  pauseOnHover?: boolean;
+  className?: string;
 };
 
-const Carousel: React.FC<CarouselProps> = ({ images, direction }) => {
+const Carousel: React.FC<CarouselProps> = ({
+  images,
+  direction = "left",
+  pauseOnHover = true,
+  className,
+}) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const scrollerRef = useRef<HTMLUListElement>(null);
+  const [start, setStart] = useState(false);
+
+  useEffect(() => {
+    addAnimation();
+  }, []);
+
+  function addAnimation() {
+    if (containerRef.current && scrollerRef.current) {
+      const scrollerContent = Array.from(scrollerRef.current.children);
+
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        if (scrollerRef.current) {
+          scrollerRef.current.appendChild(duplicatedItem);
+        }
+      });
+
+      getDirection();
+      setAnimationDuration();
+      setStart(true);
+    }
+  }
+
+  const getDirection = () => {
+    if (containerRef.current) {
+      containerRef.current.style.setProperty(
+        "--animation-direction",
+        direction === "left" ? "forwards" : "reverse"
+      );
+    }
+  };
+
+  const setAnimationDuration = () => {
+    if (containerRef.current) {
+      const singleRotationDistance = images.length * 1200; // Assuming 1200px width per image
+      const duration = singleRotationDistance / 100; // 50px per second
+      containerRef.current.style.setProperty(
+        "--animation-duration",
+        `${duration}s`
+      );
+    }
+  };
+
   return (
-    <Swiper
-      speed={3000} // Increase the speed to make the transition smoother
-      centeredSlides={true}
-      spaceBetween={15}
-      slidesPerView={"auto"}
-      onSlideChange={() => console.log("slide change")}
-      loop={true}
-      pagination={{
-        clickable: true,
-      }}
-      navigation={true}
-      autoplay={{
-        delay: 0, // Set the delay to 0 to start the autoplay immediately
-        disableOnInteraction: false,
-        reverseDirection: direction === "left",
-      }}
-      freeMode={true}
-      modules={[Autoplay, Pagination, Navigation, FreeMode]}
-      breakpoints={{
-        640: {
-          width: 900,
-          slidesPerView: 1,
-        },
-        768: {
-          width: 1200,
-          slidesPerView: 2,
-        },
-      }}
+    <div
+      ref={containerRef}
+      className={cn(
+        "scroller relative z-0 max-w-7xl overflow-hidden",
+        className
+      )}
     >
-      {images.map((image, index) => (
-        <SwiperSlide key={index}>
-          <img
-            src={image}
-            alt={`Slide ${index}`}
-            className="object-contain rounded-2xl"
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+      <ul
+        ref={scrollerRef}
+        className={cn(
+          "flex min-w-full shrink-0 gap-4 py-4 w-max flex-nowrap",
+          start && "animate-scroll",
+          pauseOnHover && "hover:[animation-play-state:paused]"
+        )}
+      >
+        {images.map((image, index) => (
+          <li key={index} className="w-[300px] flex-shrink-0 sm:w-[800px]">
+            <img
+              src={image}
+              alt={`Slide ${index}`}
+              className="object-contain w-full h-full rounded-2xl"
+            />
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
