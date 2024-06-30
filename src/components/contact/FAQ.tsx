@@ -1,5 +1,5 @@
 import React from "react";
-import Dropdown, { DropdownProps } from "./dropdown";
+import Dropdown from "./dropdown";
 
 const FAQ = () => {
   return (

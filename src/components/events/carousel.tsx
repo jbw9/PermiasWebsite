@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useCallback } from "react";
 import { cn } from "../../utils/cn";
 
 type CarouselProps = {
@@ -18,11 +18,7 @@ const Carousel: React.FC<CarouselProps> = ({
   const scrollerRef = useRef<HTMLUListElement>(null);
   const [start, setStart] = useState(false);
 
-  useEffect(() => {
-    addAnimation();
-  }, []);
-
-  function addAnimation() {
+  const addAnimation = useCallback(() => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -37,7 +33,11 @@ const Carousel: React.FC<CarouselProps> = ({
       setAnimationDuration();
       setStart(true);
     }
-  }
+  }, []);
+
+  useEffect(() => {
+    addAnimation();
+  }, [addAnimation]);
 
   const getDirection = () => {
     if (containerRef.current) {

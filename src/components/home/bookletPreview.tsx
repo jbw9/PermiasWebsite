@@ -51,6 +51,7 @@ const CanvaPreview: React.FC<CanvaPreviewProps> = ({
           src="https://www.canva.com/design/DAGG1vUJC5M/EzHcDifJjS5rL2imbr-gMA/view?embed"
           allowFullScreen
           allow="fullscreen"
+          title="New Students Booklet"
         />
       </div>
     </div>
