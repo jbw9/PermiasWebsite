@@ -22,7 +22,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({
       <div className="flex flex-col items-center justify-center mt-[20px]">
         <div className="w-[336px] h-[336px] md:w-[400px] md:h-[400px] rounded-2xl shadow-2xl relative overflow-hidden text-white">
           <img
-            src={`${process.env.PUBLIC_URL}/events/${eventCoverImage}.png`}
+            src={`${process.env.PUBLIC_URL}/events/upcoming/${eventCoverImage}.png`}
             alt={eventName}
             style={{ width: "100%", height: "100%", objectFit: "cover" }}
           />
@@ -43,7 +43,9 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({
                 <div className="flex flex-col justify-center">
                   <div className="flex items-center mb-1">
                     <img
-                      src={process.env.PUBLIC_URL + "/events/clock.png"}
+                      src={
+                        process.env.PUBLIC_URL + "/events/upcoming/clock.png"
+                      }
                       alt="Time Icon"
                       className="w-5 h-5 mr-2"
                     />
@@ -51,7 +53,9 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({
                   </div>
                   <div className="flex items-center">
                     <img
-                      src={process.env.PUBLIC_URL + "/events/location.png"}
+                      src={
+                        process.env.PUBLIC_URL + "/events/upcoming/location.png"
+                      }
                       alt="Location Icon"
                       className="w-5 h-5 mr-2"
                     />
@@ -66,7 +70,7 @@ const UpcomingEvents: React.FC<UpcomingEventsProps> = ({
                   rel="noopener noreferrer"
                   className="flex items-center"
                 >
-                  <div className="w-[100px] h-[40px] rounded-2xl border border-gray-400 flex items-center justify-center">
+                  <div className="w-[80px] h-[35px] rounded-2xl border border-gray-400 flex items-center justify-center">
                     <span className="text-xl">RSVP</span>
                   </div>
                 </a>
