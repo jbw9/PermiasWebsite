@@ -15,7 +15,7 @@ const UpcomingEventsList = () => {
             eventDate={20}
             eventMonth="July"
             eventLocation="Gedung Munik Restoran"
-            eventTime="TBD"
+            eventTime="11am - 2pm WIB"
             eventrsvpLink="https://docs.google.com/forms/d/e/1FAIpQLSeStvXVdtY6Djh8IyChbo9BaY-1Vt2NBZcUcuQz_Donqs3Avw/viewform"
           />{" "}
         </div>{" "}
