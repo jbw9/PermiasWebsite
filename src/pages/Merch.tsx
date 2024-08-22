@@ -36,25 +36,11 @@ const MerchPage: React.FC = () => {
       </div>
       <div className="h-w-full mt-[50px] flex flex-col items-center px-4 md:px-[100px]">
         <div className="flex flex-col items-center md:flex-row md:justify-center">
-          <button onClick={openPopup2021}>
+          <button onClick={openPopup2023}>
             <div className="h-[500px] w-[370px] mb-8 md:h-[660px] md:w-[450px] md:mr-[200px] md:mb-0 bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center transform transition duration-300 ease-in-out hover:scale-105 ring-1 ring-gray-200">
               <img
-                src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Main.png"}
-                alt="2021 hoodie"
-                className="w-[280px] md:w-[450px]"
-              />
-              <span className="text-3xl md:text-4xl mt-[25px]">
-                2021 Permias Hoodie
-              </span>
-              <span className="text-xl md:text-2xl">$20</span>
-            </div>
-          </button>
-          <Popup2021 isOpen={isPopup2021Open} onClose={closePopup2021} />
-          <button onClick={openPopup2023}>
-            <div className="h-[500px] w-[370px] md:h-[660px] md:w-[450px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center transform transition duration-300 ease-in-out hover:scale-105 ring-1 ring-gray-200">
-              <img
                 src={process.env.PUBLIC_URL + "/merch/2023_Hoodie_Main.png"}
-                alt="2021 hoodie"
+                alt="2023 sweater"
                 className="w-[280px] md:w-[450px]"
               />
               <span className="text-3xl md:text-4xl mt-[25px]">
@@ -64,6 +50,20 @@ const MerchPage: React.FC = () => {
             </div>
           </button>
           <Popup2023 isOpen={isPopup2023Open} onClose={closePopup2023} />
+          <button onClick={openPopup2021}>
+            <div className="h-[500px] w-[370px] md:h-[660px] md:w-[450px] bg-white rounded-2xl shadow-2xl flex flex-col justify-center items-center transform transition duration-300 ease-in-out hover:scale-105 ring-1 ring-gray-200">
+              <img
+                src={process.env.PUBLIC_URL + "/merch/2021_Hoodie_Main.png"}
+                alt="2021 hoodie"
+                className="w-[280px] md:w-[450px]"
+              />
+              <span className="text-3xl md:text-4xl mt-[25px]">
+                2024 Permias T Shirt
+              </span>
+              <span className="text-xl md:text-2xl">$20</span>
+            </div>
+          </button>
+          <Popup2021 isOpen={isPopup2021Open} onClose={closePopup2021} />
         </div>
       </div>
     </div>
