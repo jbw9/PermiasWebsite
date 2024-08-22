@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
 import { Link } from "react-router-dom";
 import BgVidIcons from "../components/home/backgroundVideoIcons";
@@ -38,10 +38,23 @@ const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
 };
 
 const HomePage: React.FC = () => {
-  const bottomRef = useRef<HTMLDivElement>(null); // Create a ref
+  const bottomRef = useRef<HTMLDivElement>(null);
+  const [showMascot, setShowMascot] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowMascot(true);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const scrollToBottom = () => {
     bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleMascotClick = () => {
+    setShowMascot(false);
   };
 
   return (
@@ -54,6 +67,18 @@ const HomePage: React.FC = () => {
         <title>Permias UIUC</title>
       </Helmet>
       <div className="mb-[100px] w-full overflow-x-hidden">
+        <div
+          className={`fixed bottom-0 left-0 z-50 transition-transform duration-500 ease-out cursor-pointer ${
+            showMascot ? "translate-y-0" : "translate-y-full"
+          }`}
+          onClick={handleMascotClick}
+        >
+          <img
+            src={process.env.PUBLIC_URL + "/Home/mascot.png"}
+            alt="Mascot"
+            className="object-contain w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40"
+          />
+        </div>
         <div>
           <BackgroundVideo
             source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"}
@@ -101,7 +126,7 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div ref={bottomRef}></div> {/* Attach ref to an element at the bottom */}
+      <div ref={bottomRef}></div>
     </div>
   );
 };
