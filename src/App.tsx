@@ -5,8 +5,7 @@ import {
   Route,
   useLocation,
 } from "react-router-dom";
-import Header from "./Header";
-import Footer from "./Footer";
+import DefaultLayout from "./DefaultLayout";
 
 import HomePage from "./pages/Home";
 import TeamPage from "./pages/Team";
@@ -16,6 +15,7 @@ import GuidePage from "./pages/Guide";
 import MerchPage from "./pages/Merch";
 import NotFound from "./pages/NotFound";
 import ContactPage from "./pages/Contact";
+import CounterPage from "./pages/Counter";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -30,23 +30,74 @@ function ScrollToTop() {
 function App() {
   return (
     <Router>
-      <div className="flex flex-col min-h-screen">
-        <Header />
-        <ScrollToTop />
-        <main className="flex-grow mt-16 bg-white">
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/team" element={<TeamPage />} />
-            <Route path="/about-us" element={<AboutUsPage />} />
-            <Route path="/events" element={<EventPage />} />
-            <Route path="/guide" element={<GuidePage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/merch" element={<MerchPage />} />
-            <Route path="/*" element={<NotFound />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/counter" element={<CounterPage />} />
+        <Route
+          path="/"
+          element={
+            <DefaultLayout>
+              <HomePage />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path="/team"
+          element={
+            <DefaultLayout>
+              <TeamPage />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path="/about-us"
+          element={
+            <DefaultLayout>
+              <AboutUsPage />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path="/events"
+          element={
+            <DefaultLayout>
+              <EventPage />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path="/guide"
+          element={
+            <DefaultLayout>
+              <GuidePage />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path="/contact"
+          element={
+            <DefaultLayout>
+              <ContactPage />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path="/merch"
+          element={
+            <DefaultLayout>
+              <MerchPage />
+            </DefaultLayout>
+          }
+        />
+        <Route
+          path="/*"
+          element={
+            <DefaultLayout>
+              <NotFound />
+            </DefaultLayout>
+          }
+        />
+      </Routes>
     </Router>
   );
 }

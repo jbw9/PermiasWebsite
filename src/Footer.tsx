@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Footer: React.FC = () => {
   return (
@@ -40,6 +41,14 @@ const Footer: React.FC = () => {
             className="w-[35px] md:w-[50px]"
           />
         </a>
+        <Link to="/counter">
+          <img
+            src={process.env.PUBLIC_URL + "/footer/login.png"}
+            alt="Whatsapp Logo"
+            width={50}
+            className="w-[35px] md:w-[50px]"
+          />
+        </Link>
       </div>
       <span className="mb-[15px] text-sm mx-[30px] text-center">
         © 2024 Indonesian Student Association at the University of Illinois

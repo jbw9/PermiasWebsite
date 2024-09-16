@@ -4,6 +4,7 @@
   "homepage": "https://jbw9.github.io/",
   "private": true,
   "dependencies": {
+    "@supabase/supabase-js": "^2.45.4",
     "@tailwindcss/forms": "^0.5.7",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
