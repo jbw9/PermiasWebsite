@@ -37,7 +37,7 @@ const TeamPage: React.FC = () => {
     <div className="mb-[70px]">
       <div className="flex items-end justify-center w-full md:h-[600px]">
         <img
-          src={process.env.PUBLIC_URL + "/officers/background.png"}
+          src={process.env.PUBLIC_URL + "/officers/teambg2024.png"}
           alt="Background"
           className="object-cover w-full h-[300px] md:h-[600px]"
         />

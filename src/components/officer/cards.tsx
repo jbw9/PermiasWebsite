@@ -58,7 +58,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
           </div>
         </button>
       </div>
-      <Popup isOpen={isPopupOpen} onClose={closePopup} member={member} />
+      {/* <Popup isOpen={isPopupOpen} onClose={closePopup} member={member} /> */}
     </div>
   );
 };

@@ -10,26 +10,17 @@ export interface TeamMember {
 
 export const teamMembers: TeamMember[] = [
   {
-    name: "Aisha Tanjung",
+    name: "Leonardo Quarviando",
     role: "President",
-    bio:
-      "Hey guys! Back at it again with me as the President🫣\n\n" +
-      "My name is Aisha. I’m now a junior in food science👩🏻‍🔬 Some fun facts about me: " +
-      "I really like cheese😋🧀, even the smelly ones, and I LOVE horror " +
-      "movies/games/anything supernatural (i don’t get spooked easily👻)\n\n" +
-      "I’m pretty busy during the weekdays (i’m also a vp for another rso and an intern at a lab), " +
-      "so you’ll most likely find me at home sleeping during the weekends to catch up on all the " +
-      "sleep I missed😴\n" +
-      "If not, 99% you can catch me at Moge Tee any day any time #mogeteepleasesponsorme🧋 " +
-      "so feel free to say hi 👋",
-    image: "/officers/aisha.png",
+    bio: "\n\n",
+    image: "/officers/leon 2024.png",
     funImage: "/officers/aishaFun.png",
     instagram: "https://www.instagram.com/aishatanjung_",
     linkedin: "https://www.linkedin.com/in/aisha-tanjung-8a7212220/",
   },
   {
-    name: "Magellan F. Wirawan",
-    role: "Vice President",
+    name: "Ewangga Patrianada",
+    role: "Vice President External",
     bio:
       "Hullo!! I’m Magellan, the VP and I’m a sophomore in Industrial Engineering. " +
       "When I’m not grinding at Grainger, I love playing sports with my friends(mostly tennis 🎾), " +
@@ -42,14 +33,14 @@ export const teamMembers: TeamMember[] = [
       "Dachshunds (sausage dogs!), I think they’re the cutest dog breed.\n\n" +
       "I’m often seen around the Grainger quad area, with a cup of matcha in hand, so don’t hesitate " +
       "to say hi!! :)",
-    image: "/officers/magellan.png",
+    image: "/officers/ewangga 2024.png",
     funImage: "/officers/magellanFun.png",
     instagram: "https://www.instagram.com/magellanfrances",
     linkedin: "https://www.linkedin.com/in/magellan-frances-wirawan-325948222/",
   },
   {
-    name: "Calista F. Gunawan",
-    role: "Treasurer",
+    name: "Azhura H. Viandyra",
+    role: "Vice President Internal",
     bio:
       "Hi everyone, my name is Calista, and I am currently a sophomore majoring in Accountancy + Data Science!!! " +
       "(a very “fun” major)\n\n" +
@@ -61,14 +52,14 @@ export const teamMembers: TeamMember[] = [
       "Lastly, you can find me studying in Siebel Center for Design a lot! That’s my favorite place on campus!\n\n" +
       "YEYY UDAHHHHHH",
 
-    image: "/officers/callista.png",
+    image: "/officers/azhura 2024.png",
     funImage: "/officers/calistaFun.png",
     instagram: "https://www.instagram.com/calistaferoniq/",
     linkedin: "https://www.linkedin.com/in/calista-feroniq-gunawan/",
   },
   {
-    name: "Andrew N. Kwanandas",
-    role: "Internal Affairs",
+    name: "Andi Alif Badawi Harist",
+    role: "Secretary",
     bio:
       "Hello! My name is Andrew, I’m a senior studying accounting. This is my 3rd year as a PERMIAS member, and " +
       "I’m serving as Internal Relations for this academic year. (Please help me, I don’t know why I’m doing this " +
@@ -79,14 +70,14 @@ export const teamMembers: TeamMember[] = [
       "I can be seen wearing a form of outerwear all year round (even in the summer .. don’t ask why, it feels weird " +
       "not to wear one)\n\n" +
       "If you are enrolled in Gies and planning to take BUS 301, let me know as I’m currently TAing for this class.\n\n",
-    image: "/officers/andrew.png",
+    image: "/officers/alif 2024.png",
     funImage: "/officers/andrewFun.png",
     instagram: "https://www.instagram.com/andrewnathanielk/",
     linkedin: "https://www.linkedin.com/in/andrew-kwanandas-88367221b/",
   },
   {
-    name: "Ryan Liem",
-    role: "Secretary",
+    name: "Putra Ganesha Karmayoga",
+    role: "Treasurer",
     bio:
       "Hello everyone! My name is Ryan and I am the PERMIAS secretary for the next academic year. I’m a sophomore " +
       "and my major is computer engineering.\n\n" +
@@ -96,13 +87,13 @@ export const teamMembers: TeamMember[] = [
       "Personally, I think that the weather here in UIUC isn’t so bad. People like to wear layers of jackets even in " +
       "the fall, but I usually only wear 1 layer of jacket even through most of the winter, so I’d say don’t be too " +
       "afraid of the cold. Anyway, I also think onion rings don’t taste good so take it as you will.",
-    image: "/officers/ryan.png",
+    image: "/officers/putra 2024.png",
     funImage: "/officers/ryanFun.png",
     instagram: "https://www.instagram.com/ryaneidoo/",
     linkedin: "https://www.linkedin.com/in/ryanliem1555/",
   },
   {
-    name: "Yulius A. Mandataputra",
+    name: "Hanaan Santosa",
     role: "Event Organizer",
     bio:
       "Hi, my name is Yulius and I am a graduate student majoring in Business Analytics. This year, I am also in " +
@@ -113,47 +104,44 @@ export const teamMembers: TeamMember[] = [
       "My MBTI result is ENFJ-T. It’s like a protagonist, readily taking action to do what they feel is right. Do you " +
       "remember that I love running? Because you’re the right one for me and I want to go the distance with you 😀\n\n" +
       "Oiya, I cook almost all of my own meals here. Come over and dinner + latte is on me.",
-    image: "/officers/yulius.png",
+    image: "/officers/hanaan 2024.png",
     funImage: "/officers/yuliusFun.png",
     instagram: "https://www.instagram.com/yuliusadyan/",
     linkedin: "https://www.linkedin.com/in/yuliusadyan/",
   },
   {
-    name: "Scott W. Abednego",
-    role: "Head of Operations",
-    bio:
-      "Hai guys! I’m Scott and I’m serving as the Head of Operations for PERMIAS UIUC this year woohoo!! I’m now " +
-      "a sophomore in Accountancy + Data Science (I recently transferred majors 🫣).\n\n" +
-      "I serve in leadership positions in two organizations so my schedule tends to be packed, which is why I " +
-      "cherish the moments where I don’t have anything to do :). If you’re looking for someone to daydream with, " +
-      "I’m the guy for it! My hobbies include (but not limited to): skateboarding, basleeping, and dreaming about " +
-      "her ;).\n\n" +
-      "Feel free to reach out if you need advice about anything, or if u just want someone to talk to!!",
-
-    image: "/officers/scott.png",
-    funImage: "/officers/scottFun.png",
-    instagram: "https://www.instagram.com/scootwillll/",
-    linkedin: "https://www.linkedin.com/in/scottabednego/",
-  },
-  {
-    name: "Azhura H. Viandyra",
+    name: "Yeremias Naro Panjaitan",
     role: "Event Organizer",
     bio:
-      "Hi there! I'm Azhura, one of your newest (and maybe youngest) PERMIAS members and I'm thrilled to bring " +
-      "some exciting events your way ;) When not busy with studies, you might catch me cycling, writing, managing " +
-      "my Google calendar, picking out a new book to read for the week from my dorm's library, or simply enjoying " +
-      "some variety shows.\n\n" +
-      "Fun fact about me: I'm a fan of The Boyz and KOI's caramel milk tea with boba (extra points for less sugar). " +
-      "When it comes to my all-time favorite snack, it's got to be pukis laba-laba! If I ever found myself stranded " +
-      "alone on a beach with nothing but my lip balm (and, of course, some water and my phone), rest assured, I'd be " +
-      "just fine. No MBTI label for me yet, so feel free to take a guess :D\n\n" +
-      "As for my favorite spots here at UIUC, I'd say it's between the Psych Building atrium or my dorm room. And, " +
-      "here's a hot take: warm water >>> cold water.",
-
-    image: "/officers/azhura.png",
-    funImage: "/officers/azhuraFun.png",
-    instagram: "https://www.instagram.com/azhvra/",
-    linkedin: "https://www.linkedin.com/in/azhura-viandyra/",
+      "Hi, my name is Yulius and I am a graduate student majoring in Business Analytics. This year, I am also in " +
+      "charge of Permias UIUC as an event organizer committee.\n\n" +
+      "Two things I like most: running and coffee. I have like 2 running shoes in rotation (while still left 5 shoes " +
+      "at home) and love to make my own americano or latte at my apartment. Here’s a secret: Starbucks ground coffee + " +
+      "any milk = easy & affordable Starbucks latte.\n\n" +
+      "My MBTI result is ENFJ-T. It’s like a protagonist, readily taking action to do what they feel is right. Do you " +
+      "remember that I love running? Because you’re the right one for me and I want to go the distance with you 😀\n\n" +
+      "Oiya, I cook almost all of my own meals here. Come over and dinner + latte is on me.",
+    image: "/officers/naro 2024.png",
+    funImage: "/officers/yuliusFun.png",
+    instagram: "https://www.instagram.com/yuliusadyan/",
+    linkedin: "https://www.linkedin.com/in/yuliusadyan/",
+  },
+  {
+    name: "Chloe Lembong",
+    role: "Event Organizer",
+    bio:
+      "Hi, my name is Yulius and I am a graduate student majoring in Business Analytics. This year, I am also in " +
+      "charge of Permias UIUC as an event organizer committee.\n\n" +
+      "Two things I like most: running and coffee. I have like 2 running shoes in rotation (while still left 5 shoes " +
+      "at home) and love to make my own americano or latte at my apartment. Here’s a secret: Starbucks ground coffee + " +
+      "any milk = easy & affordable Starbucks latte.\n\n" +
+      "My MBTI result is ENFJ-T. It’s like a protagonist, readily taking action to do what they feel is right. Do you " +
+      "remember that I love running? Because you’re the right one for me and I want to go the distance with you 😀\n\n" +
+      "Oiya, I cook almost all of my own meals here. Come over and dinner + latte is on me.",
+    image: "/officers/chloe 2024.png",
+    funImage: "/officers/yuliusFun.png",
+    instagram: "https://www.instagram.com/yuliusadyan/",
+    linkedin: "https://www.linkedin.com/in/yuliusadyan/",
   },
   {
     name: "Evan M. Huang",
@@ -165,14 +153,14 @@ export const teamMembers: TeamMember[] = [
       "I love chinese food and noodles so hmu if you ever have any recommendations.\n\n" +
       "I would usually be at the ARC playing badminton or hitting the gym so if you see me there just stop by and say hi:)",
 
-    image: "/officers/evan.png",
+    image: "/officers/evan 2024.png",
     funImage: "/officers/evanFun.png",
     instagram: "https://www.instagram.com/evanhuang._/",
     linkedin: "https://www.linkedin.com/in/evan-huang243/",
   },
   {
-    name: "Ewangga Patrianada",
-    role: "Event Organizer",
+    name: "Jeddy Marta",
+    role: "Fundraising",
     bio:
       "Hello people, I'm Ewangga, the event organizer. I'm a sophomore majoring in Civil and Environmental Engineering 🌉🏞️. " +
       "Aside from (hardly) doing engineering-related coursework📐, I enjoy watching YouTube videos, especially about travel, " +
@@ -183,13 +171,13 @@ export const teamMembers: TeamMember[] = [
       "components, but its slow-cook process is a perfect representation of the Javanese philosophy that values tranquility " +
       "😇🙏. So far, my favorite place at UIUC is the Idea Garden, yet I spend most of my time between classes sitting on any " +
       "nearby building's sofa.",
-    image: "/officers/ewangga.png",
+    image: "/officers/Jeddy 2024.png",
     funImage: "/officers/ewanggaFun.png",
     instagram: "https://www.instagram.com/ewangganada/",
     linkedin: "https://www.linkedin.com/in/patrianada-ewangga/",
   },
   {
-    name: "Jonathan Widjajakusuma",
+    name: "Benvito Themas",
     role: "Fundraising",
     bio:
       "Hey everyone I’m Jonathan, a freshman majoring in Finance + Data Science and hoping to squeeze in a minor in " +
@@ -201,13 +189,13 @@ export const teamMembers: TeamMember[] = [
       "I enjoy bowling, and recently have become hooked on billiards, so I’m frequently in the Illini Union Rec Room " +
       "(whenever I can summon the will to walk there).",
 
-    image: "/officers/jonathan.png",
+    image: "/officers/benvito 2024.png",
     funImage: "/officers/jonathanFun.png",
     instagram: "https://www.instagram.com/jonathan.b.w/",
     linkedin: "https://www.linkedin.com/in/jwidjajakusuma/",
   },
   {
-    name: "Leonardo Quarviando",
+    name: "Abigail Liaw",
     role: "Social Media",
     bio:
       "Hey people! I’m Leon, the sudden social media officer for this year (someone ditched us. GUESSS WHO!!). I’m " +
@@ -217,13 +205,13 @@ export const teamMembers: TeamMember[] = [
       "You’ll probably gonna see me the most either in Kung Fu tea (pokebowl is my fave!) or grainger (with Magellan most " +
       "likely. I know I know, we’re depressing a*s people)\n\n" +
       "And also, where are ESFJ people? Never met one 🙁",
-    image: "/officers/leon.png",
-    funImage: "/officers/leonFun.png",
+    image: "/officers/abigail 2024.png",
+    funImage: "/officers/abigail 2024.png",
     instagram: "https://www.instagram.com/leonardoquarviando/",
     linkedin: "https://www.linkedin.com/in/leonardo-quarviando-2b6766288/",
   },
   {
-    name: "Febe Yemima",
+    name: "Henry Lukas Hutagalung",
     role: "Documentation",
     bio:
       "Hi y’all! I’m Febe and I am the documentation officer for PERMIAS this year :). I am a senior studying " +
@@ -235,19 +223,31 @@ export const teamMembers: TeamMember[] = [
       "I like to be at the main quad a lot either to hammock or just let Boog run around and play fetch. If you ever " +
       "see us say hi :)",
 
-    image: "/officers/febe.png",
+    image: "/officers/henry 2024.png",
     funImage: "/officers/febeFun.png",
     instagram: "https://www.instagram.com/febeyem/",
     linkedin: "https://www.linkedin.com/in/febeyemima/",
   },
   {
-    name: "Keisha Alifia",
-    role: "Graphic Design",
+    name: "Jonathan Widjajakusuma",
+    role: "Technology Officer",
     bio:
       "Hi friends! My name is Keisha and I am the graphic designer for PERMIAS this year!!🎨👩🏻‍🎨 I am a sophomore majoring " +
       "in Integrative Biology Honors. I love being outdoors, cats, and boba (Kung Fu tea is the best fr) 😽 I am a ✨major✨ " +
       "procrastinator but somehow always gets myself into lots of work 🤠",
-    image: "/officers/keisha.png",
+    image: "/officers/jonathan 2024.png",
+    funImage: "/officers/keishaFun.png",
+    instagram: "https://www.instagram.com/keisha.alifia/",
+    linkedin: "https://www.linkedin.com/in/keisha-ratu-alifia-638314207/",
+  },
+  {
+    name: "Aicha Putri",
+    role: "Graphic Designer",
+    bio:
+      "Hi friends! My name is Keisha and I am the graphic designer for PERMIAS this year!!🎨👩🏻‍🎨 I am a sophomore majoring " +
+      "in Integrative Biology Honors. I love being outdoors, cats, and boba (Kung Fu tea is the best fr) 😽 I am a ✨major✨ " +
+      "procrastinator but somehow always gets myself into lots of work 🤠",
+    image: "/officers/aicha 2024.png",
     funImage: "/officers/keishaFun.png",
     instagram: "https://www.instagram.com/keisha.alifia/",
     linkedin: "https://www.linkedin.com/in/keisha-ratu-alifia-638314207/",
