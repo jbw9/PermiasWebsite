@@ -171,7 +171,7 @@ export const teamMembers: TeamMember[] = [
       "components, but its slow-cook process is a perfect representation of the Javanese philosophy that values tranquility " +
       "😇🙏. So far, my favorite place at UIUC is the Idea Garden, yet I spend most of my time between classes sitting on any " +
       "nearby building's sofa.",
-    image: "/officers/Jeddy 2024.png",
+    image: "/officers/jeddy 2024.png",
     funImage: "/officers/ewanggaFun.png",
     instagram: "https://www.instagram.com/ewangganada/",
     linkedin: "https://www.linkedin.com/in/patrianada-ewangga/",
