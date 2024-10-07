@@ -8,6 +8,7 @@ interface FoodItem {
   stock: number;
   cost: number;
   price: number;
+  sold: number;
 }
 
 const CounterPage: React.FC = () => {
@@ -21,11 +22,15 @@ const CounterPage: React.FC = () => {
     stock: 0,
     cost: 0,
     price: 0,
+    sold: 0,
   });
 
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session);
+      if (session) {
+        fetchFoodItems();
+      }
       setLoading(false);
     });
 
@@ -33,11 +38,17 @@ const CounterPage: React.FC = () => {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session);
+      if (session) {
+        fetchFoodItems();
+      }
     });
 
-    fetchFoodItems();
+    const intervalId = setInterval(fetchFoodItems, 1000); // Fetch every second
 
-    return () => subscription.unsubscribe();
+    return () => {
+      subscription.unsubscribe();
+      clearInterval(intervalId);
+    };
   }, []);
 
   const fetchFoodItems = async () => {
@@ -64,6 +75,7 @@ const CounterPage: React.FC = () => {
         password,
       });
       if (error) throw error;
+      await fetchFoodItems(); // Fetch items immediately after login
     } catch (error: unknown) {
       if (error instanceof Error) {
         alert(error.message);
@@ -103,8 +115,8 @@ const CounterPage: React.FC = () => {
       }
 
       if (data) {
-        setFoodItems([...foodItems, data[0]]);
-        setNewItem({ name: "", stock: 0, cost: 0, price: 0 });
+        setFoodItems([...foodItems, ...data]);
+        setNewItem({ name: "", stock: 0, cost: 0, price: 0, sold: 0 });
       }
     } catch (error) {
       console.error("Error adding new item:", error);
@@ -116,10 +128,9 @@ const CounterPage: React.FC = () => {
     const item = foodItems.find((item) => item.id === id);
     if (item && item.stock > 0) {
       try {
-        console.log("Attempting to update item:", item);
         const { data, error } = await supabase
           .from("counter")
-          .update({ stock: item.stock - 1 })
+          .update({ stock: item.stock - 1, sold: item.sold + 1 })
           .eq("id", id)
           .select();
 
@@ -128,12 +139,14 @@ const CounterPage: React.FC = () => {
           throw error;
         }
 
-        console.log("Update successful, returned data:", data);
-
         setFoodItems((prevItems) =>
           prevItems.map((prevItem) =>
             prevItem.id === id
-              ? { ...prevItem, stock: prevItem.stock - 1 }
+              ? {
+                  ...prevItem,
+                  stock: prevItem.stock - 1,
+                  sold: prevItem.sold + 1,
+                }
               : prevItem
           )
         );
@@ -143,20 +156,15 @@ const CounterPage: React.FC = () => {
           "Failed to update the database. Please check the console for more details."
         );
       }
-    } else {
-      console.log("Item not found or stock is 0:", id);
     }
   };
 
   const calculateRevenue = (item: FoodItem) => {
-    // Assuming initial stock is the current stock plus sold items
-    const soldItems = item.stock - item.stock;
-    return (item.price * soldItems).toFixed(2);
+    return (item.price * item.sold).toFixed(2);
   };
 
   const calculateProfit = (item: FoodItem) => {
-    const soldItems = item.stock - item.stock;
-    return ((item.price - item.cost) * soldItems).toFixed(2);
+    return ((item.price - item.cost) * item.sold).toFixed(2);
   };
 
   const calculateTotalRevenue = () => {
@@ -169,6 +177,23 @@ const CounterPage: React.FC = () => {
     return foodItems
       .reduce((total, item) => total + parseFloat(calculateProfit(item)), 0)
       .toFixed(2);
+  };
+
+  const handleReset = async () => {
+    try {
+      setLoading(true);
+      const { error } = await supabase
+        .from("counter")
+        .update({ stock: 0, sold: 0 })
+        .neq("id", 0);
+      if (error) throw error;
+      await fetchFoodItems(); // Fetch updated data after reset
+    } catch (error) {
+      console.error("Error resetting data:", error);
+      alert("Failed to reset data. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (loading) {
@@ -221,7 +246,7 @@ const CounterPage: React.FC = () => {
           </div>
           <button
             type="submit"
-            className="w-full p-2 text-white bg-blue-500 rounded hover:bg-blue-600"
+            className="w-full p-2 text-white rounded bg-red"
           >
             Sign In
           </button>
@@ -232,6 +257,12 @@ const CounterPage: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
+      <div className="w-full max-w-4xl p-4 mb-8 bg-white rounded shadow">
+        <h2 className="mb-4 text-xl font-bold">Overall Summary</h2>
+        <p className="mb-2">Total Revenue: ${calculateTotalRevenue()}</p>
+        <p>Total Profit: ${calculateTotalProfit()}</p>
+      </div>
+
       <div className="w-full max-w-4xl p-4 mb-8 bg-white rounded shadow">
         <h2 className="mb-4 text-xl font-bold">Add New Item</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
@@ -317,28 +348,28 @@ const CounterPage: React.FC = () => {
         <table className="w-full bg-white rounded shadow">
           <thead>
             <tr className="bg-gray-200">
-              <th className="p-2">Name</th>
-              <th className="p-2">Stock</th>
-              <th className="p-2">Cost</th>
-              <th className="p-2">Price</th>
-              <th className="p-2">Revenue</th>
-              <th className="p-2">Profit</th>
-              <th className="p-2">Action</th>
+              <th className="p-2 text-left">Name</th>
+              <th className="p-2 text-right">Stock</th>
+              <th className="p-2 text-right">Sold</th>
+              <th className="p-2 text-right">Cost</th>
+              <th className="p-2 text-right">Price</th>
+              <th className="p-2 text-center">Action</th>
             </tr>
           </thead>
           <tbody>
             {foodItems.map((item) => (
               <tr key={item.id} className="border-t">
-                <td className="p-2">{item.name}</td>
-                <td className="p-2">{item.stock}</td>
-                <td className="p-2">${item.cost.toFixed(2)}</td>
-                <td className="p-2">${item.price.toFixed(2)}</td>
-                <td className="p-2">${calculateRevenue(item)}</td>
-                <td className="p-2">${calculateProfit(item)}</td>
-                <td className="p-2">
+                <td className="p-2 text-left">{item.name}</td>
+                <td className="p-2 text-right">{item.stock}</td>
+                <td className="p-2 text-right">{item.sold}</td>
+                <td className="p-2 text-right">${item.cost.toFixed(2)}</td>
+                <td className="p-2 text-right">${item.price.toFixed(2)}</td>
+                <td className="p-2 text-center">
                   <button
                     onClick={() => handleSold(item.id)}
-                    className="px-2 py-1 text-white rounded bg-red hover:bg-red"
+                    className={`px-2 py-1 text-white rounded ${
+                      item.stock === 0 ? "bg-gray-400" : "bg-red hover:bg-red"
+                    }`}
                     disabled={item.stock === 0}
                   >
                     Sold
@@ -350,18 +381,20 @@ const CounterPage: React.FC = () => {
         </table>
       </div>
 
-      <div className="w-full max-w-4xl p-4 mb-8 bg-white rounded shadow">
-        <h2 className="mb-4 text-xl font-bold">Overall Summary</h2>
-        <p className="mb-2">Total Revenue: ${calculateTotalRevenue()}</p>
-        <p>Total Profit: ${calculateTotalProfit()}</p>
+      <div className="flex justify-between w-full max-w-4xl">
+        <button
+          className="px-6 py-2 mt-8 text-white rounded-md bg-red"
+          onClick={handleReset}
+        >
+          Reset All
+        </button>
+        <button
+          className="px-6 py-2 mt-8 rounded-md text-red"
+          onClick={handleLogout}
+        >
+          Sign Out
+        </button>
       </div>
-
-      <button
-        className="px-6 py-2 mt-8 text-white bg-red-500 rounded-md hover:bg-red-600"
-        onClick={handleLogout}
-      >
-        Sign Out
-      </button>
     </div>
   );
 };
