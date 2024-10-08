@@ -6,6 +6,22 @@ export interface PastEvent {
 
 export const pastEvents: PastEvent[] = [
   {
+    name: "Welcoming Event 2024 - Mingle & Connect",
+    date: "August 31 2024, Scotts Park",
+    images: [
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/one.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/two.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/three.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/four.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/five.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/six.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/seven.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/eight.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/nine.png",
+      process.env.PUBLIC_URL + "/events/welcoming_event_2024/ten.png",
+    ],
+  },
+  {
     name: "Buka Bersama Permias UIUC X Komunitas Pengajian Urbana-Champaign",
     date: "March 23 2024, Orchard Downs Community Center",
     images: [
