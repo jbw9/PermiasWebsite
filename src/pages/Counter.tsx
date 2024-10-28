@@ -134,7 +134,10 @@ const CounterPage: React.FC = () => {
 
   const fetchFoodItems = async () => {
     try {
-      const { data, error } = await supabase.from("counter").select("*");
+      const { data, error } = await supabase
+        .from("counter")
+        .select("*")
+        .order("id", { ascending: true });
       if (error) {
         throw error;
       }
@@ -396,13 +399,6 @@ const CounterPage: React.FC = () => {
       </div>
 
       <div className="w-full max-w-4xl p-4 mb-8 bg-white shadow rounded-xl">
-        <h2 className="mb-4 text-xl font-bold">Overall Food Summary</h2>
-        <p className="mb-2">Total Revenue: ${calculateTotalRevenue()}</p>
-        <p className="mb-2">Total Profit: ${calculateTotalProfit()}</p>
-        <p>Total Items Sold: {calculateTotalItemsSold()}</p>
-      </div>
-
-      <div className="w-full max-w-4xl p-4 mb-8 bg-white shadow rounded-xl">
         <h2 className="mb-4 text-xl font-bold">Add New Item</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
           <div>
@@ -480,6 +476,13 @@ const CounterPage: React.FC = () => {
         >
           Add Item
         </button>
+      </div>
+
+      <div className="w-full max-w-4xl p-4 mb-8 bg-white shadow rounded-xl">
+        <h2 className="mb-4 text-xl font-bold">Overall Food Summary</h2>
+        <p className="mb-2">Total Revenue: ${calculateTotalRevenue()}</p>
+        <p className="mb-2">Total Profit: ${calculateTotalProfit()}</p>
+        <p>Total Items Sold: {calculateTotalItemsSold()}</p>
       </div>
 
       <div className="w-full max-w-4xl mb-8 overflow-x-auto">
