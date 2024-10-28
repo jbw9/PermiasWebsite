@@ -11,12 +11,18 @@ interface FoodItem {
   sold: number;
 }
 
+interface HeadCount {
+  id: number;
+  count: number;
+}
+
 const CounterPage: React.FC = () => {
   const [session, setSession] = useState<Session | null>(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(true);
   const [foodItems, setFoodItems] = useState<FoodItem[]>([]);
+  const [headCount, setHeadCount] = useState<number>(0);
   const [newItem, setNewItem] = useState({
     name: "",
     stock: 0,
@@ -30,6 +36,7 @@ const CounterPage: React.FC = () => {
       setSession(session);
       if (session) {
         fetchFoodItems();
+        fetchHeadCount();
       }
       setLoading(false);
     });
@@ -40,16 +47,90 @@ const CounterPage: React.FC = () => {
       setSession(session);
       if (session) {
         fetchFoodItems();
+        fetchHeadCount();
       }
     });
 
-    const intervalId = setInterval(fetchFoodItems, 1000); // Fetch every second
+    const intervalId = setInterval(() => {
+      fetchFoodItems();
+      fetchHeadCount();
+    }, 500);
 
     return () => {
       subscription.unsubscribe();
       clearInterval(intervalId);
     };
   }, []);
+
+  const fetchHeadCount = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("pplCounter")
+        .select("count")
+        .eq("id", 0)
+        .single();
+
+      if (error) throw error;
+
+      if (data) {
+        setHeadCount(data.count);
+      } else {
+        // Initialize head count if it doesn't exist
+        const { error: insertError } = await supabase
+          .from("pplCounter")
+          .insert({ id: 0, count: 0 });
+
+        if (insertError) throw insertError;
+        setHeadCount(0);
+      }
+    } catch (error) {
+      console.error("Error fetching head count:", error);
+    }
+  };
+
+  const updateHeadCount = async (newCount: number) => {
+    try {
+      const { error } = await supabase
+        .from("pplCounter")
+        .upsert({ id: 0, count: newCount })
+        .eq("id", 0);
+
+      if (error) throw error;
+
+      setHeadCount(newCount);
+    } catch (error) {
+      console.error("Error updating head count:", error);
+      alert("Failed to update head count. Please try again.");
+    }
+  };
+
+  const handleIncrement = () => {
+    updateHeadCount(headCount + 1);
+  };
+
+  const handleDecrement = () => {
+    if (headCount > 0) {
+      updateHeadCount(headCount - 1);
+    }
+  };
+
+  const handleResetHeadCount = async () => {
+    if (window.confirm("Are you sure you want to reset the head count to 0?")) {
+      try {
+        const { error } = await supabase
+          .from("pplCounter")
+          .update({ count: 0 })
+          .eq("id", 0);
+
+        if (error) throw error;
+
+        setHeadCount(0);
+      } catch (error) {
+        console.error("Error resetting head count:", error);
+        alert("Failed to reset head count. Please try again.");
+      }
+    }
+  };
 
   const fetchFoodItems = async () => {
     try {
@@ -75,7 +156,7 @@ const CounterPage: React.FC = () => {
         password,
       });
       if (error) throw error;
-      await fetchFoodItems(); // Fetch items immediately after login
+      await fetchFoodItems();
     } catch (error: unknown) {
       if (error instanceof Error) {
         alert(error.message);
@@ -121,6 +202,23 @@ const CounterPage: React.FC = () => {
     } catch (error) {
       console.error("Error adding new item:", error);
       alert("Failed to add new item. Please try again.");
+    }
+  };
+
+  const handleDeleteItem = async (id: number) => {
+    if (window.confirm("Are you sure you want to delete this item?")) {
+      try {
+        const { error } = await supabase.from("counter").delete().eq("id", id);
+
+        if (error) {
+          throw error;
+        }
+
+        setFoodItems(foodItems.filter((item) => item.id !== id));
+      } catch (error) {
+        console.error("Error deleting item:", error);
+        alert("Failed to delete item. Please try again.");
+      }
     }
   };
 
@@ -179,20 +277,29 @@ const CounterPage: React.FC = () => {
       .toFixed(2);
   };
 
+  const calculateTotalItemsSold = () => {
+    return foodItems.reduce((total, item) => total + item.sold, 0);
+  };
+
   const handleReset = async () => {
-    try {
-      setLoading(true);
-      const { error } = await supabase
-        .from("counter")
-        .update({ stock: 0, sold: 0 })
-        .neq("id", 0);
-      if (error) throw error;
-      await fetchFoodItems(); // Fetch updated data after reset
-    } catch (error) {
-      console.error("Error resetting data:", error);
-      alert("Failed to reset data. Please try again.");
-    } finally {
-      setLoading(false);
+    if (
+      window.confirm(
+        "Are you sure you want to delete all items? This cannot be undone."
+      )
+    ) {
+      try {
+        setLoading(true);
+        const { error } = await supabase.from("counter").delete().neq("id", 0);
+
+        if (error) throw error;
+
+        setFoodItems([]);
+      } catch (error) {
+        console.error("Error deleting data:", error);
+        alert("Failed to delete data. Please try again.");
+      } finally {
+        setLoading(false);
+      }
     }
   };
 
@@ -257,13 +364,45 @@ const CounterPage: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4 bg-gray-100">
-      <div className="w-full max-w-4xl p-4 mb-8 bg-white rounded shadow">
-        <h2 className="mb-4 text-xl font-bold">Overall Summary</h2>
-        <p className="mb-2">Total Revenue: ${calculateTotalRevenue()}</p>
-        <p>Total Profit: ${calculateTotalProfit()}</p>
+      {/* Head Counter Section */}
+      <div className="w-full max-w-4xl p-4 mb-8 bg-white shadow rounded-xl">
+        <div className="flex items-center justify-between mb-4">
+          <h2 className="text-xl font-bold">Head Count</h2>
+          <button
+            onClick={handleResetHeadCount}
+            className="px-4 py-2 text-white rounded bg-red"
+          >
+            Reset Count
+          </button>
+        </div>
+        <div className="flex items-center justify-center space-x-4">
+          <button
+            onClick={handleDecrement}
+            className="px-4 py-2 text-white rounded bg-red"
+            disabled={headCount === 0}
+          >
+            -
+          </button>
+          <span className="text-2xl font-bold min-w-[4rem] text-center">
+            {headCount}
+          </span>
+          <button
+            onClick={handleIncrement}
+            className="px-4 py-2 text-white rounded bg-red"
+          >
+            +
+          </button>
+        </div>
       </div>
 
-      <div className="w-full max-w-4xl p-4 mb-8 bg-white rounded shadow">
+      <div className="w-full max-w-4xl p-4 mb-8 bg-white shadow rounded-xl">
+        <h2 className="mb-4 text-xl font-bold">Overall Food Summary</h2>
+        <p className="mb-2">Total Revenue: ${calculateTotalRevenue()}</p>
+        <p className="mb-2">Total Profit: ${calculateTotalProfit()}</p>
+        <p>Total Items Sold: {calculateTotalItemsSold()}</p>
+      </div>
+
+      <div className="w-full max-w-4xl p-4 mb-8 bg-white shadow rounded-xl">
         <h2 className="mb-4 text-xl font-bold">Add New Item</h2>
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
           <div>
@@ -354,6 +493,7 @@ const CounterPage: React.FC = () => {
               <th className="p-2 text-right">Cost</th>
               <th className="p-2 text-right">Price</th>
               <th className="p-2 text-center">Action</th>
+              <th className="p-2 text-center">Delete</th>
             </tr>
           </thead>
           <tbody>
@@ -373,6 +513,14 @@ const CounterPage: React.FC = () => {
                     disabled={item.stock === 0}
                   >
                     Sold
+                  </button>
+                </td>
+                <td className="p-2 text-center">
+                  <button
+                    onClick={() => handleDeleteItem(item.id)}
+                    className="px-2 py-1 text-white rounded bg-red hover:bg-red"
+                  >
+                    Delete
                   </button>
                 </td>
               </tr>

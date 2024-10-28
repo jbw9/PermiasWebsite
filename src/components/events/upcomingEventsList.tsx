@@ -7,12 +7,12 @@ const UpcomingEventsList = () => {
       <div className="flex flex-col items-center space-y-4 sm:flex-row sm:justify-center sm:space-y-0 sm:space-x-8 md:space-x-12 lg:space-x-[150px] mt-[20px]">
         <div className="w-full sm:w-auto">
           <UpcomingEvents
-            eventCoverImage="pandji"
-            eventName="Friday Funnies - Pandji"
-            eventDate={18}
-            eventMonth="Oct"
-            eventLocation="Courtyard Cafe, Illini Union"
-            eventTime="7.00pm"
+            eventCoverImage="pasmal2024"
+            eventName="Pasar Malam 2024"
+            eventDate={2}
+            eventMonth="Nov"
+            eventLocation="YMCA, Latzer hall"
+            eventTime="5 - 9pm"
           />
         </div>
       </div>{" "}
