@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import Popup from "./card-popup"; // Update the import path according to your file structure
+import React, { useState } from "react";
 
 interface OfficerCardsProps {
   member: {
@@ -15,32 +14,25 @@ interface OfficerCardsProps {
 }
 
 const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
-  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [clickCount, setClickCount] = useState(0);
 
-  const openPopup = () => {
-    setPopupOpen(true);
-  };
+  const handleCardClick = () => {
+    if (member.name.toLowerCase() === "evan m. huang") {
+      const newCount = clickCount + 1;
+      setClickCount(newCount);
 
-  const closePopup = () => {
-    setPopupOpen(false);
-  };
-
-  useEffect(() => {
-    if (isPopupOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "visible";
+      if (newCount === 5) {
+        window.open(
+          "https://drive.google.com/file/d/17DLQPO12FTMVFJtFtXic4oJS8NHzMVm3/view?usp=sharing"
+        );
+      }
     }
-
-    return () => {
-      document.body.style.overflow = "visible";
-    };
-  }, [isPopupOpen]);
+  };
 
   return (
     <div className="relative w-full">
       <div className={`${className}`}>
-        <button onClick={openPopup} className="focus:outline-none">
+        <button onClick={handleCardClick} className="focus:outline-none">
           <div className="h-[550px] w-[340px]">
             <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl transform transition duration-300 ease-in-out hover:scale-105">
               <img
@@ -58,7 +50,6 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
           </div>
         </button>
       </div>
-      {/* <Popup isOpen={isPopupOpen} onClose={closePopup} member={member} /> */}
     </div>
   );
 };
