@@ -1,27 +1,31 @@
 import React from "react";
 import PastEvents from "../components/events/pastEvents";
 import UpcomingEventsList from "../components/events/upcomingEventsList";
+import Pasmal2024Sched from "../components/events/pasmal_2024_sched";
 
 const EventPage: React.FC = () => {
   return (
     <div className="mb-[100px] overflow-hidden">
       <div className="flex items-end justify-center w-full md:h-[600px]">
         <img
-          src={process.env.PUBLIC_URL + "/events/main.jpg"}
+          src={process.env.PUBLIC_URL + "/events/welcoming_event_2024/one.png"}
           alt="Background"
           className="object-cover w-full h-[300px] md:h-[600px]"
         />
       </div>
       <div className="text-center mt-[50px]">
-        {/* <div>
+        <div>
           <span className="text-4xl font-semibold md:text-5xl text-footer">
             Pasar Malam 2024{" "}
           </span>
           <span className="text-4xl font-bold md:text-5xl text-red">
             Schedule
           </span>
-        </div> */}
+        </div>
         <div>
+          <Pasmal2024Sched />
+        </div>
+        {/* <div>
           <span className="text-4xl font-semibold md:text-5xl text-footer">
             Upcoming{" "}
           </span>
@@ -31,7 +35,7 @@ const EventPage: React.FC = () => {
         </div>
         <div>
           <UpcomingEventsList />
-        </div>
+        </div> */}
         <div className="mt-[130px]">
           <div>
             <span className="text-4xl font-semibold md:text-5xl text-footer">
