@@ -21,7 +21,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
       const newCount = clickCount + 1;
       setClickCount(newCount);
 
-      if (newCount === 5) {
+      if (newCount % 5 === 0) {
         window.open(
           "https://drive.google.com/file/d/17DLQPO12FTMVFJtFtXic4oJS8NHzMVm3/view?usp=sharing"
         );
