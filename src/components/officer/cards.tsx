@@ -23,7 +23,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
 
       if (newCount % 5 === 0) {
         window.open(
-          "https://drive.google.com/file/d/17DLQPO12FTMVFJtFtXic4oJS8NHzMVm3/view?usp=sharing"
+          "https://drive.google.com/file/d/1hopDUtOAdBjp5KGqPaxW4ECdMptj1M5O/view?usp=sharing"
         );
       }
     }

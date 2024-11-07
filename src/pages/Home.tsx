@@ -88,7 +88,7 @@ const HomePage: React.FC = () => {
         <div className="flex items-center justify-center w-full">
           <div className="w-full mt-[70px] md:mt-[120px] flex flex-col items-center px-[30px] md:px-[150px]">
             <AboutCommunity />
-            <div className="mt-[100px] text-center w-full">
+            {/* <div className="mt-[100px] text-center w-full">
               <div>
                 <span className="text-4xl font-semibold md:text-5xl text-footer">
                   Upcoming{" "}
@@ -107,7 +107,7 @@ const HomePage: React.FC = () => {
                   </div>
                 </Link>
               </div>
-            </div>
+            </div> */}
             <div className="mt-[100px]">
               <OurPurpose />
             </div>

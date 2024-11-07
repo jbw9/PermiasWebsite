@@ -14,17 +14,6 @@ const EventPage: React.FC = () => {
         />
       </div>
       <div className="text-center mt-[50px]">
-        <div>
-          <span className="text-4xl font-semibold md:text-5xl text-footer">
-            Pasar Malam 2024{" "}
-          </span>
-          <span className="text-4xl font-bold md:text-5xl text-red">
-            Schedule
-          </span>
-        </div>
-        <div>
-          <Pasmal2024Sched />
-        </div>
         {/* <div>
           <span className="text-4xl font-semibold md:text-5xl text-footer">
             Upcoming{" "}
