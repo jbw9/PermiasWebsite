@@ -6,16 +6,16 @@ import {
   useLocation,
 } from "react-router-dom";
 import DefaultLayout from "./DefaultLayout";
+import PageViewTracker from "./components/PageViewTracker";
 
 import HomePage from "./pages/Home";
 import TeamPage from "./pages/Team";
 import AboutUsPage from "./pages/AboutUs";
 import EventPage from "./pages/Events";
 import GuidePage from "./pages/Guide";
-import MerchPage from "./pages/Merch";
 import NotFound from "./pages/NotFound";
 import ContactPage from "./pages/Contact";
-import CounterPage from "./pages/Counter";
+import AdminPage from "./pages/Admin";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -31,8 +31,9 @@ function App() {
   return (
     <Router>
       <ScrollToTop />
+      <PageViewTracker />
       <Routes>
-        <Route path="/counter" element={<CounterPage />} />
+        <Route path="/admin" element={<AdminPage />} />
         <Route
           path="/"
           element={
@@ -78,14 +79,6 @@ function App() {
           element={
             <DefaultLayout>
               <ContactPage />
-            </DefaultLayout>
-          }
-        />
-        <Route
-          path="/merch"
-          element={
-            <DefaultLayout>
-              <MerchPage />
             </DefaultLayout>
           }
         />

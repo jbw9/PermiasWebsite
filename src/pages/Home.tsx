@@ -1,13 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import BackgroundVideo from "../components/home/backgroundvideo";
-import { Link } from "react-router-dom";
 import BgVidIcons from "../components/home/backgroundVideoIcons";
 import AboutCommunity from "../components/home/aboutCommunity";
 import OurPurpose from "../components/home/ourPurpose";
 import FreshmanSpotlight from "../components/home/freshmanSpotlight";
 import GetInvolved from "../components/home/getInvolved";
-import UpcomingEventsList from "../components/events/upcomingEventsList";
 import { Helmet } from "react-helmet";
+import NextEventBanner from "../components/home/NextEventBanner";
 import GraduateSpotlight from "../components/home/graduateSpotlight";
 import CanvaPreview from "../components/home/bookletPreview";
 
@@ -88,26 +87,7 @@ const HomePage: React.FC = () => {
         <div className="flex items-center justify-center w-full">
           <div className="w-full mt-[70px] md:mt-[120px] flex flex-col items-center px-[30px] md:px-[150px]">
             <AboutCommunity />
-            {/* <div className="mt-[100px] text-center w-full">
-              <div>
-                <span className="text-4xl font-semibold md:text-5xl text-footer">
-                  Upcoming{" "}
-                </span>
-                <span className="text-4xl font-bold md:text-5xl text-red">
-                  Events
-                </span>
-              </div>
-              <div>
-                <UpcomingEventsList />
-              </div>
-              <div className="mt-[20px] flex justify-center">
-                <Link to="/events" className="inline-block mb-4">
-                  <div className="bg-red rounded-2xl w-[200px] h-[50px] flex justify-center items-center transition-transform duration-300 ease-in-out transform hover:-translate-y-2">
-                    <span className="text-white">View Past Events</span>
-                  </div>
-                </Link>
-              </div>
-            </div> */}
+            <NextEventBanner />
             <div className="mt-[100px]">
               <OurPurpose />
             </div>

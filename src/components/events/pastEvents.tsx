@@ -1,12 +1,16 @@
 import React from "react";
 import Carousel from "../events/carousel";
-import { pastEvents, PastEvent } from "../../data/past_events";
+import { PastEvent } from "../../types";
 
-const PastEvents = () => {
+interface PastEventsProps {
+  events: PastEvent[];
+}
+
+const PastEvents: React.FC<PastEventsProps> = ({ events }) => {
   return (
     <div>
-      {pastEvents.map((event: PastEvent, index: number) => (
-        <div className="md:mb-[100px] mb-[10px]" key={event.name}>
+      {events.map((event: PastEvent, index: number) => (
+        <div className="md:mb-[100px] mb-[10px]" key={event.id}>
           <div className="relative flex flex-col mr-[40px]">
             <div className="absolute w-6 h-6 rounded-full bg-red mt-[11px] hidden md:block"></div>
           </div>

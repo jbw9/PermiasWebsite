@@ -110,20 +110,6 @@ const Header: React.FC = () => {
             ></span>
           </Link>
           <Link
-            to="/merch"
-            className={`text-sxl text-footer relative inline-block my-2 ${
-              isActive("/merch") ? "active" : ""
-            }`}
-            onClick={closeMenu}
-          >
-            Merch
-            <span
-              className={`absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full h-0.5 bg-red transition-all duration-150 ${
-                isActive("/merch") ? "scale-x-100" : "scale-x-0"
-              }`}
-            ></span>
-          </Link>
-          <Link
             to="/contact"
             className={`text-sxl text-footer relative inline-block my-2 ${
               isActive("/contact") ? "active" : ""
@@ -191,19 +177,6 @@ const Header: React.FC = () => {
           <span
             className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
               isActive("/events") ? "scale-x-100" : ""
-            }`}
-          ></span>
-        </Link>
-        <Link
-          to="/merch"
-          className={`mx-2 text-sxl text-footer relative inline-block group ${
-            isActive("/events") ? "scale-x-100" : ""
-          }`}
-        >
-          Merch
-          <span
-            className={`absolute bg-red bottom-0 left-0 right-0 h-0.5 bg-current scale-x-0 group-hover:scale-x-100 transform transition-transform ease-out duration-150 ${
-              isActive("/merch") ? "scale-x-100" : ""
             }`}
           ></span>
         </Link>

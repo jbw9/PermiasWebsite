@@ -1,19 +1,16 @@
 import React, { useRef, useEffect, useState } from "react";
-
-interface TeamMember {
-  name: string;
-  role: string;
-  bio: string;
-  image: string;
-  funImage: string;
-  instagram: string;
-  linkedin: string;
-}
+import { Officer } from "../../types";
 
 interface PropOpen {
   isOpen: boolean;
   onClose: () => void;
-  member: TeamMember;
+  member: Officer;
+}
+
+function getImageSrc(url: string): string {
+  if (!url) return "";
+  if (url.startsWith("http")) return url;
+  return process.env.PUBLIC_URL + url;
 }
 
 const Popup: React.FC<PropOpen> = ({ isOpen, onClose, member }) => {
@@ -67,7 +64,7 @@ const Popup: React.FC<PropOpen> = ({ isOpen, onClose, member }) => {
       >
         <div className="flex items-start mt-[23px] ml-[22px]">
           <img
-            src={process.env.PUBLIC_URL + member.funImage}
+            src={getImageSrc(member.fun_image_url || member.image_url)}
             alt={member.name}
             width={550}
             height={550}

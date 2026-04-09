@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { trackLinkClick } from "./lib/trackClick";
 
 const Footer: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const Footer: React.FC = () => {
           href="https://www.instagram.com/permiasuiuc/?hl=en"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackLinkClick("instagram")}
         >
           <img
             src={process.env.PUBLIC_URL + "/footer/instagram.svg"}
@@ -21,6 +23,7 @@ const Footer: React.FC = () => {
           href="https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2Fisc.uiuc%2F"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackLinkClick("facebook")}
         >
           <img
             src={process.env.PUBLIC_URL + "/footer/facebook.svg"}
@@ -33,18 +36,19 @@ const Footer: React.FC = () => {
           href="mailto:permias.uiuc@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackLinkClick("email")}
         >
           <img
             src={process.env.PUBLIC_URL + "/footer/mail.png"}
-            alt="Whatsapp Logo"
+            alt="Email"
             width={50}
             className="w-[35px] md:w-[50px]"
           />
         </a>
-        <Link to="/counter">
+        <Link to="/admin">
           <img
             src={process.env.PUBLIC_URL + "/footer/login.png"}
-            alt="Whatsapp Logo"
+            alt="Admin"
             width={50}
             className="w-[35px] md:w-[50px]"
           />

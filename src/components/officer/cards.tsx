@@ -1,32 +1,32 @@
 import React, { useState } from "react";
+import { Officer } from "../../types";
 
 interface OfficerCardsProps {
-  member: {
-    name: string;
-    role: string;
-    bio: string;
-    image: string;
-    funImage: string;
-    instagram: string;
-    linkedin: string;
-  };
+  member: Officer;
   className?: string;
+  onClick?: () => void;
 }
 
-const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
+function getImageSrc(url: string): string {
+  if (!url) return "";
+  if (url.startsWith("http")) return url;
+  return process.env.PUBLIC_URL + url;
+}
+
+const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className, onClick }) => {
   const [clickCount, setClickCount] = useState(0);
 
   const handleCardClick = () => {
     if (member.name.toLowerCase() === "evan m. huang") {
       const newCount = clickCount + 1;
       setClickCount(newCount);
-
       if (newCount % 5 === 0) {
         window.open(
           "https://drive.google.com/file/d/1hopDUtOAdBjp5KGqPaxW4ECdMptj1M5O/view?usp=sharing"
         );
       }
     }
+    onClick?.();
   };
 
   return (
@@ -36,7 +36,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className }) => {
           <div className="h-[550px] w-[340px]">
             <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl transform transition duration-300 ease-in-out hover:scale-105">
               <img
-                src={process.env.PUBLIC_URL + member.image}
+                src={getImageSrc(member.image_url)}
                 alt={member.name}
                 className="object-cover w-full h-full"
               />
