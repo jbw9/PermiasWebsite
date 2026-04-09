@@ -1,7 +1,7 @@
 {
   "name": "permias-website",
   "version": "0.1.0",
-  "homepage": "https://jbw9.github.io/",
+  "homepage": "https://permiasuiuc.com",
   "private": true,
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
