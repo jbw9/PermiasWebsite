@@ -14,7 +14,7 @@ const OurPurpose = () => {
     {
       home_purpose_networking_title: "Networking",
       home_purpose_networking_desc:
-        "Connect with fellow Indonesian students in the to foster professional relationships, creating a strong, supportive network of peers.",
+        "Connect with fellow Indonesian students to foster professional relationships, creating a strong, supportive network of peers.",
       home_purpose_entertainment_title: "Entertainment",
       home_purpose_entertainment_desc:
         "Attend engaging events organized by our team, creating unforgettable experiences together.",
