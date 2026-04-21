@@ -79,8 +79,7 @@ const SiteContentTab: React.FC = () => {
     setSaving(item.key);
     await supabase
       .from("site_content")
-      .update({ value: newValue, updated_at: new Date().toISOString() })
-      .eq("key", item.key);
+      .upsert({ key: item.key, value: newValue, updated_at: new Date().toISOString() }, { onConflict: "key" });
     bustSiteContentCache();
     await fetchItems();
     setEditing((prev) => { const next = { ...prev }; delete next[item.key]; return next; });

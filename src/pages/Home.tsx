@@ -9,16 +9,32 @@ import { Helmet } from "react-helmet";
 import NextEventBanner from "../components/home/NextEventBanner";
 import GraduateSpotlight from "../components/home/graduateSpotlight";
 import CanvaPreview from "../components/home/bookletPreview";
+import { useSiteContent } from "../hooks/useSiteContent";
+
+function getImageSrc(url: string): string {
+  if (!url) return "";
+  if (url.startsWith("http")) return url;
+  return process.env.PUBLIC_URL + url;
+}
 
 const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
   onGetInvolvedClick,
 }) => {
+  const content = useSiteContent(
+    ["home_hero_title", "home_hero_subtitle", "home_hero_cta"],
+    {
+      home_hero_title: "PERMIAS UIUC",
+      home_hero_subtitle: "Welcome to Our Official Website",
+      home_hero_cta: "Get Involved!",
+    }
+  );
+
   return (
     <div className="relative flex justify-center h-full">
       <div className="mt-[50px] flex flex-col">
-        <span className="text-5xl font-bold md:text-7xl">PERMIAS UIUC</span>
+        <span className="text-5xl font-bold md:text-7xl">{content.home_hero_title}</span>
         <span className="md:text-xl mt-[10px]">
-          Welcome to Our Official Website
+          {content.home_hero_subtitle}
         </span>
       </div>
       <div className="absolute bottom-0 flex justify-center items-center mb-[10px] flex-col space-y-[20px]">
@@ -28,7 +44,7 @@ const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
           onClick={onGetInvolvedClick}
         >
           <div className="text-white underline hover:text-white">
-            Get Involved!
+            {content.home_hero_cta}
           </div>
         </button>
       </div>
@@ -39,6 +55,14 @@ const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
 const HomePage: React.FC = () => {
   const bottomRef = useRef<HTMLDivElement>(null);
   const [showMascot, setShowMascot] = useState(false);
+
+  const content = useSiteContent(
+    ["home_mascot_image_url", "home_bg_video_url"],
+    {
+      home_mascot_image_url: "/Home/mascot.png",
+      home_bg_video_url: "/Home/backgroundvid.mp4",
+    }
+  );
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -73,14 +97,14 @@ const HomePage: React.FC = () => {
           onClick={handleMascotClick}
         >
           <img
-            src={process.env.PUBLIC_URL + "/Home/mascot.png"}
+            src={getImageSrc(content.home_mascot_image_url)}
             alt="Mascot"
             className="object-contain w-24 h-24 md:w-32 md:h-32 lg:w-40 lg:h-40"
           />
         </div>
         <div>
           <BackgroundVideo
-            source={process.env.PUBLIC_URL + "/Home/backgroundvid.mp4"}
+            source={getImageSrc(content.home_bg_video_url)}
             children={<WebsiteTitle onGetInvolvedClick={scrollToBottom} />}
           />
         </div>

@@ -1,13 +1,31 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { trackLinkClick } from "./lib/trackClick";
+import { useSiteContent } from "./hooks/useSiteContent";
 
 const Footer: React.FC = () => {
+  const content = useSiteContent(
+    [
+      "footer_instagram_url",
+      "footer_facebook_url",
+      "footer_email",
+      "footer_copyright",
+    ],
+    {
+      footer_instagram_url: "https://www.instagram.com/permiasuiuc/?hl=en",
+      footer_facebook_url:
+        "https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2Fisc.uiuc%2F",
+      footer_email: "permias.uiuc@gmail.com",
+      footer_copyright:
+        "© 2024 Indonesian Student Association at the University of Illinois Urbana-Champaign",
+    }
+  );
+
   return (
     <div className="flex flex-col items-center justify-between w-screen mx-auto text-white bg-red h-[150px]">
       <div className="flex justify-center w-full mt-[40px] space-x-14 md:space-x-14">
         <a
-          href="https://www.instagram.com/permiasuiuc/?hl=en"
+          href={content.footer_instagram_url}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackLinkClick("instagram")}
@@ -20,7 +38,7 @@ const Footer: React.FC = () => {
           />
         </a>
         <a
-          href="https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2Fisc.uiuc%2F"
+          href={content.footer_facebook_url}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackLinkClick("facebook")}
@@ -33,7 +51,7 @@ const Footer: React.FC = () => {
           />
         </a>
         <a
-          href="mailto:permias.uiuc@gmail.com"
+          href={`mailto:${content.footer_email}`}
           target="_blank"
           rel="noopener noreferrer"
           onClick={() => trackLinkClick("email")}
@@ -55,8 +73,7 @@ const Footer: React.FC = () => {
         </Link>
       </div>
       <span className="mb-[15px] text-sm mx-[30px] text-center">
-        © 2024 Indonesian Student Association at the University of Illinois
-        Urbana-Champaign
+        {content.footer_copyright}
       </span>
     </div>
   );

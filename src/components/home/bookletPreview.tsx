@@ -1,4 +1,5 @@
 import React from "react";
+import { useSiteContent } from "../../hooks/useSiteContent";
 
 interface CanvaPreviewProps {
   width?: string;
@@ -9,17 +10,34 @@ const CanvaPreview: React.FC<CanvaPreviewProps> = ({
   width = "100%",
   height = "600px",
 }) => {
+  const content = useSiteContent(
+    ["home_booklet_title", "home_booklet_link_url", "home_booklet_embed_url"],
+    {
+      home_booklet_title: "New Students Booklet",
+      home_booklet_link_url:
+        "https://www.canva.com/design/DAGG1vUJC5M/EzHcDifJjS5rL2imbr-gMA/view?utm_content=DAGG1vUJC5M&utm_campaign=designshare&utm_medium=embeds&utm_source=link",
+      home_booklet_embed_url:
+        "https://www.canva.com/design/DAGG1vUJC5M/EzHcDifJjS5rL2imbr-gMA/view?embed",
+    }
+  );
+
+  // Split title into words — first word(s) gray, last word red, to preserve original style
+  const words = content.home_booklet_title.trim().split(/\s+/);
+  const lastWord = words.pop() ?? "";
+  const firstWords = words.join(" ");
+
   return (
     <div style={{ width, height }}>
       <a
-        href="https://www.canva.com/design/DAGG1vUJC5M/EzHcDifJjS5rL2imbr-gMA/view?utm_content=DAGG1vUJC5M&utm_campaign=designshare&utm_medium=embeds&utm_source=link"
+        href={content.home_booklet_link_url}
         target="_blank"
         rel="noopener noreferrer"
         className="text-4xl md:text-5xl"
       >
-        <span className="font-semibold text-footer">New {""}</span>
-        <span className="font-bold text-red">Students {""}</span>
-        <span className="font-semibold text-footer">Booklet</span>
+        {firstWords && (
+          <span className="font-semibold text-footer">{firstWords} </span>
+        )}
+        <span className="font-bold text-red">{lastWord}</span>
       </a>
       <div
         style={{
@@ -48,10 +66,10 @@ const CanvaPreview: React.FC<CanvaPreviewProps> = ({
             padding: "0",
             margin: "0",
           }}
-          src="https://www.canva.com/design/DAGG1vUJC5M/EzHcDifJjS5rL2imbr-gMA/view?embed"
+          src={content.home_booklet_embed_url}
           allowFullScreen
           allow="fullscreen"
-          title="New Students Booklet"
+          title={content.home_booklet_title}
         />
       </div>
     </div>

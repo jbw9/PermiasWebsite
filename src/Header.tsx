@@ -1,19 +1,27 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSiteContent } from "./hooks/useSiteContent";
+
+function getImageSrc(url: string): string {
+  if (!url) return "";
+  if (url.startsWith("http")) return url;
+  return process.env.PUBLIC_URL + url;
+}
 
 const Header: React.FC = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
-  // Function to determine if the link is active
+  const content = useSiteContent(["header_logo_url"], {
+    header_logo_url: "/mainLogo.png",
+  });
+
   const isActive = (path: string): boolean => location.pathname === path;
 
-  // Function to handle the click event of the mobile menu button
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Function to handle closing the mobile menu when a link is clicked
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
@@ -22,7 +30,7 @@ const Header: React.FC = () => {
     <div className="fixed top-0 left-0 z-10 flex items-center justify-between w-full p-2 bg-white shadow-xl">
       <Link to="/">
         <img
-          src={process.env.PUBLIC_URL + "/mainLogo.png"}
+          src={getImageSrc(content.header_logo_url)}
           alt="PERMIAS LOGO"
           width={250}
         />
@@ -51,7 +59,6 @@ const Header: React.FC = () => {
         } origin-top duration-300 ease-in-out sm:hidden`}
       >
         <div className="flex flex-col items-center py-5">
-          {/* Mobile navigation links */}
           <Link
             to="/"
             className={`text-sxl text-footer relative inline-block my-2 ${
@@ -66,7 +73,6 @@ const Header: React.FC = () => {
               }`}
             ></span>
           </Link>
-          {/* Repeat for other links, ensure to replace the to="/" and isActive("/") with the correct path */}
           <Link
             to="/about-us"
             className={`text-sxl text-footer relative inline-block my-2 ${

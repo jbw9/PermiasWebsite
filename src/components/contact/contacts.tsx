@@ -1,43 +1,59 @@
 import React from "react";
 import { useSiteContent } from "../../hooks/useSiteContent";
 
+function getImageSrc(url: string): string {
+  if (!url) return "";
+  if (url.startsWith("http")) return url;
+  return process.env.PUBLIC_URL + url;
+}
+
 const Contacts = () => {
   const content = useSiteContent(
     [
       "contact_collab_title",
       "contact_collab_desc",
       "contact_collab_contact",
+      "contact_collab_image_url",
       "contact_general_title",
       "contact_general_desc",
       "contact_general_contact1",
       "contact_general_contact2",
+      "contact_general_image_url",
       "contact_lpdp_title",
       "contact_lpdp_desc",
       "contact_lpdp_contact",
+      "contact_lpdp_image_url",
       "contact_grad_asst_title",
       "contact_grad_asst_desc",
       "contact_grad_asst_contact",
+      "contact_grad_asst_image_url",
       "contact_indonesia_maju_title",
       "contact_indonesia_maju_desc",
       "contact_indonesia_maju_contact",
+      "contact_indonesia_maju_image_url",
     ],
     {
       contact_collab_title: "Collab With Us",
       contact_collab_desc: "We'd love to talk about how we can work together.",
       contact_collab_contact: "Ewangga: +1 (217) 926 2707",
+      contact_collab_image_url: "/Home/networking.png",
       contact_general_title: "General Permias",
       contact_general_desc: "We're here to help with any questions regarding permias.",
       contact_general_contact1: "Leonardo: +1 (217) 979 9614",
       contact_general_contact2: "Azhura: +1 (217) 693-2442",
+      contact_general_image_url: "/ContactUs/permLogo.png",
       contact_lpdp_title: "LPDP",
       contact_lpdp_desc: "Discuss if you have any questions related to LPDP",
       contact_lpdp_contact: "David: +1 (224) 418 8775",
+      contact_lpdp_image_url: "/ContactUs/lpdp.png",
       contact_grad_asst_title: "Graduate Assistant",
       contact_grad_asst_desc: "We'd love to assist you anything regarding graduate education at UIUC.",
       contact_grad_asst_contact: "Regina Giovanni: +1 (551) 297-9660",
+      contact_grad_asst_image_url: "/ContactUs/grad.png",
       contact_indonesia_maju_title: "Indonesia Maju",
       contact_indonesia_maju_desc: "Discuss if you have any questions related to Indonesia Maju",
       contact_indonesia_maju_contact: "Alif: +62 813-8355-0907",
+      contact_indonesia_maju_image_url: "/ContactUs/indonesiamaju.png",
     }
   );
 
@@ -54,7 +70,7 @@ const Contacts = () => {
           <div className="h-[468px] w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
             <img
               className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
-              src={process.env.PUBLIC_URL + "/Home/networking.png"}
+              src={getImageSrc(content.contact_collab_image_url)}
               alt=""
             />
             <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
@@ -72,7 +88,7 @@ const Contacts = () => {
           <div className="h-[468px] w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
             <img
               className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
-              src={process.env.PUBLIC_URL + "/ContactUs/permLogo.png"}
+              src={getImageSrc(content.contact_general_image_url)}
               alt=""
             />
             <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
@@ -93,7 +109,7 @@ const Contacts = () => {
           <div className="h-[468px] w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
             <img
               className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
-              src={process.env.PUBLIC_URL + "/ContactUs/lpdp.png"}
+              src={getImageSrc(content.contact_lpdp_image_url)}
               alt=""
             />
             <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
@@ -113,7 +129,7 @@ const Contacts = () => {
           <div className="h-[468px] w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200 mb-[36px] md:mb-0">
             <img
               className="mt-[40px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
-              src={process.env.PUBLIC_URL + "/ContactUs/grad.png"}
+              src={getImageSrc(content.contact_grad_asst_image_url)}
               alt=""
             />
             <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
@@ -131,7 +147,7 @@ const Contacts = () => {
           <div className="h-[468px] w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200">
             <img
               className="mt-[40px] h-[126px] w-[126px] md:h-[158px] md:w-[158px]"
-              src={process.env.PUBLIC_URL + "/ContactUs/indonesiamaju.png"}
+              src={getImageSrc(content.contact_indonesia_maju_image_url)}
               alt=""
             />
             <div className="mt-[48px] md:mt-[54px] flex flex-col items-center mx-[36px] md:mx-[36px]">
