@@ -1,4 +1,14 @@
+import { useSiteContent } from "../../hooks/useSiteContent";
+
 const GetInvolved = () => {
+  const content = useSiteContent(
+    ["home_get_involved_join_url", "home_get_involved_message_url"],
+    {
+      home_get_involved_join_url: "https://forms.gle/X37mWwG3roZt8jpL8",
+      home_get_involved_message_url: "https://forms.gle/TS5HGLAW9AeH86x29",
+    }
+  );
+
   return (
     <div>
       <div className="flex flex-col items-center">
@@ -14,7 +24,7 @@ const GetInvolved = () => {
           <div className="flex flex-col md:flex-row md:justify-center md:space-x-8">
             <div className="flex flex-col items-center mb-8 md:mb-0">
               <a
-                href="https://forms.gle/X37mWwG3roZt8jpL8"
+                href={content.home_get_involved_join_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mb-4"
@@ -27,7 +37,7 @@ const GetInvolved = () => {
             </div>
             <div className="flex flex-col items-center">
               <a
-                href="https://forms.gle/TS5HGLAW9AeH86x29"
+                href={content.home_get_involved_message_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mb-4"
