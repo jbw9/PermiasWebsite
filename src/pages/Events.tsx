@@ -105,7 +105,7 @@ const EventPage: React.FC = () => {
             </div>
           ) : (
             <div className="flex mt-[30px] md:mx-[170px] overflow-hidden mx-[30px] relative">
-              <div className="absolute w-[8px] bg-red rounded-lg h-[3600px] mt-[15px] ml-[8px] hidden md:block"></div>
+              <div className="absolute w-[8px] bg-red rounded-lg h-[4500px] mt-[15px] ml-[8px] hidden md:block"></div>
               <div className="">
                 <PastEvents events={pastEvents} />
               </div>

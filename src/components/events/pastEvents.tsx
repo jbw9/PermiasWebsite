@@ -10,7 +10,7 @@ const PastEvents: React.FC<PastEventsProps> = ({ events }) => {
   return (
     <div>
       {events.map((event: PastEvent, index: number) => (
-        <div className="md:mb-[100px] mb-[10px]" key={event.id}>
+        <div className="md:mb-[48px] mb-[10px]" key={event.id}>
           <div className="relative flex flex-col mr-[40px]">
             <div className="absolute w-6 h-6 rounded-full bg-red mt-[11px] hidden md:block"></div>
           </div>

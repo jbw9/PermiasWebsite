@@ -76,11 +76,11 @@ const Carousel: React.FC<CarouselProps> = ({
         )}
       >
         {images.map((image, index) => (
-          <li key={index} className="w-[300px] flex-shrink-0 sm:w-[800px]">
+          <li key={index} className="w-[300px] flex-shrink-0 sm:w-[800px] h-[220px] sm:h-[500px]">
             <img
               src={image}
               alt={`Slide ${index}`}
-              className="object-contain w-full h-full rounded-2xl"
+              className="object-cover w-full h-full rounded-2xl"
             />
           </li>
         ))}
