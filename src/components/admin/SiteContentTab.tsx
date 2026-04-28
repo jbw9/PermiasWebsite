@@ -3,6 +3,7 @@ import { supabase } from "../../supabaseClient";
 import { SiteContent } from "../../types";
 import ImageUpload from "./ImageUpload";
 import { bustSiteContentCache } from "../../hooks/useSiteContent";
+import ContactTab from "./ContactTab";
 
 function getImageSrc(url: string): string {
   if (!url) return "";
@@ -51,9 +52,11 @@ const SiteContentTab: React.FC = () => {
 
   useEffect(() => { fetchItems(); }, []);
 
+  // Derive sections from DB keys, excluding contact_ keys (managed by Contact section)
   const sections = useMemo(() => {
     const map: Record<string, SiteContent[]> = {};
     items.forEach((item) => {
+      if (item.key.startsWith("contact_")) return;
       const section = getSectionFromKey(item.key);
       if (!map[section]) map[section] = [];
       map[section].push(item);
@@ -61,7 +64,11 @@ const SiteContentTab: React.FC = () => {
     return map;
   }, [items]);
 
-  const sectionNames = useMemo(() => Object.keys(sections).sort(), [sections]);
+  // All sidebar entries: "Contact" is always present, rest come from DB
+  const sectionNames = useMemo(
+    () => [...Object.keys(sections), "Contact"].sort(),
+    [sections]
+  );
 
   useEffect(() => {
     if (sectionNames.length > 0 && activeSection === null) {
@@ -94,7 +101,9 @@ const SiteContentTab: React.FC = () => {
 
   if (loading) return <p className="text-gray-400 py-10 text-center">Loading...</p>;
 
-  const activeItems = activeSection ? (sections[activeSection] ?? []) : [];
+  const activeItems = activeSection && activeSection !== "Contact"
+    ? (sections[activeSection] ?? [])
+    : [];
 
   return (
     <div className="flex gap-5 min-h-[500px]">
@@ -122,15 +131,17 @@ const SiteContentTab: React.FC = () => {
                 {getSectionIcon(section)}
               </span>
               <span className="truncate">{section}</span>
-              <span
-                className={`ml-auto text-xs rounded-full px-1.5 py-0.5 font-medium flex-shrink-0 ${
-                  activeSection === section
-                    ? "bg-red/20 text-red"
-                    : "bg-gray-100 text-gray-400"
-                }`}
-              >
-                {sections[section].length}
-              </span>
+              {section !== "Contact" && (
+                <span
+                  className={`ml-auto text-xs rounded-full px-1.5 py-0.5 font-medium flex-shrink-0 ${
+                    activeSection === section
+                      ? "bg-red/20 text-red"
+                      : "bg-gray-100 text-gray-400"
+                  }`}
+                >
+                  {sections[section]?.length ?? 0}
+                </span>
+              )}
             </button>
           ))}
         </nav>
@@ -141,7 +152,9 @@ const SiteContentTab: React.FC = () => {
 
       {/* Content panel */}
       <div className="flex-1 min-w-0">
-        {activeSection ? (
+        {activeSection === "Contact" ? (
+          <ContactTab />
+        ) : activeSection ? (
           <>
             <div className="mb-4 flex items-baseline justify-between">
               <div>
