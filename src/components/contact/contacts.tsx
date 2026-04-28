@@ -125,7 +125,7 @@ const Contacts = () => {
           {cards.map((card) => (
             <div
               key={card.slug}
-              className="h-[468px] w-[360px] rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200"
+              className="h-auto min-h-[468px] w-[360px] pb-8 rounded-2xl flex flex-col items-center shadow-2xl ring-1 ring-gray-200"
             >
               <img
                 className="mt-[60px] md:mt-[63px] h-[126px] w-[126px] md:h-[158px] md:w-[158px] object-contain"

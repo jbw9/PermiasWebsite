@@ -27,8 +27,15 @@ const EventPage: React.FC = () => {
         .order("date", { ascending: true }),
     ]).then(([pastResult, upcomingResult]) => {
       if (pastResult.data) {
+        const sortedPastEvents = [...pastResult.data].sort((a, b) => {
+          const dateA = new Date(a.date.split(",")[0]).getTime();
+          const dateB = new Date(b.date.split(",")[0]).getTime();
+          if (isNaN(dateA) || isNaN(dateB)) return 0;
+          return dateB - dateA;
+        });
+
         setPastEvents(
-          pastResult.data.map((e) => ({
+          sortedPastEvents.map((e) => ({
             ...e,
             images: normalizeImages(e.images || []),
           }))

@@ -15,9 +15,16 @@ const PastEventsTab: React.FC = () => {
   const fetchEvents = async () => {
     const { data } = await supabase
       .from("past_events")
-      .select("*")
-      .order("display_order", { ascending: true });
-    if (data) setEvents(data);
+      .select("*");
+    if (data) {
+      const sortedEvents = [...data].sort((a, b) => {
+        const dateA = new Date(a.date.split(",")[0]).getTime();
+        const dateB = new Date(b.date.split(",")[0]).getTime();
+        if (isNaN(dateA) || isNaN(dateB)) return 0;
+        return dateB - dateA;
+      });
+      setEvents(sortedEvents);
+    }
     setLoading(false);
   };
 
