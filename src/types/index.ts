@@ -15,8 +15,15 @@ export interface PastEvent {
   id: string;
   name: string;
   date: string;
+  event_date?: string;
+  location?: string;
+  description?: string;
   images: string[];
   display_order: number;
+  rsvp_url?: string;
+  ticket_url?: string;
+  ticket_price?: string;
+  capacity?: number;
   created_at?: string;
 }
 
@@ -26,6 +33,11 @@ export interface UpcomingEvent {
   date: string;
   location: string;
   description: string;
+  rsvp_url?: string;
+  ticket_url?: string;
+  ticket_price?: string;
+  capacity?: number;
+  cover_image?: string;
   created_at?: string;
 }
 
@@ -54,5 +66,27 @@ export interface SiteContent {
   value: string;
   type: "text" | "image";
   label: string;
+  updated_at?: string;
+}
+
+export interface PermiasEvent {
+  id: string;
+  slug?: string;
+  title: string;
+  category?: string;
+  start_time: string;
+  end_time?: string;
+  location_name?: string;
+  location_address?: string;
+  google_maps_url?: string;
+  description?: string;
+  cover_image_url?: string;
+  gallery_images?: string[];
+  rsvp_url?: string;
+  ticket_url?: string;
+  is_featured?: boolean;
+  status?: "draft" | "published" | "archived" | "cancelled";
+  display_order?: number;
+  created_at?: string;
   updated_at?: string;
 }
