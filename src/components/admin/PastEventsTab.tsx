@@ -2,28 +2,30 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { PastEvent } from "../../types";
 import ImageUpload from "./ImageUpload";
+import {
+  sortPastEventsChronologically,
+  parseEventDate,
+  formatDatePretty,
+} from "../../utils/eventDateUtils";
 
 const PastEventsTab: React.FC = () => {
   const [events, setEvents] = useState<PastEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [showForm, setShowForm] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [form, setForm] = useState({ name: "", date: "" });
+  const [form, setForm] = useState({
+    name: "",
+    event_date: "",
+    location: "",
+    legacyDate: "",
+  });
   const [pendingImages, setPendingImages] = useState<string[]>([]);
   const [deletingId, setDeletingId] = useState<string | null>(null);
 
   const fetchEvents = async () => {
-    const { data } = await supabase
-      .from("past_events")
-      .select("*");
+    const { data } = await supabase.from("past_events").select("*");
     if (data) {
-      const sortedEvents = [...data].sort((a, b) => {
-        const dateA = new Date(a.date.split(",")[0]).getTime();
-        const dateB = new Date(b.date.split(",")[0]).getTime();
-        if (isNaN(dateA) || isNaN(dateB)) return 0;
-        return dateB - dateA;
-      });
-      setEvents(sortedEvents);
+      setEvents(sortPastEventsChronologically(data, true));
     }
     setLoading(false);
   };
@@ -47,14 +49,39 @@ const PastEventsTab: React.FC = () => {
       return;
     }
     setSaving(true);
-    const maxOrder = events.length > 0 ? Math.max(...events.map((e) => e.display_order)) : -1;
-    await supabase.from("past_events").insert({
+    const maxOrder =
+      events.length > 0 ? Math.max(...events.map((e) => e.display_order)) : -1;
+
+    let computedDateString = form.legacyDate;
+    let isoTimestamp = form.event_date ? new Date(form.event_date).toISOString() : null;
+
+    if (form.event_date) {
+      const pretty = formatDatePretty(new Date(form.event_date));
+      computedDateString = form.location ? `${pretty}, ${form.location}` : pretty;
+    }
+
+    const payload: any = {
       name: form.name,
-      date: form.date,
+      date: computedDateString,
+      event_date: isoTimestamp,
+      location: form.location,
       images: pendingImages,
       display_order: maxOrder + 1,
-    });
-    setForm({ name: "", date: "" });
+    };
+
+    const { error } = await supabase.from("past_events").insert(payload);
+
+    if (error) {
+      // Fallback for legacy database before running additive migration
+      await supabase.from("past_events").insert({
+        name: form.name,
+        date: computedDateString,
+        images: pendingImages,
+        display_order: maxOrder + 1,
+      });
+    }
+
+    setForm({ name: "", event_date: "", location: "", legacyDate: "" });
     setPendingImages([]);
     setShowForm(false);
     await fetchEvents();
@@ -72,7 +99,12 @@ const PastEventsTab: React.FC = () => {
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <h2 className="text-xl font-semibold text-footer">Past Events</h2>
+        <div>
+          <h2 className="text-xl font-semibold text-footer">Past Events</h2>
+          <p className="text-xs text-gray-400 mt-0.5">
+            Retrospective galleries, event dates, and photo carousels.
+          </p>
+        </div>
         <button
           onClick={() => setShowForm(!showForm)}
           className="text-sm bg-red text-white rounded-lg px-4 py-2 hover:opacity-90 transition"
@@ -86,7 +118,7 @@ const PastEventsTab: React.FC = () => {
           onSubmit={handleSave}
           className="bg-gray-50 border border-gray-200 rounded-xl p-5 space-y-4"
         >
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
                 Event Name *
@@ -102,14 +134,25 @@ const PastEventsTab: React.FC = () => {
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">
-                Date & Location *
+                Event Date *
+              </label>
+              <input
+                type="date"
+                value={form.event_date}
+                onChange={(e) => setForm({ ...form, event_date: e.target.value })}
+                required
+                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+              />
+            </div>
+            <div>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Location / Venue
               </label>
               <input
                 type="text"
-                value={form.date}
-                onChange={(e) => setForm({ ...form, date: e.target.value })}
-                required
-                placeholder="e.g. August 31 2025, Scotts Park"
+                value={form.location}
+                onChange={(e) => setForm({ ...form, location: e.target.value })}
+                placeholder="e.g. Scotts Park or Illini Union"
                 className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
               />
             </div>
@@ -143,7 +186,7 @@ const PastEventsTab: React.FC = () => {
               />
             </div>
             <p className="text-xs text-gray-400">
-              Upload multiple photos. They'll scroll in the event carousel.
+              Upload multiple photos. They will scroll in the event carousel.
             </p>
           </div>
 
@@ -163,40 +206,48 @@ const PastEventsTab: React.FC = () => {
         <p className="text-gray-400">No past events yet. Add one above.</p>
       ) : (
         <div className="space-y-3">
-          {events.map((event) => (
-            <div
-              key={event.id}
-              className="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-200"
-            >
-              <div className="flex items-center gap-4">
-                {event.images?.[0] && (
-                  <img
-                    src={
-                      event.images[0].startsWith("http")
-                        ? event.images[0]
-                        : process.env.PUBLIC_URL + event.images[0]
-                    }
-                    alt={event.name}
-                    className="w-14 h-14 object-cover rounded-lg flex-shrink-0"
-                  />
-                )}
-                <div>
-                  <div className="font-semibold text-footer">{event.name}</div>
-                  <div className="text-sm text-gray-500">{event.date}</div>
-                  <div className="text-xs text-gray-400">
-                    {event.images?.length || 0} photo(s)
+          {events.map((event) => {
+            const parsed = parseEventDate(event.date, event.event_date);
+            return (
+              <div
+                key={event.id}
+                className="flex items-center justify-between p-4 bg-white rounded-xl border border-gray-200"
+              >
+                <div className="flex items-center gap-4">
+                  {event.images?.[0] && (
+                    <img
+                      src={
+                        event.images[0].startsWith("http")
+                          ? event.images[0]
+                          : process.env.PUBLIC_URL + event.images[0]
+                      }
+                      alt={event.name}
+                      className="w-14 h-14 object-cover rounded-lg flex-shrink-0"
+                    />
+                  )}
+                  <div>
+                    <div className="font-semibold text-footer">{event.name}</div>
+                    <div className="text-sm text-gray-500">
+                      {parsed.formattedDate || event.date}
+                    </div>
+                    {event.location && (
+                      <div className="text-xs text-gray-400">📍 {event.location}</div>
+                    )}
+                    <div className="text-xs text-gray-400">
+                      {event.images?.length || 0} photo(s)
+                    </div>
                   </div>
                 </div>
+                <button
+                  onClick={() => handleDelete(event)}
+                  disabled={deletingId === event.id}
+                  className="text-sm text-red-500 hover:text-red-700 transition ml-4 flex-shrink-0 disabled:opacity-50"
+                >
+                  {deletingId === event.id ? "Deleting..." : "Delete"}
+                </button>
               </div>
-              <button
-                onClick={() => handleDelete(event)}
-                disabled={deletingId === event.id}
-                className="text-sm text-red-500 hover:text-red-700 transition ml-4 flex-shrink-0 disabled:opacity-50"
-              >
-                {deletingId === event.id ? "Deleting..." : "Delete"}
-              </button>
-            </div>
-          ))}
+            );
+          })}
         </div>
       )}
     </div>

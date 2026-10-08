@@ -80,6 +80,8 @@ const Carousel: React.FC<CarouselProps> = ({
             <img
               src={image}
               alt={`Slide ${index}`}
+              loading="lazy"
+              decoding="async"
               className="object-cover w-full h-full rounded-2xl"
             />
           </li>
