@@ -1,11 +1,7 @@
 import React from "react";
+import PageBanner from "../components/PageBanner";
 import { useSiteContent } from "../hooks/useSiteContent";
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
+import { getImageSrc } from "../utils/imageSrc";
 
 const AboutUsPage: React.FC = () => {
   const content = useSiteContent(
@@ -34,13 +30,7 @@ const AboutUsPage: React.FC = () => {
 
   return (
     <div>
-      <div className="flex items-end justify-center w-full md:h-[600px]">
-        <img
-          src={getImageSrc(content.about_background_image_url)}
-          alt="Background"
-          className="object-cover w-full h-[300px] md:h-[600px]"
-        />
-      </div>
+      <PageBanner src={getImageSrc(content.about_background_image_url)} />
       <div className="mt-[60px] md:mt-[100px]">
         <div className="container px-4 mx-auto mb-[70px] md:mb-[80px]">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between">

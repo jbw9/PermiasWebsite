@@ -27,7 +27,16 @@ function ScrollToTop() {
   return null;
 }
 
-// app
+const PAGES = [
+  { path: "/", element: <HomePage /> },
+  { path: "/team", element: <TeamPage /> },
+  { path: "/about-us", element: <AboutUsPage /> },
+  { path: "/events", element: <EventPage /> },
+  { path: "/guide", element: <GuidePage /> },
+  { path: "/contact", element: <ContactPage /> },
+  { path: "/*", element: <NotFound /> },
+];
+
 function App() {
   return (
     <Router>
@@ -35,62 +44,13 @@ function App() {
       <PageViewTracker />
       <Routes>
         <Route path="/admin" element={<AdminPage />} />
-        <Route
-          path="/"
-          element={
-            <DefaultLayout>
-              <HomePage />
-            </DefaultLayout>
-          }
-        />
-        <Route
-          path="/team"
-          element={
-            <DefaultLayout>
-              <TeamPage />
-            </DefaultLayout>
-          }
-        />
-        <Route
-          path="/about-us"
-          element={
-            <DefaultLayout>
-              <AboutUsPage />
-            </DefaultLayout>
-          }
-        />
-        <Route
-          path="/events"
-          element={
-            <DefaultLayout>
-              <EventPage />
-            </DefaultLayout>
-          }
-        />
-        <Route
-          path="/guide"
-          element={
-            <DefaultLayout>
-              <GuidePage />
-            </DefaultLayout>
-          }
-        />
-        <Route
-          path="/contact"
-          element={
-            <DefaultLayout>
-              <ContactPage />
-            </DefaultLayout>
-          }
-        />
-        <Route
-          path="/*"
-          element={
-            <DefaultLayout>
-              <NotFound />
-            </DefaultLayout>
-          }
-        />
+        {PAGES.map(({ path, element }) => (
+          <Route
+            key={path}
+            path={path}
+            element={<DefaultLayout>{element}</DefaultLayout>}
+          />
+        ))}
       </Routes>
     </Router>
   );

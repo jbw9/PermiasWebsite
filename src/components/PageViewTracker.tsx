@@ -32,7 +32,13 @@ async function getGeo(): Promise<GeoData> {
       longitude: d.longitude || 0,
     };
   } catch {
-    geoCache = { country: "", country_code: "", city: "", latitude: 0, longitude: 0 };
+    geoCache = {
+      country: "",
+      country_code: "",
+      city: "",
+      latitude: 0,
+      longitude: 0,
+    };
   }
   geoFetching = false;
   const g = geoCache!;
@@ -44,9 +50,10 @@ async function getGeo(): Promise<GeoData> {
 function getVisitorId(): string {
   let id = localStorage.getItem("perm_vid");
   if (!id) {
-    id = typeof crypto !== "undefined" && crypto.randomUUID
-      ? crypto.randomUUID()
-      : Math.random().toString(36).slice(2) + Date.now().toString(36);
+    id =
+      typeof crypto !== "undefined" && crypto.randomUUID
+        ? crypto.randomUUID()
+        : Math.random().toString(36).slice(2) + Date.now().toString(36);
     localStorage.setItem("perm_vid", id);
   }
   return id;
@@ -64,18 +71,21 @@ export default function PageViewTracker() {
     const track = async () => {
       const visitor_id = getVisitorId();
       const geo = await getGeo();
-      supabase.from("page_views").insert({
-        visitor_id,
-        path: pathname,
-        country: geo.country,
-        country_code: geo.country_code,
-        city: geo.city,
-        latitude: geo.latitude,
-        longitude: geo.longitude,
-      }).then(
-        () => {},
-        () => {}
-      );
+      supabase
+        .from("page_views")
+        .insert({
+          visitor_id,
+          path: pathname,
+          country: geo.country,
+          country_code: geo.country_code,
+          city: geo.city,
+          latitude: geo.latitude,
+          longitude: geo.longitude,
+        })
+        .then(
+          () => {},
+          () => {}
+        );
     };
 
     track();

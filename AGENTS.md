@@ -117,11 +117,11 @@ As soon as Supabase Dashboard access is granted, execute the following priority 
 
 2. **Run Additive Events Upgrade**:
    - Open **SQL Editor** in Supabase Studio.
-   - Run [`supabase-events-additive-upgrade.sql`](supabase-events-additive-upgrade.sql).
+   - Run [`supabase/events-additive-upgrade.sql`](supabase/events-additive-upgrade.sql).
    - This adds `rsvp_url`, `ticket_url`, `ticket_price`, `capacity`, and `cover_image` to `upcoming_events`, adds structured timestamps to `past_events`, and installs the `auto_archive_past_events()` function.
 
 3. **Seed the 2025/2026 Officer Roster**:
-   - In **SQL Editor**, run [`supabase-seed-2025-officers.sql`](supabase-seed-2025-officers.sql).
+   - In **SQL Editor**, run [`supabase/seed-2025-officers.sql`](supabase/seed-2025-officers.sql).
    - *(Optional)*: Uncomment `TRUNCATE TABLE officers;` if replacing the previous year's board entirely.
 
 4. **Verify Storage Bucket**:

@@ -1,19 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
-
-interface ContactCard {
-  slug: string;
-  title: string;
-  desc: string;
-  contact: string;
-  image_url: string;
-}
+import { getImageSrc } from "../../utils/imageSrc";
+import {
+  ContactCard,
+  buildContactCard,
+  readContactRows,
+} from "../../lib/contactCards";
 
 // Shown immediately (before DB fetch) and as fallback if no DB data exists
 const DEFAULT_CARDS: ContactCard[] = [
@@ -54,13 +46,6 @@ const DEFAULT_CARDS: ContactCard[] = [
   },
 ];
 
-function resolveContact(slug: string, map: Record<string, string>): string {
-  if (map[`contact_${slug}_contact`] !== undefined) return map[`contact_${slug}_contact`];
-  const c1 = map[`contact_${slug}_contact1`] ?? "";
-  const c2 = map[`contact_${slug}_contact2`] ?? "";
-  return [c1, c2].filter(Boolean).join("\n");
-}
-
 const Contacts = () => {
   // Start with defaults so there's no loading flash
   const [cards, setCards] = useState<ContactCard[]>(DEFAULT_CARDS);
@@ -74,37 +59,25 @@ const Contacts = () => {
 
       if (!data || data.length === 0) return;
 
-      const map: Record<string, string> = {};
-      data.forEach((row) => { map[row.key] = row.value; });
-
-      let slugs: string[] = [];
-      if (map["contact_cards_list"]) {
-        try { slugs = JSON.parse(map["contact_cards_list"]); } catch {}
-      }
-
-      if (slugs.length === 0) {
-        // No list yet — fall back to detecting slugs from existing keys
-        const slugSet = new Set<string>();
-        data.forEach((row) => {
-          const m = row.key.match(/^contact_(.+?)_(title|desc|contact\d?|image_url)$/);
-          if (m) slugSet.add(m[1]);
-        });
-        // Preserve default ordering
-        const defaultSlugs = DEFAULT_CARDS.map((c) => c.slug);
-        const extras = Array.from(slugSet).filter((s) => !defaultSlugs.includes(s));
-        slugs = [...defaultSlugs.filter((s) => slugSet.has(s)), ...extras];
-      }
-
-      const defaults = Object.fromEntries(DEFAULT_CARDS.map((c) => [c.slug, c]));
+      const { map, listedSlugs, detectedSlugs } = readContactRows(data);
+      const defaultSlugs = DEFAULT_CARDS.map((c) => c.slug);
+      // Without a saved list, keep the default cards' order and append the rest.
+      const slugs =
+        listedSlugs.length > 0
+          ? listedSlugs
+          : [
+              ...defaultSlugs.filter((s) => detectedSlugs.includes(s)),
+              ...detectedSlugs.filter((s) => !defaultSlugs.includes(s)),
+            ];
 
       setCards(
-        slugs.map((slug) => ({
-          slug,
-          title: map[`contact_${slug}_title`] ?? defaults[slug]?.title ?? "",
-          desc: map[`contact_${slug}_desc`] ?? defaults[slug]?.desc ?? "",
-          contact: resolveContact(slug, map) || defaults[slug]?.contact || "",
-          image_url: map[`contact_${slug}_image_url`] ?? defaults[slug]?.image_url ?? "",
-        }))
+        slugs.map((slug) =>
+          buildContactCard(
+            slug,
+            map,
+            DEFAULT_CARDS.find((c) => c.slug === slug)
+          )
+        )
       );
     };
 

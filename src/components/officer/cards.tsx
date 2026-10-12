@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Officer } from "../../types";
+import { getImageSrc } from "../../utils/imageSrc";
 
 interface OfficerCardsProps {
   member: Officer;
@@ -7,13 +8,11 @@ interface OfficerCardsProps {
   onClick?: () => void;
 }
 
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
-
-const OfficerCards: React.FC<OfficerCardsProps> = ({ member, className, onClick }) => {
+const OfficerCards: React.FC<OfficerCardsProps> = ({
+  member,
+  className,
+  onClick,
+}) => {
   const [clickCount, setClickCount] = useState(0);
 
   const handleCardClick = () => {

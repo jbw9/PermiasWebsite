@@ -1,11 +1,6 @@
 import { Link } from "react-router-dom";
 import { useSiteContent } from "../../hooks/useSiteContent";
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
+import { getImageSrc } from "../../utils/imageSrc";
 
 const AboutCommunity = () => {
   const content = useSiteContent(["home_about_image_url", "home_about_text"], {

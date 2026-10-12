@@ -2,11 +2,13 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { PastEvent } from "../../types";
 import ImageUpload from "./ImageUpload";
+import { inputClass, labelClass } from "./formStyles";
 import {
   sortPastEventsChronologically,
   parseEventDate,
   formatDatePretty,
 } from "../../utils/eventDateUtils";
+import { getImageSrc } from "../../utils/imageSrc";
 
 const PastEventsTab: React.FC = () => {
   const [events, setEvents] = useState<PastEvent[]>([]);
@@ -53,11 +55,15 @@ const PastEventsTab: React.FC = () => {
       events.length > 0 ? Math.max(...events.map((e) => e.display_order)) : -1;
 
     let computedDateString = form.legacyDate;
-    let isoTimestamp = form.event_date ? new Date(form.event_date).toISOString() : null;
+    let isoTimestamp = form.event_date
+      ? new Date(form.event_date).toISOString()
+      : null;
 
     if (form.event_date) {
       const pretty = formatDatePretty(new Date(form.event_date));
-      computedDateString = form.location ? `${pretty}, ${form.location}` : pretty;
+      computedDateString = form.location
+        ? `${pretty}, ${form.location}`
+        : pretty;
     }
 
     const payload: any = {
@@ -89,7 +95,8 @@ const PastEventsTab: React.FC = () => {
   };
 
   const handleDelete = async (event: PastEvent) => {
-    if (!window.confirm(`Delete "${event.name}"? This cannot be undone.`)) return;
+    if (!window.confirm(`Delete "${event.name}"? This cannot be undone.`))
+      return;
     setDeletingId(event.id);
     await supabase.from("past_events").delete().eq("id", event.id);
     setEvents((prev) => prev.filter((e) => e.id !== event.id));
@@ -120,40 +127,36 @@ const PastEventsTab: React.FC = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Event Name *
-              </label>
+              <label className={labelClass}>Event Name *</label>
               <input
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 required
                 placeholder="e.g. Welcoming Event 2025"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Event Date *
-              </label>
+              <label className={labelClass}>Event Date *</label>
               <input
                 type="date"
                 value={form.event_date}
-                onChange={(e) => setForm({ ...form, event_date: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, event_date: e.target.value })
+                }
                 required
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Location / Venue
-              </label>
+              <label className={labelClass}>Location / Venue</label>
               <input
                 type="text"
                 value={form.location}
                 onChange={(e) => setForm({ ...form, location: e.target.value })}
                 placeholder="e.g. Scotts Park or Illini Union"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
           </div>
@@ -216,22 +219,22 @@ const PastEventsTab: React.FC = () => {
                 <div className="flex items-center gap-4">
                   {event.images?.[0] && (
                     <img
-                      src={
-                        event.images[0].startsWith("http")
-                          ? event.images[0]
-                          : process.env.PUBLIC_URL + event.images[0]
-                      }
+                      src={getImageSrc(event.images[0])}
                       alt={event.name}
                       className="w-14 h-14 object-cover rounded-lg flex-shrink-0"
                     />
                   )}
                   <div>
-                    <div className="font-semibold text-footer">{event.name}</div>
+                    <div className="font-semibold text-footer">
+                      {event.name}
+                    </div>
                     <div className="text-sm text-gray-500">
                       {parsed.formattedDate || event.date}
                     </div>
                     {event.location && (
-                      <div className="text-xs text-gray-400">📍 {event.location}</div>
+                      <div className="text-xs text-gray-400">
+                        📍 {event.location}
+                      </div>
                     )}
                     <div className="text-xs text-gray-400">
                       {event.images?.length || 0} photo(s)

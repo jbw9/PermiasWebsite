@@ -4,12 +4,7 @@ import { SiteContent } from "../../types";
 import ImageUpload from "./ImageUpload";
 import { bustSiteContentCache } from "../../hooks/useSiteContent";
 import ContactTab from "./ContactTab";
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
+import { getImageSrc } from "../../utils/imageSrc";
 
 function getSectionFromKey(key: string): string {
   const part = key.split("_")[0];
@@ -50,7 +45,9 @@ const SiteContentTab: React.FC = () => {
     setLoading(false);
   };
 
-  useEffect(() => { fetchItems(); }, []);
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
   // Derive sections from DB keys, excluding contact_ keys (managed by Contact section)
   const sections = useMemo(() => {
@@ -86,24 +83,41 @@ const SiteContentTab: React.FC = () => {
     setSaving(item.key);
     await supabase
       .from("site_content")
-      .upsert({ key: item.key, value: newValue, updated_at: new Date().toISOString() }, { onConflict: "key" });
+      .upsert(
+        {
+          key: item.key,
+          value: newValue,
+          updated_at: new Date().toISOString(),
+        },
+        { onConflict: "key" }
+      );
     bustSiteContentCache();
     await fetchItems();
-    setEditing((prev) => { const next = { ...prev }; delete next[item.key]; return next; });
+    setEditing((prev) => {
+      const next = { ...prev };
+      delete next[item.key];
+      return next;
+    });
     setSaving(null);
     setSaved(item.key);
     setTimeout(() => setSaved(null), 2000);
   };
 
   const handleCancel = (key: string) => {
-    setEditing((prev) => { const next = { ...prev }; delete next[key]; return next; });
+    setEditing((prev) => {
+      const next = { ...prev };
+      delete next[key];
+      return next;
+    });
   };
 
-  if (loading) return <p className="text-gray-400 py-10 text-center">Loading...</p>;
+  if (loading)
+    return <p className="text-gray-400 py-10 text-center">Loading...</p>;
 
-  const activeItems = activeSection && activeSection !== "Contact"
-    ? (sections[activeSection] ?? [])
-    : [];
+  const activeItems =
+    activeSection && activeSection !== "Contact"
+      ? sections[activeSection] ?? []
+      : [];
 
   return (
     <div className="flex gap-5 min-h-[500px]">
@@ -158,9 +172,12 @@ const SiteContentTab: React.FC = () => {
           <>
             <div className="mb-4 flex items-baseline justify-between">
               <div>
-                <h2 className="text-base font-semibold text-footer">{activeSection}</h2>
+                <h2 className="text-base font-semibold text-footer">
+                  {activeSection}
+                </h2>
                 <p className="text-xs text-gray-400 mt-0.5">
-                  {activeItems.length} field{activeItems.length !== 1 ? "s" : ""}
+                  {activeItems.length} field
+                  {activeItems.length !== 1 ? "s" : ""}
                 </p>
               </div>
             </div>
@@ -197,11 +214,17 @@ const SiteContentTab: React.FC = () => {
                         </p>
                         {!isEditing && item.type !== "image" && (
                           <p className="text-xs text-gray-400 truncate mt-0.5">
-                            {item.value
-                              ? item.value.length > 80
-                                ? item.value.slice(0, 80) + "…"
-                                : item.value
-                              : <span className="italic text-gray-300">No value</span>}
+                            {item.value ? (
+                              item.value.length > 80 ? (
+                                item.value.slice(0, 80) + "…"
+                              ) : (
+                                item.value
+                              )
+                            ) : (
+                              <span className="italic text-gray-300">
+                                No value
+                              </span>
+                            )}
                           </p>
                         )}
                       </div>
@@ -209,7 +232,9 @@ const SiteContentTab: React.FC = () => {
                       {/* Actions */}
                       <div className="flex items-center gap-2 flex-shrink-0">
                         {saved === item.key && (
-                          <span className="text-xs text-green-600 font-medium">Saved</span>
+                          <span className="text-xs text-green-600 font-medium">
+                            Saved
+                          </span>
                         )}
                         {!isEditing ? (
                           <button
@@ -247,14 +272,20 @@ const SiteContentTab: React.FC = () => {
                                 label="Upload image"
                                 currentUrl={currentValue}
                                 onUploaded={(url) =>
-                                  setEditing((prev) => ({ ...prev, [item.key]: url }))
+                                  setEditing((prev) => ({
+                                    ...prev,
+                                    [item.key]: url,
+                                  }))
                                 }
                               />
                               <input
                                 type="text"
                                 value={currentValue}
                                 onChange={(e) =>
-                                  setEditing((prev) => ({ ...prev, [item.key]: e.target.value }))
+                                  setEditing((prev) => ({
+                                    ...prev,
+                                    [item.key]: e.target.value,
+                                  }))
                                 }
                                 placeholder="or paste URL"
                                 className="w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none focus:ring-2 focus:ring-red/30 bg-white"
@@ -265,7 +296,10 @@ const SiteContentTab: React.FC = () => {
                           <textarea
                             value={currentValue}
                             onChange={(e) =>
-                              setEditing((prev) => ({ ...prev, [item.key]: e.target.value }))
+                              setEditing((prev) => ({
+                                ...prev,
+                                [item.key]: e.target.value,
+                              }))
                             }
                             rows={4}
                             autoFocus
@@ -276,7 +310,10 @@ const SiteContentTab: React.FC = () => {
                             type="text"
                             value={currentValue}
                             onChange={(e) =>
-                              setEditing((prev) => ({ ...prev, [item.key]: e.target.value }))
+                              setEditing((prev) => ({
+                                ...prev,
+                                [item.key]: e.target.value,
+                              }))
                             }
                             autoFocus
                             className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red/30 bg-white"
@@ -305,7 +342,9 @@ const SiteContentTab: React.FC = () => {
             </div>
           </>
         ) : (
-          <p className="text-gray-400 text-sm py-10 text-center">Select a section to edit</p>
+          <p className="text-gray-400 text-sm py-10 text-center">
+            Select a section to edit
+          </p>
         )}
       </div>
     </div>

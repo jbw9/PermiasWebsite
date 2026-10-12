@@ -51,7 +51,15 @@ interface CountryStats {
 
 // --- sub-components ---
 
-function StatCard({ label, value, sub }: { label: string; value: string; sub?: string }) {
+function StatCard({
+  label,
+  value,
+  sub,
+}: {
+  label: string;
+  value: string;
+  sub?: string;
+}) {
   return (
     <div className="bg-white rounded-xl border border-gray-200 p-5">
       <p className="text-sm text-gray-500">{label}</p>
@@ -61,7 +69,15 @@ function StatCard({ label, value, sub }: { label: string; value: string; sub?: s
   );
 }
 
-function Sparkline({ data, color, height = 48 }: { data: number[]; color: string; height?: number }) {
+function Sparkline({
+  data,
+  color,
+  height = 48,
+}: {
+  data: number[];
+  color: string;
+  height?: number;
+}) {
   const max = Math.max(...data, 1);
   return (
     <div className="flex items-end gap-px" style={{ height }}>
@@ -88,7 +104,10 @@ const AnalyticsTab: React.FC = () => {
   const [clicks, setClicks] = useState<LinkClick[]>([]);
   const [loading, setLoading] = useState(true);
   const [resetting, setResetting] = useState(false);
-  const [tooltip, setTooltip] = useState<{ name: string; count: number } | null>(null);
+  const [tooltip, setTooltip] = useState<{
+    name: string;
+    count: number;
+  } | null>(null);
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -112,7 +131,9 @@ const AnalyticsTab: React.FC = () => {
     setLoading(false);
   }, []);
 
-  useEffect(() => { fetchData(); }, [fetchData]);
+  useEffect(() => {
+    fetchData();
+  }, [fetchData]);
 
   // --- derived data ---
   const dates = ctLastNDates(30);
@@ -128,7 +149,9 @@ const AnalyticsTab: React.FC = () => {
   const todayViews = dailyData[dailyData.length - 1]?.views ?? 0;
 
   const pageCounts: Record<string, number> = {};
-  views.forEach((v) => { pageCounts[v.path] = (pageCounts[v.path] || 0) + 1; });
+  views.forEach((v) => {
+    pageCounts[v.path] = (pageCounts[v.path] || 0) + 1;
+  });
   const topPage = Object.entries(pageCounts).sort((a, b) => b[1] - a[1])[0];
 
   // Country aggregation for map
@@ -146,7 +169,9 @@ const AnalyticsTab: React.FC = () => {
     }
     countryMap[v.country_code].count++;
   });
-  const countryStats = Object.values(countryMap).sort((a, b) => b.count - a.count);
+  const countryStats = Object.values(countryMap).sort(
+    (a, b) => b.count - a.count
+  );
   const maxCountry = countryStats[0]?.count || 1;
 
   const handleReset = async () => {
@@ -158,7 +183,9 @@ const AnalyticsTab: React.FC = () => {
   };
 
   if (loading) {
-    return <p className="text-gray-400 py-10 text-center">Loading analytics...</p>;
+    return (
+      <p className="text-gray-400 py-10 text-center">Loading analytics...</p>
+    );
   }
 
   return (
@@ -171,7 +198,9 @@ const AnalyticsTab: React.FC = () => {
         <StatCard
           label="Unique Visitors (30d)"
           value={fmt(uniqueVisitors)}
-          sub={`${totalViews > 0 ? Math.round((uniqueVisitors / totalViews) * 100) : 0}% of views`}
+          sub={`${
+            totalViews > 0 ? Math.round((uniqueVisitors / totalViews) * 100) : 0
+          }% of views`}
         />
         <StatCard label="Today's Views" value={fmt(todayViews)} />
         <StatCard
@@ -183,20 +212,36 @@ const AnalyticsTab: React.FC = () => {
 
       {/* Visitor sparkline */}
       <div className="bg-white rounded-xl border border-gray-200 p-5">
-        <p className="text-sm font-medium text-gray-700 mb-3">Daily Visitors — Last 30 Days</p>
+        <p className="text-sm font-medium text-gray-700 mb-3">
+          Daily Visitors — Last 30 Days
+        </p>
         {totalViews === 0 ? (
           <p className="text-sm text-gray-400">No visits recorded yet.</p>
         ) : (
           <div className="space-y-2">
-            <Sparkline data={dailyData.map((d) => d.unique)} color="#34d399" height={48} />
-            <Sparkline data={dailyData.map((d) => d.views)} color="#93c5fd" height={32} />
+            <Sparkline
+              data={dailyData.map((d) => d.unique)}
+              color="#34d399"
+              height={48}
+            />
+            <Sparkline
+              data={dailyData.map((d) => d.views)}
+              color="#93c5fd"
+              height={32}
+            />
             <div className="flex gap-4 text-xs text-gray-400">
               <span className="flex items-center gap-1">
-                <span className="inline-block w-3 h-2 rounded-sm" style={{ background: "#34d399" }} />
+                <span
+                  className="inline-block w-3 h-2 rounded-sm"
+                  style={{ background: "#34d399" }}
+                />
                 Unique visitors
               </span>
               <span className="flex items-center gap-1">
-                <span className="inline-block w-3 h-2 rounded-sm" style={{ background: "#93c5fd" }} />
+                <span
+                  className="inline-block w-3 h-2 rounded-sm"
+                  style={{ background: "#93c5fd" }}
+                />
                 Page views
               </span>
             </div>
@@ -210,12 +255,19 @@ const AnalyticsTab: React.FC = () => {
 
       {/* World map */}
       <div className="bg-white rounded-xl border border-gray-200 p-5">
-        <p className="text-sm font-medium text-gray-700 mb-3">Visitor Locations</p>
+        <p className="text-sm font-medium text-gray-700 mb-3">
+          Visitor Locations
+        </p>
         {countryStats.length === 0 ? (
-          <p className="text-sm text-gray-400">No geo data yet — visitors will appear here once tracked.</p>
+          <p className="text-sm text-gray-400">
+            No geo data yet — visitors will appear here once tracked.
+          </p>
         ) : (
           <>
-            <div className="rounded-lg overflow-hidden" style={{ background: "#f8fafc" }}>
+            <div
+              className="rounded-lg overflow-hidden"
+              style={{ background: "#f8fafc" }}
+            >
               <ComposableMap
                 projection="geoMercator"
                 projectionConfig={{ scale: 120, center: [0, 20] }}
@@ -245,7 +297,9 @@ const AnalyticsTab: React.FC = () => {
                       <Marker
                         key={c.country_code}
                         coordinates={[c.lon, c.lat]}
-                        onMouseEnter={() => setTooltip({ name: c.country, count: c.count })}
+                        onMouseEnter={() =>
+                          setTooltip({ name: c.country, count: c.count })
+                        }
                         onMouseLeave={() => setTooltip(null)}
                       >
                         <circle
@@ -264,23 +318,35 @@ const AnalyticsTab: React.FC = () => {
             </div>
             {tooltip && (
               <div className="text-xs text-gray-600 mt-1 text-center">
-                {tooltip.name} — {fmt(tooltip.count)} view{tooltip.count !== 1 ? "s" : ""}
+                {tooltip.name} — {fmt(tooltip.count)} view
+                {tooltip.count !== 1 ? "s" : ""}
               </div>
             )}
 
             {/* Top countries table */}
             <div className="mt-4 space-y-2">
               {countryStats.slice(0, 8).map((c) => (
-                <div key={c.country_code} className="flex items-center gap-3 text-sm">
-                  <span className="text-lg w-6 text-center">{countryCodeToFlag(c.country_code)}</span>
-                  <span className="w-36 truncate text-gray-700">{c.country || c.country_code}</span>
+                <div
+                  key={c.country_code}
+                  className="flex items-center gap-3 text-sm"
+                >
+                  <span className="text-lg w-6 text-center">
+                    {countryCodeToFlag(c.country_code)}
+                  </span>
+                  <span className="w-36 truncate text-gray-700">
+                    {c.country || c.country_code}
+                  </span>
                   <div className="flex-1 bg-gray-100 rounded-full h-2">
                     <div
                       className="bg-red h-2 rounded-full"
-                      style={{ width: `${Math.max((c.count / maxCountry) * 100, 2)}%` }}
+                      style={{
+                        width: `${Math.max((c.count / maxCountry) * 100, 2)}%`,
+                      }}
                     />
                   </div>
-                  <span className="text-gray-500 w-10 text-right">{fmt(c.count)}</span>
+                  <span className="text-gray-500 w-10 text-right">
+                    {fmt(c.count)}
+                  </span>
                 </div>
               ))}
             </div>
@@ -309,13 +375,22 @@ const AnalyticsTab: React.FC = () => {
               return (
                 <div key={item.id} className="space-y-1">
                   <div className="flex justify-between text-sm">
-                    <span className="font-medium capitalize text-gray-700">{item.link_name}</span>
-                    <span className="text-gray-500">{fmt(item.count)} clicks</span>
+                    <span className="font-medium capitalize text-gray-700">
+                      {item.link_name}
+                    </span>
+                    <span className="text-gray-500">
+                      {fmt(item.count)} clicks
+                    </span>
                   </div>
                   <div className="w-full bg-gray-100 rounded-full h-2">
                     <div
                       className="bg-red h-2 rounded-full"
-                      style={{ width: `${Math.max((item.count / maxClicks) * 100, 2)}%` }}
+                      style={{
+                        width: `${Math.max(
+                          (item.count / maxClicks) * 100,
+                          2
+                        )}%`,
+                      }}
                     />
                   </div>
                 </div>

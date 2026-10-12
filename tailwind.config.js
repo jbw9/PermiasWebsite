@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["Chivo", "sans-serif"], // Set Montserrat as the default sans-serif font
+        sans: ["Chivo", "sans-serif"],
       },
       fontWeight: {
         extralight: "200",
@@ -26,11 +26,6 @@ module.exports = {
         groundBase: "#fafafa",
         red: "#8c0305",
         lightGray: "#f5f5f7",
-      },
-      variants: {
-        extend: {
-          borderWidth: ["hover", "focus"],
-        },
       },
       keyframes: {
         fadeIn: {

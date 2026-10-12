@@ -24,5 +24,5 @@ description: Critical architectural guardrails, Supabase safety invariants, and 
 - Never drop columns or tables in production Supabase. Use additive DDL (`ADD COLUMN IF NOT EXISTS`, `ON CONFLICT DO NOTHING`) and compatibility views.
 
 ## 6. Pending Supabase Access Priority
-- As soon as dashboard access is granted, prioritize running `supabase-events-additive-upgrade.sql` and `supabase-seed-2025-officers.sql`, configuring local `.env`, and setting up the admin user.
+- As soon as dashboard access is granted, prioritize running `supabase/events-additive-upgrade.sql` and `supabase/seed-2025-officers.sql`, configuring local `.env`, and setting up the admin user.
 

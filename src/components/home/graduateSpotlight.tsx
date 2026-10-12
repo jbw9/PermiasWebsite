@@ -1,10 +1,5 @@
 import { useSiteContent } from "../../hooks/useSiteContent";
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
+import { getImageSrc } from "../../utils/imageSrc";
 
 const GraduateSpotlight = () => {
   const content = useSiteContent(
@@ -37,7 +32,9 @@ const GraduateSpotlight = () => {
           <span className="mt-[12px] text-base md:text-lg">
             {content.home_grad_spotlight_name}
           </span>
-          <span className="mt-[-6px] text-base md:text-lg">{content.home_grad_spotlight_class}</span>
+          <span className="mt-[-6px] text-base md:text-lg">
+            {content.home_grad_spotlight_class}
+          </span>
         </div>
         <div className="md:mr-[40px]">
           <div className="h-[420px] w-[336px] md:h-[500px] md:w-[400px] bg-red rounded-2xl"></div>

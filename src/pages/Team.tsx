@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import OfficerCards from "../components/officer/cards";
 import Popup from "../components/officer/card-popup";
+import PageBanner from "../components/PageBanner";
+import SectionHeading from "../components/SectionHeading";
 import { supabase } from "../supabaseClient";
 import { Officer } from "../types";
 import { useSiteContent } from "../hooks/useSiteContent";
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
+import { getImageSrc } from "../utils/imageSrc";
 
 const TeamPage: React.FC = () => {
   const gridRef = useRef<HTMLDivElement>(null);
   const [officers, setOfficers] = useState<Officer[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedMember, setSelectedMember] = useState<Officer | null>(null);
-  const content = useSiteContent(["team_banner_url", "team_heading_white", "team_heading_red"], {
-    team_banner_url: "/officers/teambg2024.png",
-    team_heading_white: "Meet",
-    team_heading_red: "Our Officers",
-  });
+  const content = useSiteContent(
+    ["team_banner_url", "team_heading_white", "team_heading_red"],
+    {
+      team_banner_url: "/officers/teambg2024.png",
+      team_heading_white: "Meet",
+      team_heading_red: "Our Officers",
+    }
+  );
 
   useEffect(() => {
     supabase
@@ -54,22 +54,12 @@ const TeamPage: React.FC = () => {
 
   return (
     <div className="mb-[70px]">
-      <div className="flex items-end justify-center w-full md:h-[600px]">
-        <img
-          src={getImageSrc(content.team_banner_url)}
-          alt="Background"
-          className="object-cover w-full h-[300px] md:h-[600px]"
-        />
-      </div>
+      <PageBanner src={getImageSrc(content.team_banner_url)} />
       <div className="flex justify-center my-[40px] md:my-[75px]">
-        <div>
-          <span className="text-4xl font-semibold text-footer md:text-5xl">
-            {content.team_heading_white}{" "}
-          </span>
-          <span className="text-4xl font-bold text-red md:text-5xl">
-            {content.team_heading_red}
-          </span>
-        </div>
+        <SectionHeading
+          lead={content.team_heading_white}
+          emphasis={content.team_heading_red}
+        />
       </div>
       {loading ? (
         <div className="flex justify-center py-20">

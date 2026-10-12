@@ -10,33 +10,45 @@ let fetchPromise: Promise<void> | null = null;
 
 async function primeCache(): Promise<void> {
   if (fetched) return;
-  if (fetchPromise) { await fetchPromise; return; }
+  if (fetchPromise) {
+    await fetchPromise;
+    return;
+  }
   fetchPromise = Promise.resolve(
     supabase.from("site_content").select("key, value")
   ).then(
     ({ data }) => {
-      if (data) data.forEach((row: { key: string; value: string }) => { cache[row.key] = row.value; });
+      if (data)
+        data.forEach((row: { key: string; value: string }) => {
+          cache[row.key] = row.value;
+        });
       fetched = true;
     },
-    () => { fetched = true; }
+    () => {
+      fetched = true;
+    }
   );
   return fetchPromise;
 }
 
-export function useSiteContent(keys: string[], defaults: ContentMap = {}): ContentMap {
-  const [content, setContent] = useState<ContentMap>(() => {
-    // Return defaults merged with whatever's already cached
-    const merged: ContentMap = { ...defaults };
-    keys.forEach((k) => { if (cache[k] !== undefined) merged[k] = cache[k]; });
-    return merged;
+function withCachedValues(keys: string[], defaults: ContentMap): ContentMap {
+  const merged: ContentMap = { ...defaults };
+  keys.forEach((k) => {
+    if (cache[k] !== undefined) merged[k] = cache[k];
   });
+  return merged;
+}
+
+export function useSiteContent(
+  keys: string[],
+  defaults: ContentMap = {}
+): ContentMap {
+  const [content, setContent] = useState<ContentMap>(() =>
+    withCachedValues(keys, defaults)
+  );
 
   useEffect(() => {
-    primeCache().then(() => {
-      const merged: ContentMap = { ...defaults };
-      keys.forEach((k) => { if (cache[k] !== undefined) merged[k] = cache[k]; });
-      setContent(merged);
-    });
+    primeCache().then(() => setContent(withCachedValues(keys, defaults)));
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return content;

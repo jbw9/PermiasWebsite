@@ -64,9 +64,7 @@ const Transport: React.FC<PropOpen> = ({ isOpen, onClose }) => {
         </div>
         <div className="flex flex-col justify-between ml-[10px]">
           <div>
-            <span className="block mt-[20px] text-3xl mb-[-10px]">
-              lol
-            </span>
+            <span className="block mt-[20px] text-3xl mb-[-10px]">lol</span>
             <div className="flex items-center justify-center">
               <span className="text-2xl my-[20px]">Price: $25</span>
             </div>

@@ -8,7 +8,12 @@ import UpcomingEventsTab from "../components/admin/UpcomingEventsTab";
 import OfficersTab from "../components/admin/OfficersTab";
 import SiteContentTab from "../components/admin/SiteContentTab";
 
-type Tab = "analytics" | "past-events" | "upcoming-events" | "officers" | "site-content";
+type Tab =
+  | "analytics"
+  | "past-events"
+  | "upcoming-events"
+  | "officers"
+  | "site-content";
 
 const tabs: { id: Tab; label: string }[] = [
   { id: "analytics", label: "Analytics" },

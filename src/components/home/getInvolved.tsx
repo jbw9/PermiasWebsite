@@ -1,4 +1,5 @@
 import { useSiteContent } from "../../hooks/useSiteContent";
+import SectionHeading from "../SectionHeading";
 
 const GetInvolved = () => {
   const content = useSiteContent(
@@ -13,14 +14,11 @@ const GetInvolved = () => {
     <div>
       <div className="flex flex-col items-center">
         <div className="container px-4 mx-auto">
-          <div className="mb-8 text-center">
-            <span className="text-4xl font-semibold md:text-5xl text-footer">
-              Get{" "}
-            </span>
-            <span className="text-4xl font-bold md:text-5xl text-red">
-              Involved
-            </span>
-          </div>
+          <SectionHeading
+            className="mb-8 text-center"
+            lead="Get"
+            emphasis="Involved"
+          />
           <div className="flex flex-col md:flex-row md:justify-center md:space-x-8">
             <div className="flex flex-col items-center mb-8 md:mb-0">
               <a

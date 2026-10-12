@@ -131,7 +131,8 @@ export const pastEvents: PastEvent[] = [
     date: "August 31, 2024, Scotts Park",
     event_date: "2024-08-31T14:00:00-05:00",
     location: "Scotts Park",
-    description: "Annual welcoming event welcoming incoming and returning Indonesian students to UIUC.",
+    description:
+      "Annual welcoming event welcoming incoming and returning Indonesian students to UIUC.",
     images: [
       "/events/welcoming_event_2024/one.png",
       "/events/welcoming_event_2024/two.png",
@@ -152,7 +153,8 @@ export const pastEvents: PastEvent[] = [
     date: "March 23, 2024, Orchard Downs Community Center",
     event_date: "2024-03-23T17:30:00-05:00",
     location: "Orchard Downs Community Center",
-    description: "Ramadan iftar gathering bringing together students and the broader Urbana-Champaign community.",
+    description:
+      "Ramadan iftar gathering bringing together students and the broader Urbana-Champaign community.",
     images: [
       "/events/buka_bersama_2024/one.jpg",
       "/events/buka_bersama_2024/five.jpg",
@@ -172,7 +174,8 @@ export const pastEvents: PastEvent[] = [
     date: "November 11, 2023, University YMCA",
     event_date: "2023-11-11T17:00:00-05:00",
     location: "University YMCA",
-    description: "Flagship Indonesian night market featuring authentic cuisine, cultural performances, and games.",
+    description:
+      "Flagship Indonesian night market featuring authentic cuisine, cultural performances, and games.",
     images: [
       "/events/pasmal_2023/three.jpg",
       "/events/pasmal_2023/one.jpg",

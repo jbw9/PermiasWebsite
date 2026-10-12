@@ -65,7 +65,10 @@ export function parseEventDate(
     const matchedDate = new Date(`${match[1]} ${match[2]}, ${match[3]}`);
     if (!isNaN(matchedDate.getTime())) {
       // Everything after the date might be the venue
-      const afterDate = rawDate.replace(match[0], "").replace(/^[,\s-]+/, "").trim();
+      const afterDate = rawDate
+        .replace(match[0], "")
+        .replace(/^[,\s-]+/, "")
+        .trim();
       return {
         date: matchedDate,
         formattedDate: formatDatePretty(matchedDate),
@@ -143,7 +146,8 @@ export function getGoogleCalendarUrl(event: {
   location?: string;
   description?: string;
 }): string {
-  const startDate = typeof event.date === "string" ? new Date(event.date) : event.date;
+  const startDate =
+    typeof event.date === "string" ? new Date(event.date) : event.date;
   if (!startDate || isNaN(startDate.getTime())) return "#";
 
   // Assume 2 hour default duration if no end time
@@ -172,7 +176,8 @@ export function getIcsDataUrl(event: {
   location?: string;
   description?: string;
 }): string {
-  const startDate = typeof event.date === "string" ? new Date(event.date) : event.date;
+  const startDate =
+    typeof event.date === "string" ? new Date(event.date) : event.date;
   if (!startDate || isNaN(startDate.getTime())) return "#";
 
   const endDate = new Date(startDate.getTime() + 2 * 60 * 60 * 1000);
@@ -190,7 +195,9 @@ export function getIcsDataUrl(event: {
     `DTSTART:${formatIcsTime(startDate)}`,
     `DTEND:${formatIcsTime(endDate)}`,
     `SUMMARY:${event.title.replace(/,/g, "\\,")}`,
-    `DESCRIPTION:${(event.description || "").replace(/\n/g, "\\n").replace(/,/g, "\\,")}`,
+    `DESCRIPTION:${(event.description || "")
+      .replace(/\n/g, "\\n")
+      .replace(/,/g, "\\,")}`,
     `LOCATION:${(event.location || "").replace(/,/g, "\\,")}`,
     "END:VEVENT",
     "END:VCALENDAR",

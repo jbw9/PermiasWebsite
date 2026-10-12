@@ -133,7 +133,9 @@ const FAQ = () => {
           </div>
 
           <div className="mt-[30px]">
-            <span className="text-2xl font-bold text-footer">Accommodation</span>
+            <span className="text-2xl font-bold text-footer">
+              Accommodation
+            </span>
             <Dropdown
               text="What are the housing options?"
               desc={`

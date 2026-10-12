@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import { supabase } from "../../supabaseClient";
+import { getImageSrc } from "../../utils/imageSrc";
 
 interface ImageUploadProps {
   bucket?: string;
@@ -48,7 +49,7 @@ const ImageUpload: React.FC<ImageUploadProps> = ({
     <div className="space-y-2">
       {currentUrl && (
         <img
-          src={currentUrl.startsWith("http") ? currentUrl : process.env.PUBLIC_URL + currentUrl}
+          src={getImageSrc(currentUrl)}
           alt="current"
           className="w-24 h-24 object-cover rounded-lg border border-gray-200"
         />

@@ -1,16 +1,11 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Officer } from "../../types";
+import { getImageSrc } from "../../utils/imageSrc";
 
 interface PropOpen {
   isOpen: boolean;
   onClose: () => void;
   member: Officer;
-}
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
 }
 
 const Popup: React.FC<PropOpen> = ({ isOpen, onClose, member }) => {

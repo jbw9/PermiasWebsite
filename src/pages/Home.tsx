@@ -10,12 +10,7 @@ import NextEventBanner from "../components/home/NextEventBanner";
 import GraduateSpotlight from "../components/home/graduateSpotlight";
 import CanvaPreview from "../components/home/bookletPreview";
 import { useSiteContent } from "../hooks/useSiteContent";
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
+import { getImageSrc } from "../utils/imageSrc";
 
 const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
   onGetInvolvedClick,
@@ -32,7 +27,9 @@ const WebsiteTitle: React.FC<{ onGetInvolvedClick: () => void }> = ({
   return (
     <div className="relative flex justify-center h-full">
       <div className="mt-[50px] flex flex-col">
-        <span className="text-5xl font-bold md:text-7xl">{content.home_hero_title}</span>
+        <span className="text-5xl font-bold md:text-7xl">
+          {content.home_hero_title}
+        </span>
         <span className="md:text-xl mt-[10px]">
           {content.home_hero_subtitle}
         </span>
@@ -103,10 +100,9 @@ const HomePage: React.FC = () => {
           />
         </div>
         <div>
-          <BackgroundVideo
-            source={getImageSrc(content.home_bg_video_url)}
-            children={<WebsiteTitle onGetInvolvedClick={scrollToBottom} />}
-          />
+          <BackgroundVideo source={getImageSrc(content.home_bg_video_url)}>
+            <WebsiteTitle onGetInvolvedClick={scrollToBottom} />
+          </BackgroundVideo>
         </div>
         <div className="flex items-center justify-center w-full">
           <div className="w-full mt-[70px] md:mt-[120px] flex flex-col items-center px-[30px] md:px-[150px]">

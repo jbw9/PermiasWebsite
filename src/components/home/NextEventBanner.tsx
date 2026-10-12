@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { supabase } from "../../supabaseClient";
 import { UpcomingEvent } from "../../types";
 import { upcomingEventsData } from "../../data/upcoming_events";
+import { getImageSrc } from "../../utils/imageSrc";
+import SectionHeading from "../SectionHeading";
 
 const NextEventBanner: React.FC = () => {
   const [nextEvent, setNextEvent] = useState<UpcomingEvent | null>(null);
@@ -44,21 +46,12 @@ const NextEventBanner: React.FC = () => {
 
   return (
     <div className="mt-[100px] text-center w-full">
-      <div>
-        <span className="text-4xl font-semibold md:text-5xl text-footer">
-          Upcoming{" "}
-        </span>
-        <span className="text-4xl font-bold md:text-5xl text-red">Event</span>
-      </div>
+      <SectionHeading lead="Upcoming" emphasis="Event" />
       <div className="mt-[30px] flex justify-center">
         <div className="w-full max-w-xl bg-white rounded-2xl shadow-lg p-6 text-left border border-gray-100">
           {nextEvent.cover_image && (
             <img
-              src={
-                nextEvent.cover_image.startsWith("http")
-                  ? nextEvent.cover_image
-                  : process.env.PUBLIC_URL + nextEvent.cover_image
-              }
+              src={getImageSrc(nextEvent.cover_image)}
               alt={nextEvent.title}
               className="w-full h-44 object-cover rounded-xl mb-4"
             />

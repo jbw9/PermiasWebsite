@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { Officer } from "../../types";
 import ImageUpload from "./ImageUpload";
+import { inputClass, labelClass } from "./formStyles";
+import { getImageSrc } from "../../utils/imageSrc";
 
 const emptyForm = {
   name: "",
@@ -13,12 +15,6 @@ const emptyForm = {
   image_url: "",
   fun_image_url: "",
 };
-
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
 
 const OfficersTab: React.FC = () => {
   const [officers, setOfficers] = useState<Officer[]>([]);
@@ -113,7 +109,10 @@ const OfficersTab: React.FC = () => {
     setSavingOrder(true);
     await Promise.all(
       updated.map((o) =>
-        supabase.from("officers").update({ display_order: o.display_order }).eq("id", o.id)
+        supabase
+          .from("officers")
+          .update({ display_order: o.display_order })
+          .eq("id", o.id)
       )
     );
     setSavingOrder(false);
@@ -148,67 +147,73 @@ const OfficersTab: React.FC = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+              <label className={labelClass}>Name *</label>
               <input
                 type="text"
                 value={form.name}
                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                 required
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Role *</label>
+              <label className={labelClass}>Role *</label>
               <input
                 type="text"
                 value={form.role}
                 onChange={(e) => setForm({ ...form, role: e.target.value })}
                 required
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Instagram URL</label>
+              <label className={labelClass}>Instagram URL</label>
               <input
                 type="url"
                 value={form.instagram}
-                onChange={(e) => setForm({ ...form, instagram: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red"
+                onChange={(e) =>
+                  setForm({ ...form, instagram: e.target.value })
+                }
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">LinkedIn URL</label>
+              <label className={labelClass}>LinkedIn URL</label>
               <input
                 type="url"
                 value={form.linkedin}
                 onChange={(e) => setForm({ ...form, linkedin: e.target.value })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">Display Order</label>
+              <label className={labelClass}>Display Order</label>
               <input
                 type="number"
                 value={form.display_order}
-                onChange={(e) => setForm({ ...form, display_order: Number(e.target.value) })}
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red"
+                onChange={(e) =>
+                  setForm({ ...form, display_order: Number(e.target.value) })
+                }
+                className={inputClass}
               />
             </div>
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">Bio</label>
+            <label className={labelClass}>Bio</label>
             <textarea
               value={form.bio}
               onChange={(e) => setForm({ ...form, bio: e.target.value })}
               rows={4}
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red"
+              className={inputClass}
             />
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Main Photo</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Main Photo
+              </label>
               <ImageUpload
                 folder="officers"
                 onUploaded={(url) => setForm({ ...form, image_url: url })}
@@ -219,14 +224,18 @@ const OfficersTab: React.FC = () => {
                 <input
                   type="text"
                   value={form.image_url}
-                  onChange={(e) => setForm({ ...form, image_url: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, image_url: e.target.value })
+                  }
                   placeholder="or paste URL / path"
                   className="mt-2 w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none"
                 />
               )}
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">Fun Photo</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2">
+                Fun Photo
+              </label>
               <ImageUpload
                 folder="officers/fun"
                 onUploaded={(url) => setForm({ ...form, fun_image_url: url })}
@@ -237,7 +246,9 @@ const OfficersTab: React.FC = () => {
                 <input
                   type="text"
                   value={form.fun_image_url}
-                  onChange={(e) => setForm({ ...form, fun_image_url: e.target.value })}
+                  onChange={(e) =>
+                    setForm({ ...form, fun_image_url: e.target.value })
+                  }
                   placeholder="or paste URL / path"
                   className="mt-2 w-full border border-gray-200 rounded-lg px-3 py-1.5 text-xs focus:outline-none"
                 />
@@ -251,7 +262,11 @@ const OfficersTab: React.FC = () => {
               disabled={saving}
               className="bg-red text-white rounded-lg px-5 py-2 text-sm font-semibold hover:opacity-90 transition disabled:opacity-50"
             >
-              {saving ? "Saving..." : editingId ? "Update Officer" : "Add Officer"}
+              {saving
+                ? "Saving..."
+                : editingId
+                ? "Update Officer"
+                : "Add Officer"}
             </button>
             <button
               type="button"
@@ -267,7 +282,9 @@ const OfficersTab: React.FC = () => {
       {loading ? (
         <p className="text-gray-400">Loading...</p>
       ) : officers.length === 0 ? (
-        <p className="text-gray-400">No officers yet. Add one above — they'll appear on the Team page.</p>
+        <p className="text-gray-400">
+          No officers yet. Add one above — they'll appear on the Team page.
+        </p>
       ) : (
         <>
           {savingOrder && (
@@ -280,9 +297,17 @@ const OfficersTab: React.FC = () => {
                 key={officer.id}
                 draggable
                 onDragStart={() => setDragIdx(idx)}
-                onDragOver={(e) => { e.preventDefault(); setOverIdx(idx); }}
-                onDrop={() => { if (dragIdx !== null) handleDrop(dragIdx, idx); }}
-                onDragEnd={() => { setDragIdx(null); setOverIdx(null); }}
+                onDragOver={(e) => {
+                  e.preventDefault();
+                  setOverIdx(idx);
+                }}
+                onDrop={() => {
+                  if (dragIdx !== null) handleDrop(dragIdx, idx);
+                }}
+                onDragEnd={() => {
+                  setDragIdx(null);
+                  setOverIdx(null);
+                }}
                 className={`flex items-center justify-between p-3 bg-white rounded-xl border transition ${
                   overIdx === idx && dragIdx !== idx
                     ? "border-red bg-red/5"
@@ -292,7 +317,9 @@ const OfficersTab: React.FC = () => {
                 }`}
               >
                 {/* Drag handle */}
-                <span className="text-gray-300 cursor-grab active:cursor-grabbing mr-2 text-lg select-none">≡</span>
+                <span className="text-gray-300 cursor-grab active:cursor-grabbing mr-2 text-lg select-none">
+                  ≡
+                </span>
 
                 <div className="flex items-center gap-3 flex-1 min-w-0">
                   {officer.image_url ? (
@@ -305,7 +332,9 @@ const OfficersTab: React.FC = () => {
                     <div className="w-12 h-12 rounded-full bg-gray-200 flex-shrink-0" />
                   )}
                   <div className="min-w-0">
-                    <div className="font-semibold text-sm text-footer truncate">{officer.name}</div>
+                    <div className="font-semibold text-sm text-footer truncate">
+                      {officer.name}
+                    </div>
                     <div className="text-xs text-red">{officer.role}</div>
                   </div>
                 </div>

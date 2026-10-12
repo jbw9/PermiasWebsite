@@ -2,10 +2,12 @@ import React, { useEffect, useState, useCallback } from "react";
 import { supabase } from "../../supabaseClient";
 import { UpcomingEvent } from "../../types";
 import ImageUpload from "./ImageUpload";
+import { inputClass, labelClass } from "./formStyles";
 import {
   autoArchivePastUpcomingEvents,
   moveSingleEventToPast,
 } from "../../lib/eventArchive";
+import { getImageSrc } from "../../utils/imageSrc";
 
 const emptyForm = {
   title: "",
@@ -93,7 +95,8 @@ const UpcomingEventsTab: React.FC = () => {
   };
 
   const handleArchiveAllPassed = async () => {
-    if (!window.confirm("Move all passed events into the Past Events gallery?")) return;
+    if (!window.confirm("Move all passed events into the Past Events gallery?"))
+      return;
     setArchiving(true);
     const res = await autoArchivePastUpcomingEvents();
     if (res.error) {
@@ -123,7 +126,9 @@ const UpcomingEventsTab: React.FC = () => {
               disabled={archiving}
               className="text-xs bg-amber-600 text-white rounded-lg px-3 py-2 hover:bg-amber-700 transition disabled:opacity-50"
             >
-              {archiving ? "Moving..." : `⚡ Move ${passedEvents.length} Passed Event(s)`}
+              {archiving
+                ? "Moving..."
+                : `⚡ Move ${passedEvents.length} Passed Event(s)`}
             </button>
           )}
           <button
@@ -145,7 +150,8 @@ const UpcomingEventsTab: React.FC = () => {
                 {passedEvents.length} event(s) have passed
               </p>
               <p className="text-xs text-amber-700">
-                They can be automatically moved into the Past Events calendar with all photos & info preserved.
+                They can be automatically moved into the Past Events calendar
+                with all photos & info preserved.
               </p>
             </div>
           </div>
@@ -166,95 +172,85 @@ const UpcomingEventsTab: React.FC = () => {
         >
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Event Title *
-              </label>
+              <label className={labelClass}>Event Title *</label>
               <input
                 type="text"
                 value={form.title}
                 onChange={(e) => setForm({ ...form, title: e.target.value })}
                 required
                 placeholder="e.g. Pasar Malam 2025"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Date & Time *
-              </label>
+              <label className={labelClass}>Date & Time *</label>
               <input
                 type="datetime-local"
                 value={form.date}
                 onChange={(e) => setForm({ ...form, date: e.target.value })}
                 required
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Location / Venue
-              </label>
+              <label className={labelClass}>Location / Venue</label>
               <input
                 type="text"
                 value={form.location}
                 onChange={(e) => setForm({ ...form, location: e.target.value })}
                 placeholder="e.g. Illini Union, Latzer Hall"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Ticket Price
-              </label>
+              <label className={labelClass}>Ticket Price</label>
               <input
                 type="text"
                 value={form.ticket_price}
-                onChange={(e) => setForm({ ...form, ticket_price: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, ticket_price: e.target.value })
+                }
                 placeholder="e.g. Free, $5, or Early Bird: $10"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                RSVP / Registration URL
-              </label>
+              <label className={labelClass}>RSVP / Registration URL</label>
               <input
                 type="url"
                 value={form.rsvp_url}
                 onChange={(e) => setForm({ ...form, rsvp_url: e.target.value })}
                 placeholder="https://forms.gle/... or Eventbrite"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
+              <label className={labelClass}>
                 Direct Ticket URL (if paid event)
               </label>
               <input
                 type="url"
                 value={form.ticket_url}
-                onChange={(e) => setForm({ ...form, ticket_url: e.target.value })}
+                onChange={(e) =>
+                  setForm({ ...form, ticket_url: e.target.value })
+                }
                 placeholder="https://ticket-platform.com/..."
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Capacity Limit (Optional)
-              </label>
+              <label className={labelClass}>Capacity Limit (Optional)</label>
               <input
                 type="number"
                 min="0"
                 value={form.capacity}
                 onChange={(e) => setForm({ ...form, capacity: e.target.value })}
                 placeholder="e.g. 250 (leave empty for unlimited)"
-                className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+                className={inputClass}
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Cover Poster / Flyer
-              </label>
+              <label className={labelClass}>Cover Poster / Flyer</label>
               <ImageUpload
                 folder="events/upcoming"
                 currentUrl={form.cover_image}
@@ -265,9 +261,7 @@ const UpcomingEventsTab: React.FC = () => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-1">
-              Description / Schedule Details
-            </label>
+            <label className={labelClass}>Description / Schedule Details</label>
             <textarea
               rows={3}
               value={form.description}
@@ -275,7 +269,7 @@ const UpcomingEventsTab: React.FC = () => {
                 setForm({ ...form, description: e.target.value })
               }
               placeholder="Provide event overview, schedule, food/merch details..."
-              className="w-full border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-red text-sm"
+              className={inputClass}
             />
           </div>
 
@@ -293,7 +287,8 @@ const UpcomingEventsTab: React.FC = () => {
         <p className="text-gray-400">Loading...</p>
       ) : events.length === 0 ? (
         <p className="text-gray-400">
-          No upcoming events. Add one above — it will appear on the public Events page and Home page.
+          No upcoming events. Add one above — it will appear on the public
+          Events page and Home page.
         </p>
       ) : (
         <div className="space-y-3">
@@ -303,24 +298,24 @@ const UpcomingEventsTab: React.FC = () => {
               <div
                 key={event.id}
                 className={`flex flex-col sm:flex-row sm:items-start justify-between p-4 rounded-xl border gap-4 ${
-                  isPast ? "bg-amber-50/50 border-amber-200" : "bg-white border-gray-200"
+                  isPast
+                    ? "bg-amber-50/50 border-amber-200"
+                    : "bg-white border-gray-200"
                 }`}
               >
                 <div className="flex items-start gap-4">
                   {event.cover_image && (
                     <img
-                      src={
-                        event.cover_image.startsWith("http")
-                          ? event.cover_image
-                          : process.env.PUBLIC_URL + event.cover_image
-                      }
+                      src={getImageSrc(event.cover_image)}
                       alt={event.title}
                       className="w-16 h-16 object-cover rounded-lg border border-gray-200 flex-shrink-0"
                     />
                   )}
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-semibold text-footer text-lg">{event.title}</span>
+                      <span className="font-semibold text-footer text-lg">
+                        {event.title}
+                      </span>
                       {isPast && (
                         <span className="bg-amber-100 text-amber-800 text-xs px-2 py-0.5 rounded-full font-medium">
                           Passed
@@ -329,7 +324,9 @@ const UpcomingEventsTab: React.FC = () => {
                     </div>
                     <div
                       className={`text-sm mt-0.5 ${
-                        isPast ? "text-amber-800 font-medium" : "text-red font-medium"
+                        isPast
+                          ? "text-amber-800 font-medium"
+                          : "text-red font-medium"
                       }`}
                     >
                       {new Date(event.date).toLocaleDateString("en-US", {

@@ -2,33 +2,23 @@ import React, { useEffect, useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { bustSiteContentCache } from "../../hooks/useSiteContent";
 import ImageUpload from "./ImageUpload";
-
-interface ContactCard {
-  slug: string;
-  title: string;
-  desc: string;
-  contact: string;
-  image_url: string;
-}
+import {
+  CARDS_LIST_KEY,
+  ContactCard,
+  buildContactCard,
+  contactKey,
+  readContactRows,
+} from "../../lib/contactCards";
+import { getImageSrc } from "../../utils/imageSrc";
 
 const EMPTY_FORM = { title: "", desc: "", contact: "", image_url: "" };
 
-function getImageSrc(url: string): string {
-  if (!url) return "";
-  if (url.startsWith("http")) return url;
-  return process.env.PUBLIC_URL + url;
-}
-
 function slugify(str: string): string {
-  return str.toLowerCase().trim().replace(/\s+/g, "_").replace(/[^a-z0-9_]/g, "");
-}
-
-// Merge legacy contact1/contact2 fields into a single string
-function resolveContact(slug: string, map: Record<string, string>): string {
-  if (map[`contact_${slug}_contact`] !== undefined) return map[`contact_${slug}_contact`];
-  const c1 = map[`contact_${slug}_contact1`] ?? "";
-  const c2 = map[`contact_${slug}_contact2`] ?? "";
-  return [c1, c2].filter(Boolean).join("\n");
+  return str
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, "_")
+    .replace(/[^a-z0-9_]/g, "");
 }
 
 const ContactTab: React.FC = () => {
@@ -47,50 +37,51 @@ const ContactTab: React.FC = () => {
       .select("key, value")
       .like("key", "contact_%");
 
-    if (!data) { setLoading(false); return; }
-
-    const map: Record<string, string> = {};
-    data.forEach((row) => { map[row.key] = row.value; });
-
-    let slugs: string[] = [];
-    if (map["contact_cards_list"]) {
-      try { slugs = JSON.parse(map["contact_cards_list"]); } catch {}
+    if (!data) {
+      setLoading(false);
+      return;
     }
 
-    if (slugs.length === 0) {
-      // Auto-detect slugs from existing keys
-      const slugSet = new Set<string>();
-      data.forEach((row) => {
-        const m = row.key.match(/^contact_(.+?)_(title|desc|contact\d?|image_url)$/);
-        if (m) slugSet.add(m[1]);
-      });
-      slugs = Array.from(slugSet);
-    }
-
-    setCards(
-      slugs.map((slug) => ({
-        slug,
-        title: map[`contact_${slug}_title`] ?? "",
-        desc: map[`contact_${slug}_desc`] ?? "",
-        contact: resolveContact(slug, map),
-        image_url: map[`contact_${slug}_image_url`] ?? "",
-      }))
-    );
+    const { map, listedSlugs, detectedSlugs } = readContactRows(data);
+    const slugs = listedSlugs.length > 0 ? listedSlugs : detectedSlugs;
+    setCards(slugs.map((slug) => buildContactCard(slug, map)));
     setLoading(false);
   };
 
-  useEffect(() => { fetchCards(); }, []);
+  useEffect(() => {
+    fetchCards();
+  }, []);
 
   // Write all cards + list to site_content
   const persistCards = async (updatedCards: ContactCard[]) => {
     const now = new Date().toISOString();
     const rows = [
-      { key: "contact_cards_list", value: JSON.stringify(updatedCards.map((c) => c.slug)), updated_at: now },
+      {
+        key: CARDS_LIST_KEY,
+        value: JSON.stringify(updatedCards.map((c) => c.slug)),
+        updated_at: now,
+      },
       ...updatedCards.flatMap((card) => [
-        { key: `contact_${card.slug}_title`, value: card.title, updated_at: now },
-        { key: `contact_${card.slug}_desc`, value: card.desc, updated_at: now },
-        { key: `contact_${card.slug}_contact`, value: card.contact, updated_at: now },
-        { key: `contact_${card.slug}_image_url`, value: card.image_url, updated_at: now },
+        {
+          key: contactKey(card.slug, "title"),
+          value: card.title,
+          updated_at: now,
+        },
+        {
+          key: contactKey(card.slug, "desc"),
+          value: card.desc,
+          updated_at: now,
+        },
+        {
+          key: contactKey(card.slug, "contact"),
+          value: card.contact,
+          updated_at: now,
+        },
+        {
+          key: contactKey(card.slug, "image_url"),
+          value: card.image_url,
+          updated_at: now,
+        },
       ]),
     ];
     await supabase.from("site_content").upsert(rows, { onConflict: "key" });
@@ -100,7 +91,9 @@ const ContactTab: React.FC = () => {
   const handleSaveEdit = async () => {
     if (!editForm) return;
     setSaving(true);
-    const updatedCards = cards.map((c) => (c.slug === editForm.slug ? editForm : c));
+    const updatedCards = cards.map((c) =>
+      c.slug === editForm.slug ? editForm : c
+    );
     await persistCards(updatedCards);
     await fetchCards();
     setEditingSlug(null);
@@ -114,21 +107,28 @@ const ContactTab: React.FC = () => {
     setDeleting(slug);
 
     // Remove the card's keys
-    await supabase.from("site_content").delete().in("key", [
-      `contact_${slug}_title`,
-      `contact_${slug}_desc`,
-      `contact_${slug}_contact`,
-      `contact_${slug}_contact1`,
-      `contact_${slug}_contact2`,
-      `contact_${slug}_image_url`,
-    ]);
+    await supabase
+      .from("site_content")
+      .delete()
+      .in(
+        "key",
+        ["title", "desc", "contact", "contact1", "contact2", "image_url"].map(
+          (field) => contactKey(slug, field)
+        )
+      );
 
     const updatedCards = cards.filter((c) => c.slug !== slug);
     const now = new Date().toISOString();
-    await supabase.from("site_content").upsert(
-      { key: "contact_cards_list", value: JSON.stringify(updatedCards.map((c) => c.slug)), updated_at: now },
-      { onConflict: "key" }
-    );
+    await supabase
+      .from("site_content")
+      .upsert(
+        {
+          key: CARDS_LIST_KEY,
+          value: JSON.stringify(updatedCards.map((c) => c.slug)),
+          updated_at: now,
+        },
+        { onConflict: "key" }
+      );
 
     bustSiteContentCache();
     await fetchCards();
@@ -137,12 +137,12 @@ const ContactTab: React.FC = () => {
 
   const handleAddCard = async () => {
     if (!addForm.title.trim()) return;
-    let slug = slugify(addForm.title);
-    if (!slug) return;
+    const baseSlug = slugify(addForm.title);
+    if (!baseSlug) return;
 
-    // Ensure unique slug
-    let i = 2;
-    while (cards.some((c) => c.slug === slug)) slug = `${slugify(addForm.title)}_${i++}`;
+    const taken = new Set(cards.map((c) => c.slug));
+    let slug = baseSlug;
+    for (let i = 2; taken.has(slug); i++) slug = `${baseSlug}_${i}`;
 
     setSaving(true);
     const newCard: ContactCard = { slug, ...addForm };
@@ -153,7 +153,8 @@ const ContactTab: React.FC = () => {
     setSaving(false);
   };
 
-  if (loading) return <p className="text-gray-400 py-10 text-center">Loading...</p>;
+  if (loading)
+    return <p className="text-gray-400 py-10 text-center">Loading...</p>;
 
   return (
     <div className="space-y-5">
@@ -162,7 +163,8 @@ const ContactTab: React.FC = () => {
         <div>
           <h2 className="text-base font-semibold text-footer">Contact Cards</h2>
           <p className="text-xs text-gray-400 mt-0.5">
-            {cards.length} card{cards.length !== 1 ? "s" : ""} on the Contact page
+            {cards.length} card{cards.length !== 1 ? "s" : ""} on the Contact
+            page
           </p>
         </div>
         <button
@@ -180,12 +182,17 @@ const ContactTab: React.FC = () => {
       {/* Add Card form */}
       {showAddForm && (
         <div className="bg-gray-50 border border-gray-200 rounded-xl p-5">
-          <h3 className="font-semibold text-footer text-sm mb-4">New Contact Card</h3>
+          <h3 className="font-semibold text-footer text-sm mb-4">
+            New Contact Card
+          </h3>
           <CardForm
             form={addForm}
             onChange={setAddForm}
             onSave={handleAddCard}
-            onCancel={() => { setShowAddForm(false); setAddForm(EMPTY_FORM); }}
+            onCancel={() => {
+              setShowAddForm(false);
+              setAddForm(EMPTY_FORM);
+            }}
             saving={saving}
             isNew
           />
@@ -225,7 +232,9 @@ const ContactTab: React.FC = () => {
 
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-semibold text-footer truncate">
-                  {card.title || <span className="italic text-gray-300">Untitled</span>}
+                  {card.title || (
+                    <span className="italic text-gray-300">Untitled</span>
+                  )}
                 </p>
                 <p className="text-xs text-gray-400 truncate mt-0.5">
                   {card.desc || <span className="italic">No description</span>}
@@ -255,7 +264,10 @@ const ContactTab: React.FC = () => {
                   </>
                 ) : (
                   <button
-                    onClick={() => { setEditingSlug(null); setEditForm(null); }}
+                    onClick={() => {
+                      setEditingSlug(null);
+                      setEditForm(null);
+                    }}
                     className="text-xs text-gray-400 hover:text-gray-600 transition px-2 py-1"
                   >
                     ✕
@@ -271,7 +283,10 @@ const ContactTab: React.FC = () => {
                   form={editForm}
                   onChange={setEditForm}
                   onSave={handleSaveEdit}
-                  onCancel={() => { setEditingSlug(null); setEditForm(null); }}
+                  onCancel={() => {
+                    setEditingSlug(null);
+                    setEditForm(null);
+                  }}
                   saving={saving}
                 />
               </div>
@@ -294,7 +309,14 @@ interface CardFormProps {
   isNew?: boolean;
 }
 
-const CardForm: React.FC<CardFormProps> = ({ form, onChange, onSave, onCancel, saving, isNew }) => (
+const CardForm: React.FC<CardFormProps> = ({
+  form,
+  onChange,
+  onSave,
+  onCancel,
+  saving,
+  isNew,
+}) => (
   <div className="space-y-3">
     <div className="flex flex-col sm:flex-row gap-4 items-start">
       {/* Image column */}
@@ -302,7 +324,7 @@ const CardForm: React.FC<CardFormProps> = ({ form, onChange, onSave, onCancel, s
         <p className="text-xs font-medium text-gray-600">Image</p>
         {form.image_url && (
           <img
-            src={form.image_url.startsWith("http") ? form.image_url : process.env.PUBLIC_URL + form.image_url}
+            src={getImageSrc(form.image_url)}
             alt="preview"
             className="h-16 w-16 rounded-full object-cover border border-gray-200"
           />
@@ -324,7 +346,9 @@ const CardForm: React.FC<CardFormProps> = ({ form, onChange, onSave, onCancel, s
       {/* Fields column */}
       <div className="flex-1 space-y-3">
         <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">Title *</label>
+          <label className="block text-xs font-medium text-gray-600 mb-1">
+            Title *
+          </label>
           <input
             type="text"
             value={form.title}
@@ -335,7 +359,9 @@ const CardForm: React.FC<CardFormProps> = ({ form, onChange, onSave, onCancel, s
           />
         </div>
         <div>
-          <label className="block text-xs font-medium text-gray-600 mb-1">Description</label>
+          <label className="block text-xs font-medium text-gray-600 mb-1">
+            Description
+          </label>
           <textarea
             value={form.desc}
             onChange={(e) => onChange({ ...form, desc: e.target.value })}
@@ -347,13 +373,17 @@ const CardForm: React.FC<CardFormProps> = ({ form, onChange, onSave, onCancel, s
         <div>
           <label className="block text-xs font-medium text-gray-600 mb-1">
             Contact Info
-            <span className="ml-1 font-normal text-gray-400">(use new lines for multiple contacts)</span>
+            <span className="ml-1 font-normal text-gray-400">
+              (use new lines for multiple contacts)
+            </span>
           </label>
           <textarea
             value={form.contact}
             onChange={(e) => onChange({ ...form, contact: e.target.value })}
             rows={2}
-            placeholder={"Azhura: +1 (217) 693-2442\nLeonardo: +1 (217) 979 9614"}
+            placeholder={
+              "Azhura: +1 (217) 693-2442\nLeonardo: +1 (217) 979 9614"
+            }
             className="w-full border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-red/30 resize-none bg-white"
           />
         </div>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { cn } from "../../utils/cn";
 
 type CarouselProps = {
@@ -18,46 +18,28 @@ const Carousel: React.FC<CarouselProps> = ({
   const scrollerRef = useRef<HTMLUListElement>(null);
   const [start, setStart] = useState(false);
 
-  const addAnimation = useCallback(() => {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
-
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
-        }
-      });
-
-      getDirection();
-      setAnimationDuration();
-      setStart(true);
-    }
-  }, []);
-
+  // Runs once: the slides are duplicated in the DOM so the CSS scroll loops
+  // seamlessly. Re-running would duplicate them again.
   useEffect(() => {
-    addAnimation();
-  }, [addAnimation]);
+    const wrapper = containerRef.current;
+    const list = scrollerRef.current;
+    if (!wrapper || !list) return;
 
-  const getDirection = () => {
-    if (containerRef.current) {
-      containerRef.current.style.setProperty(
-        "--animation-direction",
-        direction === "left" ? "forwards" : "reverse"
-      );
-    }
-  };
+    Array.from(list.children).forEach((item) => {
+      list.appendChild(item.cloneNode(true));
+    });
 
-  const setAnimationDuration = () => {
-    if (containerRef.current) {
-      const singleRotationDistance = images.length * 1200; // Assuming 1200px width per image
-      const duration = singleRotationDistance / 100; // 50px per second
-      containerRef.current.style.setProperty(
-        "--animation-duration",
-        `${duration}s`
-      );
-    }
-  };
+    wrapper.style.setProperty(
+      "--animation-direction",
+      direction === "left" ? "forwards" : "reverse"
+    );
+    // ~1200px per slide at 100px per second
+    wrapper.style.setProperty(
+      "--animation-duration",
+      `${(images.length * 1200) / 100}s`
+    );
+    setStart(true);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div
@@ -76,7 +58,10 @@ const Carousel: React.FC<CarouselProps> = ({
         )}
       >
         {images.map((image, index) => (
-          <li key={index} className="w-[300px] flex-shrink-0 sm:w-[800px] h-[220px] sm:h-[500px]">
+          <li
+            key={index}
+            className="w-[300px] flex-shrink-0 sm:w-[800px] h-[220px] sm:h-[500px]"
+          >
             <img
               src={image}
               alt={`Slide ${index}`}

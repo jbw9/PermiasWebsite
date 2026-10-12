@@ -68,25 +68,3 @@ export interface SiteContent {
   label: string;
   updated_at?: string;
 }
-
-export interface PermiasEvent {
-  id: string;
-  slug?: string;
-  title: string;
-  category?: string;
-  start_time: string;
-  end_time?: string;
-  location_name?: string;
-  location_address?: string;
-  google_maps_url?: string;
-  description?: string;
-  cover_image_url?: string;
-  gallery_images?: string[];
-  rsvp_url?: string;
-  ticket_url?: string;
-  is_featured?: boolean;
-  status?: "draft" | "published" | "archived" | "cancelled";
-  display_order?: number;
-  created_at?: string;
-  updated_at?: string;
-}
