@@ -29,3 +29,7 @@ UPDATE officers SET image_url = '/officers/2025/barra.jpg'    WHERE name IN ('Ba
 UPDATE officers SET image_url = '/officers/2025/jonathan.jpg' WHERE name IN ('Jotam', 'Jonathan Tamboto');
 UPDATE officers SET image_url = '/officers/2025/allison.jpg'  WHERE name = 'Allison';
 UPDATE officers SET image_url = '/officers/2025/rainier.jpg'  WHERE name IN ('Rainier', 'Rainier Harsono');
+UPDATE officers SET image_url = '/officers/2025/micaela.jpg'  WHERE name = 'Micaela';
+
+-- Tech Team
+UPDATE officers SET image_url = '/officers/2025/steve.jpg'    WHERE name IN ('Steve', 'Steve Wong');
