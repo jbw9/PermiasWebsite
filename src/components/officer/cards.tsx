@@ -14,6 +14,7 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({
   onClick,
 }) => {
   const [clickCount, setClickCount] = useState(0);
+  const [imgError, setImgError] = useState(false);
 
   const handleCardClick = () => {
     if (member.name.toLowerCase() === "evan m. huang") {
@@ -28,17 +29,26 @@ const OfficerCards: React.FC<OfficerCardsProps> = ({
     onClick?.();
   };
 
+  const hasImage = Boolean(member.image_url && !imgError);
+
   return (
     <div className="relative w-full">
       <div className={`${className}`}>
         <button onClick={handleCardClick} className="focus:outline-none">
           <div className="h-[550px] w-[340px]">
-            <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl transform transition duration-300 ease-in-out hover:scale-105">
-              <img
-                src={getImageSrc(member.image_url)}
-                alt={member.name}
-                className="object-cover w-full h-full"
-              />
+            <div className="h-[475px] w-full rounded-3xl overflow-hidden shadow-2xl transform transition duration-300 ease-in-out hover:scale-105 bg-gray-100">
+              {hasImage ? (
+                <img
+                  src={getImageSrc(member.image_url)}
+                  alt={member.name}
+                  onError={() => setImgError(true)}
+                  className="object-cover w-full h-full"
+                />
+              ) : (
+                <div className="flex items-center justify-center w-full h-full text-gray-400 text-lg font-medium">
+                  {member.name}
+                </div>
+              )}
             </div>
             <div className="p-4 text-center">
               <span className="block text-2xl font-semibold">
