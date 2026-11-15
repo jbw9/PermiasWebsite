@@ -227,7 +227,7 @@ export const teamMembers: TeamMember[] = [
     role: "Treasurer",
     team: "Executive Board",
     bio: "Treasurer of PERMIAS UIUC. Directing organizational budgeting, financial allocations, event funding, and audit transparency.",
-    image: "",
+    image: "/officers/2025/james.jpg",
     funImage: "",
     instagram: "https://www.instagram.com/permiasuiuc/",
     linkedin: "https://www.linkedin.com/company/permias-uiuc/",
