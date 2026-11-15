@@ -8,6 +8,7 @@
 -- ==============================================================================
 
 -- Executives
+UPDATE officers SET image_url = '/officers/2025/cherish.jpg' WHERE name IN ('Cherish', 'Cherish Yulius');
 UPDATE officers SET image_url = '/officers/2025/valiant.jpg' WHERE name = 'Valiant';
 UPDATE officers SET image_url = '/officers/2025/aurel.jpg'   WHERE name = 'Aurel';
 UPDATE officers SET image_url = '/officers/2025/chelsea.jpg' WHERE name = 'Chelsea';
@@ -22,3 +23,9 @@ UPDATE officers SET image_url = '/officers/2025/tara.jpg'    WHERE name = 'Tara'
 -- Sponsorship & Partnership
 UPDATE officers SET image_url = '/officers/2025/qatrin.jpg'  WHERE name = 'Qatrin';
 UPDATE officers SET image_url = '/officers/2025/ley.jpg'     WHERE name = 'Ley';
+
+-- Membership
+UPDATE officers SET image_url = '/officers/2025/barra.jpg'    WHERE name IN ('Barra', 'Barra Budiyono');
+UPDATE officers SET image_url = '/officers/2025/jonathan.jpg' WHERE name IN ('Jotam', 'Jonathan Tamboto');
+UPDATE officers SET image_url = '/officers/2025/allison.jpg'  WHERE name = 'Allison';
+UPDATE officers SET image_url = '/officers/2025/rainier.jpg'  WHERE name IN ('Rainier', 'Rainier Harsono');
