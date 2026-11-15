@@ -2,6 +2,7 @@ export interface Officer {
   id: string;
   name: string;
   role: string;
+  team?: string;
   bio: string;
   image_url: string;
   fun_image_url: string;
