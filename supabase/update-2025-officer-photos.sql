@@ -33,3 +33,6 @@ UPDATE officers SET image_url = '/officers/2025/micaela.jpg'  WHERE name = 'Mica
 
 -- Tech Team
 UPDATE officers SET image_url = '/officers/2025/steve.jpg'    WHERE name IN ('Steve', 'Steve Wong');
+
+-- Role text
+UPDATE officers SET role = 'Membership & Tech Officer'        WHERE name IN ('Rainier', 'Rainier Harsono');

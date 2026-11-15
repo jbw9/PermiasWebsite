@@ -288,7 +288,7 @@ export const teamMembers: TeamMember[] = [
   },
   {
     name: "Rainier Harsono",
-    role: "Membership Officer",
+    role: "Membership & Tech Officer",
     team: "Membership",
     bio: "Membership committee officer. Dedicated to building friendships and community spirit among undergraduate and graduate members.",
     image: "/officers/2025/rainier.jpg",
