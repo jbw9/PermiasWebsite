@@ -41,3 +41,6 @@ UPDATE officers SET role = 'Membership & Tech Officer'        WHERE name IN ('Ra
 UPDATE officers SET image_url = '/officers/2025/praysie.jpg'  WHERE name = 'Praysie';
 UPDATE officers SET image_url = '/officers/2025/madeline.jpg' WHERE name = 'Madeline';
 UPDATE officers SET image_url = '/officers/2025/britney.jpg'  WHERE name = 'Britney';
+
+-- Team Page Banner
+UPDATE site_content SET value = '/officers/teambg2026.jpg' WHERE key = 'team_banner_url';

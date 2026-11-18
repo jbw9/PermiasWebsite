@@ -147,7 +147,8 @@ export function getOfficerTeam(role: string, team?: string): string {
 export function getRolePriority(role: string): number {
   const r = role.toLowerCase().trim();
   if (r.includes("president") && !r.includes("vice")) return 0;
-  if (r.includes("vice president")) return 1;
+  if (r.includes("vice president") && r.includes("external")) return 1;
+  if (r.includes("vice president")) return 1.5;
   if (r.includes("director") || r.includes("lead") || r.includes("head") || r.includes("chair")) return 2;
   if (r.includes("secretary")) return 3;
   if (r.includes("treasurer")) return 4;
@@ -193,21 +194,21 @@ export const teamMembers: TeamMember[] = [
     linkedin: "https://www.linkedin.com/company/permias-uiuc/",
   },
   {
-    name: "Valiant Setyoputro",
-    role: "Vice President Internal",
-    team: "Executive Board",
-    bio: "Vice President Internal of PERMIAS UIUC. Overseeing internal committee operations, team synergy, board welfare, and community initiatives.",
-    image: "/officers/2025/valiant.jpg",
-    funImage: "",
-    instagram: "https://www.instagram.com/permiasuiuc/",
-    linkedin: "https://www.linkedin.com/company/permias-uiuc/",
-  },
-  {
     name: "Aurelia Sitanggang",
     role: "Vice President External",
     team: "Executive Board",
     bio: "Vice President External of PERMIAS UIUC. Coordinating outreach with external student organizations, UIUC administration, and global Indonesian diaspora networks.",
     image: "/officers/2025/aurel.jpg",
+    funImage: "",
+    instagram: "https://www.instagram.com/permiasuiuc/",
+    linkedin: "https://www.linkedin.com/company/permias-uiuc/",
+  },
+  {
+    name: "Valiant Setyoputro",
+    role: "Vice President Internal",
+    team: "Executive Board",
+    bio: "Vice President Internal of PERMIAS UIUC. Overseeing internal committee operations, team synergy, board welfare, and community initiatives.",
+    image: "/officers/2025/valiant.jpg",
     funImage: "",
     instagram: "https://www.instagram.com/permiasuiuc/",
     linkedin: "https://www.linkedin.com/company/permias-uiuc/",
