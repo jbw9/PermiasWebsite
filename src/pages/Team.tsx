@@ -26,9 +26,8 @@ const TeamPage: React.FC = () => {
   const [loading, setLoading] = useState(true);
   const [selectedMember, setSelectedMember] = useState<Officer | null>(null);
   const content = useSiteContent(
-    ["team_banner_url", "team_heading_white", "team_heading_red"],
+    ["team_heading_white", "team_heading_red"],
     {
-      team_banner_url: "/officers/teambg2024.png",
       team_heading_white: "Meet",
       team_heading_red: "Our Officers",
     }
@@ -174,7 +173,7 @@ const TeamPage: React.FC = () => {
 
   return (
     <div className="mb-[70px]">
-      <PageBanner src={getImageSrc(content.team_banner_url)} />
+      <PageBanner src={getImageSrc("/officers/teambg2026.jpg")} />
       <div className="flex justify-center my-[40px] md:my-[75px]">
         <SectionHeading
           lead={content.team_heading_white}
